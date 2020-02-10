@@ -299,12 +299,12 @@ This endpoint retrieves all available fieldtypes
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/place-jobs/add-fieldtype`
+`GET https://dev.linsta.nl/v1/admin/place-jobs/fieldtypes`
 
 ## Get reviews with fitler
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/reviews" \
+curl --location --request GET "https://dev.linsta.nl/v1/admin/reviews" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -605,7 +605,7 @@ This endpoint retrieves all reviews with the ability to filter then.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/reviews/:filter_type`
+`GET https://dev.linsta.nl/v1/admin/reviews/:filter_type`
 
 ### Query Parameters
 
@@ -613,3 +613,94 @@ This endpoint retrieves all reviews with the ability to filter then.
 | ----------- | --------- | ------------------------------------------------------------------ |
 | filter_type | undefined | Type of filter.  Supported ones are newest, oldest, rateHL, rateLH |
 | industry    | undefined | String ofindustry name                                             |
+
+## Get all categories
+
+```shell
+curl --location --request GET "https://dev.linsta.nl/v1/admin/list-categories" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "categories": [
+        {
+            "keywords": [
+                "Aanbouw",
+                " Opbouw",
+                " Aanbouw plaatsen",
+                " Opbouw plaatsen",
+                " Aanbouw of opbouw",
+                " Aanbouw of opbouw plaatsen"
+            ],
+            "steps": [],
+            "images": [],
+            "_id": "5dffe9e9c579034d9380b961",
+            "serviceName": "Aanbouw of opbouw plaatsen",
+            "industry": "Aannemer",
+            "createdAt": "2019-12-22T22:10:49.323Z",
+            "updatedAt": "2020-01-08T09:50:13.774Z",
+            "__v": 2
+        },
+        {
+            "keywords": [
+                "B",
+                " bad",
+                " Badkamer",
+                " Badkamer plaatsen",
+                " Badkamer renoveren"
+            ],
+            "steps": [],
+            "images": [],
+            "_id": "5e002c4321e54950c27dcc91",
+            "serviceName": "Badkamer plaatsen of renoveren",
+            "industry": "Badkamer specialist",
+            "createdAt": "2019-12-23T02:53:55.984Z",
+            "updatedAt": "2019-12-23T07:33:36.906Z",
+            "__v": 0
+        },
+        {
+            "keywords": [
+                "Fund",
+                " funderingen",
+                " hei",
+                " heiwerk"
+            ],
+            "steps": [],
+            "images": [],
+            "_id": "5e0f1d0f739a279ebcfc7356",
+            "serviceName": "Funderingen & heiwerk",
+            "industry": "Aannemer",
+            "createdAt": "2020-01-03T10:53:03.032Z",
+            "updatedAt": "2020-01-04T14:21:00.513Z",
+            "__v": 0
+        },
+        {
+            "keywords": [
+                "Gar",
+                " Garage",
+                " schuur",
+                " verbouw garage",
+                " "
+            ],
+            "steps": [],
+            "images": [],
+            "_id": "5e0f1dd4739a279ebcfc735d",
+            "serviceName": "Garage (ver)bouw",
+            "industry": "Aannemer",
+            "createdAt": "2020-01-03T10:56:20.851Z",
+            "updatedAt": "2020-01-03T10:56:20.851Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint retrieves all categories.
+
+### HTTP Request
+
+`GET https://dev.linsta.nl/v1/admin/place-jobs/fieldtypes`
