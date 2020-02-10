@@ -35,13 +35,13 @@ Authorization: Bearer jsonwebtoken
 curl "api_endpoint_here"
   -H "Authorization: Bearer jsonwebtoken"
 ```
-> Make sure to replace `Bearer Example` with your API key.
+> Make sure to replace `Bearer jsonwebtoken` with your API key.
 
 
 `Authorization: Bearer jsonwebtoken`
 
 <aside class="notice">
-You must replace <code>Bearer Example</code> with your personal API key.
+You must replace <code>Bearer jsonwebtoken</code> with your personal API key.
 </aside>
 
 # Admin
@@ -52,7 +52,46 @@ You must replace <code>Bearer Example</code> with your personal API key.
 curl --location --request POST "https://dev.linsta.nl/v1/admin/categories/add-category" \
   -H "Authorization: Bearer jsonwebtoken" \
   --header 'Content-Type: application/json' \
---data-raw '{"serviceName":"Test","industry":"Klusbedrijf","keywords":["test,yeet,dab"],"steps":[{"step":[{"fieldType":"select","inputType":"text","label":"Yeet","name":"yeet","placeholder":"","isRequired":"true","selectValues":[{"value":"Yeet me"},{"value":"Yeet you"},{"value":"Dab"}]},{"fieldType":"input","inputType":"text","label":"Hi","name":"hi","placeholder":"Yo","isRequired":"true"}]}]}'
+  --data-raw '{
+    "serviceName": "Test",
+    "industry": "Klusbedrijf",
+    "keywords": [
+        "Test,Test 1,Test 2"
+    ],
+    "steps": [
+        {
+            "step": [
+                {
+                    "fieldType": "select",
+                    "inputType": "text",
+                    "label": "Test",
+                    "name": "Test Select",
+                    "placeholder": "",
+                    "isRequired": "true",
+                    "selectValues": [
+                        {
+                            "value": "Test me"
+                        },
+                        {
+                            "value": "Test you"
+                        },
+                        {
+                            "value": "Test"
+                        }
+                    ]
+                },
+                {
+                    "fieldType": "input",
+                    "inputType": "text",
+                    "label": "Test",
+                    "name": "Test",
+                    "placeholder": "Test",
+                    "isRequired": "true"
+                }
+            ]
+        }
+    ]
+}'
 ```
 
 >The above command returns JSON structured like this:
@@ -61,7 +100,7 @@ curl --location --request POST "https://dev.linsta.nl/v1/admin/categories/add-ca
 {
     "message": "Added new category",
     "status": 200
-}
+}    
 ```
 
 This endpoint creates a new category.
@@ -79,7 +118,3 @@ This endpoint creates a new category.
 | keywords    | undefined | String array of keywords    |
 | images      | undefined | Array of image urls         |
 | industry    | undefined | String of the industry name |
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
