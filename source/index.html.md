@@ -703,4 +703,4 @@ This endpoint retrieves all categories.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/place-jobs/fieldtypes`
+`GET https://dev.linsta.nl/v1/admin/list-categories`
