@@ -1386,126 +1386,6 @@ curl --location --request GET "https://dev.linsta.nl/v1/admin/regions" \
             "createdAt": "2020-01-03T20:30:47.140Z",
             "updatedAt": "2020-01-03T21:09:44.834Z",
             "__v": 0
-        },
-        {
-            "active": false,
-            "professionalCount": 0,
-            "gigCount": 0,
-            "userCount": 0,
-            "_id": "5e0fa494cfad22318b0429ae",
-            "name": "FR",
-            "fullName": "Friesland",
-            "createdAt": "2020-01-03T20:31:16.190Z",
-            "updatedAt": "2020-01-03T21:09:40.639Z",
-            "__v": 0
-        },
-        {
-            "active": false,
-            "professionalCount": 0,
-            "gigCount": 0,
-            "userCount": 0,
-            "_id": "5e0fa4cdcfad22318b0429af",
-            "name": "GE",
-            "fullName": "Gelderland",
-            "createdAt": "2020-01-03T20:32:13.090Z",
-            "updatedAt": "2020-01-03T21:09:42.865Z",
-            "__v": 0
-        },
-        {
-            "active": false,
-            "professionalCount": 0,
-            "gigCount": 0,
-            "userCount": 0,
-            "_id": "5e0fa73dad2fac4bb9a77549",
-            "name": "GR",
-            "fullName": "Groningen",
-            "createdAt": "2020-01-03T20:42:37.503Z",
-            "updatedAt": "2020-01-03T21:09:59.506Z",
-            "__v": 0
-        },
-        {
-            "active": false,
-            "professionalCount": 0,
-            "gigCount": 0,
-            "userCount": 0,
-            "_id": "5e0fa7e5ad2fac4bb9a7754a",
-            "name": "LI",
-            "fullName": "Limburg",
-            "createdAt": "2020-01-03T20:45:25.430Z",
-            "updatedAt": "2020-01-03T21:09:55.507Z",
-            "__v": 0
-        },
-        {
-            "active": false,
-            "professionalCount": 0,
-            "gigCount": 0,
-            "userCount": 0,
-            "_id": "5e0fa804ad2fac4bb9a7754b",
-            "name": "NB",
-            "fullName": "Noord-Brabant",
-            "createdAt": "2020-01-03T20:45:56.359Z",
-            "updatedAt": "2020-01-03T21:09:57.341Z",
-            "__v": 0
-        },
-        {
-            "active": false,
-            "professionalCount": 0,
-            "gigCount": 0,
-            "userCount": 0,
-            "_id": "5e0fa843ad2fac4bb9a7754c",
-            "name": "NH",
-            "fullName": "Noord-Holland",
-            "createdAt": "2020-01-03T20:46:59.591Z",
-            "updatedAt": "2020-01-04T12:44:32.849Z",
-            "__v": 0
-        },
-        {
-            "active": false,
-            "professionalCount": 0,
-            "gigCount": 0,
-            "userCount": 0,
-            "_id": "5e0fa8e6ad2fac4bb9a7754d",
-            "name": "OV",
-            "fullName": "Overijssel",
-            "createdAt": "2020-01-03T20:49:42.281Z",
-            "updatedAt": "2020-01-03T21:09:53.267Z",
-            "__v": 0
-        },
-        {
-            "active": false,
-            "professionalCount": 0,
-            "gigCount": 0,
-            "userCount": 0,
-            "_id": "5e0fa8f1ad2fac4bb9a7754e",
-            "name": "UT",
-            "fullName": "Utrecht",
-            "createdAt": "2020-01-03T20:49:53.839Z",
-            "updatedAt": "2020-01-03T21:09:51.167Z",
-            "__v": 0
-        },
-        {
-            "active": false,
-            "professionalCount": 0,
-            "gigCount": 0,
-            "userCount": 0,
-            "_id": "5e0fa8ffad2fac4bb9a7754f",
-            "name": "ZL",
-            "fullName": "Zeeland",
-            "createdAt": "2020-01-03T20:50:07.606Z",
-            "updatedAt": "2020-01-03T21:09:49.143Z",
-            "__v": 0
-        },
-        {
-            "active": false,
-            "professionalCount": 0,
-            "gigCount": 0,
-            "userCount": 0,
-            "_id": "5e0fa907ad2fac4bb9a77550",
-            "name": "ZH",
-            "fullName": "Zuid-Holland",
-            "createdAt": "2020-01-03T20:50:15.729Z",
-            "updatedAt": "2020-01-03T21:09:47.479Z",
-            "__v": 0
         }
     ],
     "status": 200
@@ -1517,3 +1397,30 @@ This endpoint retrieve list of regions.
 ### HTTP Request
 
 `GET https://dev.linsta.nl/v1/admin/regions`
+
+## Add region
+
+```shell
+curl --location --request POST "https://dev.linsta.nl/v1/admin/geo/add-region" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "message": "Created new region", "status": 200 }
+```
+
+This endpoint retrieve list of regions.
+
+### HTTP Request
+
+`POST https://dev.linsta.nl/v1/admin/geo/add-region`
+
+### Body Parameters
+
+| Parameter | Default   | Description        |
+| --------- | --------- | ------------------ |
+| name      | undefined | String of industry |
+| fullName  | undefined | String of fullName |
+| active    | undefined | String of active   |
