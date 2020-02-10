@@ -986,7 +986,7 @@ This endpoint adds a qustion to step.
 ## Delete category question
 
 ```shell
-curl --location --request DELETE "https://dev.linsta.nl/v1/admin/category/add-question/:step_id" \
+curl --location --request DELETE "https://dev.linsta.nl/v1/admin/category/:question_id/:step_id" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1007,6 +1007,42 @@ This endpoint delete a qustion from step.
 
 ### Query Parameters
 
+| Parameter   | Default   | Description                       |
+| ----------- | --------- | --------------------------------- |
+| step_id     | undefined | MongoDB Object ID of the step     |
+| question_id | undefined | MongoDB Object ID of the question |
+
+## Update category question order
+
+```shell
+curl --location --request PUT "https://dev.linsta.nl/v1/admin/category/update-step/:step_id" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Step has been updated.",
+  "status": 200
+}
+```
+
+This endpoint update a qustion order from step.
+
+### HTTP Request
+
+`PUT https://dev.linsta.nl/v1/admin/category/update-step/:step_id`
+
+### Query Parameters
+
 | Parameter | Default   | Description                   |
 | --------- | --------- | ----------------------------- |
 | step_id   | undefined | MongoDB Object ID of the step |
+
+### Body Parameters
+
+| Parameter   | Default   | Description  |
+| ----------- | --------- | ------------ |
+| newPosition | undefined | New Position |
+| oldPosition | undefined | Old Position |
