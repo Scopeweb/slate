@@ -1636,3 +1636,38 @@ This endpoint edit a KB article.
 | description | undefined | String of description           |
 | category    | undefined | String of category              |
 | userGroup   | undefined | String of userGroup             |
+
+## Get KB category infomation
+
+```shell
+curl --location --request GET "https://dev.linsta.nl/v1/admin/view/kb-category/:category_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "category": {
+        "_id": "5e1f40ff95ed512bbbc6dd67",
+        "title": "Een klus plaatsen",
+        "description": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+        "createdAt": "2020-01-15T16:42:39.061Z",
+        "updatedAt": "2020-01-15T16:42:39.061Z",
+        "__v": 0
+    },
+    "status": 200
+}
+```
+
+This endpoint returns more category infomation.
+
+### HTTP Request
+
+`GET https://dev.linsta.nl/v1/admin/view/kb-category/:category_id`
+
+### Body Parameters
+
+| Parameter   | Default   | Description                      |
+| ----------- | --------- | -------------------------------- |
+| category_id | undefined | MongoDB Object ID of KB category |
