@@ -927,8 +927,58 @@ This endpoint updates a category.
 
 ### Body Parameters
 
-| Parameter    | Default   | Description            |
-| ------------ | --------- | ---------------------- |
+| Parameter    | Default   | Description             |
+| ------------ | --------- | ----------------------- |
 | industryName | undefined | String of industry name |
-| serviceName  | undefined | String of service name |
-| keywords     | undefined | Array of keywords      |
+| serviceName  | undefined | String of service name  |
+| keywords     | undefined | Array of keywords       |
+
+## Add category question
+
+```shell
+curl --location --request PUT "https://dev.linsta.nl/v1/admin/category/add-question/:step_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'type=Test' \
+  --data-urlencode 'icon=Test' \
+  --data-urlencode 'label=Test' \
+  --data-urlencode 'required=Test' \
+  --data-urlencode 'readOnly=Test' \
+  --data-urlencode 'disabled=Test' \
+  --data-urlencode 'isActive=Test' \
+  --data-urlencode 'placeholder=Test' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+      "message": "Question has been added to step.",
+      "status": 200
+}
+```
+
+This endpoint updates a category.
+
+### HTTP Request
+
+`PUT https://dev.linsta.nl/v1/admin/category/add-question/:step_id`
+
+### Query Parameters
+
+| Parameter | Default   | Description                   |
+| --------- | --------- | ----------------------------- |
+| step_id   | undefined | MongoDB Object ID of the step |
+
+### Body Parameters
+
+| Parameter   | Default   | Description           |
+| ----------- | --------- | --------------------- |
+| type        | undefined | String of type        |
+| icon        | undefined | String of icon        |
+| label       | undefined | String of label       |
+| required    | undefined | String of required    |
+| readOnly    | undefined | String of readOnly    |
+| disabled    | undefined | String of disabled    |
+| isActive    | undefined | String of isActive    |
+| placeholder | undefined | String of placeholder |
