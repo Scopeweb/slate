@@ -301,7 +301,160 @@ This endpoint retrieves all available fieldtypes
 
 `GET https://dev.linsta.nl/v1/admin/place-jobs/add-fieldtype`
 
-## Get reviews
+## Get reviews with fitler
+
+```shell
+curl --location --request POST "https://dev.linsta.nl/v1/admin/reviews" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "reviews": [
+        {
+            "_id": "5dd3ebcf57077ed184631a64",
+            "reviewer": {
+                "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+                "_id": "5dca7a9a3d5cc53294ff0cff",
+                "email": "gebruiker@demo.nl",
+                "userProfile": {
+                    "_id": "5dca7ab63d5cc53294ff0d00",
+                    "firstName": "Teunis",
+                    "lastName": "van Kerkhof"
+                }
+            },
+            "company": {
+                "location": {
+                    "coordinates": [
+                        51.8961104,
+                        4.1722762
+                    ],
+                    "type": "Point"
+                },
+                "industries": [
+                    "Aannemer",
+                    "Elektricien",
+                    "Metselaar",
+                    "Verhuisbedrijf"
+                ],
+                "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+                "pageVisible": true,
+                "accountLevel": "basic",
+                "reviews": [
+                    "5e189faf796f851bce1ea314",
+                    "5ddc39d93512431f7d33a9da",
+                    "5ddc2d8309469d93f9c61e28",
+                    "5dd3ebcf57077ed184631a64"
+                ],
+                "activeSubscription": true,
+                "_id": "5e09b6027521a16081b1b389",
+                "KvkNumber": "12345678",
+                "companyName": "Vakman",
+                "companyAddress": "Vakman 1",
+                "companyZipCode": "3232HE",
+                "companyCity": "IJsselmuiden",
+                "region": "XZH",
+                "firstName": "Test",
+                "lastName": "Vakman",
+                "phone": "0612345678",
+                "pageSlug": "testbv",
+                "createdAt": "2019-12-30T08:32:02.129Z",
+                "updatedAt": "2020-01-28T17:00:27.342Z",
+                "__v": 16,
+                "companyDescription": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+                "companySlogan": "Voor elke klus, vakman BV dus",
+                "avgReviewRating": 4.7,
+                "avgReviews": 4.8,
+                "projectPictures": [],
+                "subscriptionLevel": "Enterprise"
+            },
+            "rating": 4.4,
+            "industry": "Badkamer specialist",
+            "title": "Buitenkraan plaatsen in achtertuin",
+            "description": "Een vriendelijke, netjes werkenende en snelle vakman. Werkzaamheden al binnen enkele dagen na eerste contact uitgevoerd. Heldere uitleg ná de installatie. Ik beveel deze vakman dan ook van harte aan.",
+            "createdAt": "2019-11-19T13:19:11.996Z",
+            "updatedAt": "2019-11-19T13:19:11.996Z",
+            "__v": 0
+        },
+        {
+            "_id": "5ddc39d93512431f7d33a9da",
+            "reviewer": {
+                "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+                "_id": "5dca7a9a3d5cc53294ff0cff",
+                "email": "gebruiker@demo.nl",
+                "userProfile": {
+                    "_id": "5dca7ab63d5cc53294ff0d00",
+                    "firstName": "Teunis",
+                    "lastName": "van Kerkhof"
+                }
+            },
+            "company": {
+                "location": {
+                    "coordinates": [
+                        51.8961104,
+                        4.1722762
+                    ],
+                    "type": "Point"
+                },
+                "industries": [
+                    "Aannemer",
+                    "Elektricien",
+                    "Metselaar",
+                    "Verhuisbedrijf"
+                ],
+                "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+                "pageVisible": true,
+                "accountLevel": "basic",
+                "reviews": [
+                    "5e189faf796f851bce1ea314",
+                    "5ddc39d93512431f7d33a9da",
+                    "5ddc2d8309469d93f9c61e28",
+                    "5dd3ebcf57077ed184631a64"
+                ],
+                "activeSubscription": true,
+                "_id": "5e09b6027521a16081b1b389",
+                "KvkNumber": "12345678",
+                "companyName": "Vakman",
+                "companyAddress": "Vakman 1",
+                "companyZipCode": "3232HE",
+                "companyCity": "IJsselmuiden",
+                "region": "XZH",
+                "firstName": "Test",
+                "lastName": "Vakman",
+                "phone": "0612345678",
+                "pageSlug": "testbv",
+                "createdAt": "2019-12-30T08:32:02.129Z",
+                "updatedAt": "2020-01-28T17:00:27.342Z",
+                "__v": 16,
+                "companyDescription": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+                "companySlogan": "Voor elke klus, vakman BV dus",
+                "avgReviewRating": 4.7,
+                "avgReviews": 4.8,
+                "projectPictures": [],
+                "subscriptionLevel": "Enterprise"
+            },
+            "rating": 4.9,
+            "title": "Draagbalk plaatsen",
+            "industry": "Loodgieter",
+            "description": "In contact gekomen met Teunis via Klusnet. Hij was veruit de betrouwbaarste. Een dag later stond hij al bij ons binnen. Duidelijke afspraken gemaakt. Een paar dagen voor dat de klus uitgevoerd werd nam hij weer contact met ons op om de afspraken nog eens door te nemen. Wim en zijn team werken als een razende en binnen een halve dag was de klus geklaard. Kortom een vakman die snel werkt en duidelijke afspraken maakt.",
+            "createdAt": "2019-11-25T20:30:17.660Z",
+            "updatedAt": "2019-11-25T20:30:17.660Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint retrieves all reviews with the ability to filter then.
+
+### HTTP Request
+
+`POST https://dev.linsta.nl/v1/admin/reviews`
+
+## Get reviews with fitler
 
 ```shell
 curl --location --request POST "https://dev.linsta.nl/v1/admin/reviews/:filter_type" \
@@ -311,7 +464,141 @@ curl --location --request POST "https://dev.linsta.nl/v1/admin/reviews/:filter_t
 >The above command returns JSON structured like this:
 
 ```json
-{ "message": "Saved new review for business", "status": 200 }
+{
+    "reviews": [
+        {
+            "_id": "5dd3ebcf57077ed184631a64",
+            "reviewer": {
+                "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+                "_id": "5dca7a9a3d5cc53294ff0cff",
+                "email": "gebruiker@demo.nl",
+                "userProfile": {
+                    "_id": "5dca7ab63d5cc53294ff0d00",
+                    "firstName": "Teunis",
+                    "lastName": "van Kerkhof"
+                }
+            },
+            "company": {
+                "location": {
+                    "coordinates": [
+                        51.8961104,
+                        4.1722762
+                    ],
+                    "type": "Point"
+                },
+                "industries": [
+                    "Aannemer",
+                    "Elektricien",
+                    "Metselaar",
+                    "Verhuisbedrijf"
+                ],
+                "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+                "pageVisible": true,
+                "accountLevel": "basic",
+                "reviews": [
+                    "5e189faf796f851bce1ea314",
+                    "5ddc39d93512431f7d33a9da",
+                    "5ddc2d8309469d93f9c61e28",
+                    "5dd3ebcf57077ed184631a64"
+                ],
+                "activeSubscription": true,
+                "_id": "5e09b6027521a16081b1b389",
+                "KvkNumber": "12345678",
+                "companyName": "Vakman",
+                "companyAddress": "Vakman 1",
+                "companyZipCode": "3232HE",
+                "companyCity": "IJsselmuiden",
+                "region": "XZH",
+                "firstName": "Test",
+                "lastName": "Vakman",
+                "phone": "0612345678",
+                "pageSlug": "testbv",
+                "createdAt": "2019-12-30T08:32:02.129Z",
+                "updatedAt": "2020-01-28T17:00:27.342Z",
+                "__v": 16,
+                "companyDescription": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+                "companySlogan": "Voor elke klus, vakman BV dus",
+                "avgReviewRating": 4.7,
+                "avgReviews": 4.8,
+                "projectPictures": [],
+                "subscriptionLevel": "Enterprise"
+            },
+            "rating": 4.4,
+            "industry": "Badkamer specialist",
+            "title": "Buitenkraan plaatsen in achtertuin",
+            "description": "Een vriendelijke, netjes werkenende en snelle vakman. Werkzaamheden al binnen enkele dagen na eerste contact uitgevoerd. Heldere uitleg ná de installatie. Ik beveel deze vakman dan ook van harte aan.",
+            "createdAt": "2019-11-19T13:19:11.996Z",
+            "updatedAt": "2019-11-19T13:19:11.996Z",
+            "__v": 0
+        },
+        {
+            "_id": "5ddc39d93512431f7d33a9da",
+            "reviewer": {
+                "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+                "_id": "5dca7a9a3d5cc53294ff0cff",
+                "email": "gebruiker@demo.nl",
+                "userProfile": {
+                    "_id": "5dca7ab63d5cc53294ff0d00",
+                    "firstName": "Teunis",
+                    "lastName": "van Kerkhof"
+                }
+            },
+            "company": {
+                "location": {
+                    "coordinates": [
+                        51.8961104,
+                        4.1722762
+                    ],
+                    "type": "Point"
+                },
+                "industries": [
+                    "Aannemer",
+                    "Elektricien",
+                    "Metselaar",
+                    "Verhuisbedrijf"
+                ],
+                "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+                "pageVisible": true,
+                "accountLevel": "basic",
+                "reviews": [
+                    "5e189faf796f851bce1ea314",
+                    "5ddc39d93512431f7d33a9da",
+                    "5ddc2d8309469d93f9c61e28",
+                    "5dd3ebcf57077ed184631a64"
+                ],
+                "activeSubscription": true,
+                "_id": "5e09b6027521a16081b1b389",
+                "KvkNumber": "12345678",
+                "companyName": "Vakman",
+                "companyAddress": "Vakman 1",
+                "companyZipCode": "3232HE",
+                "companyCity": "IJsselmuiden",
+                "region": "XZH",
+                "firstName": "Test",
+                "lastName": "Vakman",
+                "phone": "0612345678",
+                "pageSlug": "testbv",
+                "createdAt": "2019-12-30T08:32:02.129Z",
+                "updatedAt": "2020-01-28T17:00:27.342Z",
+                "__v": 16,
+                "companyDescription": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+                "companySlogan": "Voor elke klus, vakman BV dus",
+                "avgReviewRating": 4.7,
+                "avgReviews": 4.8,
+                "projectPictures": [],
+                "subscriptionLevel": "Enterprise"
+            },
+            "rating": 4.9,
+            "title": "Draagbalk plaatsen",
+            "industry": "Loodgieter",
+            "description": "In contact gekomen met Teunis via Klusnet. Hij was veruit de betrouwbaarste. Een dag later stond hij al bij ons binnen. Duidelijke afspraken gemaakt. Een paar dagen voor dat de klus uitgevoerd werd nam hij weer contact met ons op om de afspraken nog eens door te nemen. Wim en zijn team werken als een razende en binnen een halve dag was de klus geklaard. Kortom een vakman die snel werkt en duidelijke afspraken maakt.",
+            "createdAt": "2019-11-25T20:30:17.660Z",
+            "updatedAt": "2019-11-25T20:30:17.660Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
 ```
 
 This endpoint retrieves all reviews with the ability to filter then.
