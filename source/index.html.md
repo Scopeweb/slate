@@ -301,39 +301,6 @@ This endpoint retrieves all available fieldtypes
 
 `GET https://dev.linsta.nl/v1/admin/place-jobs/add-fieldtype`
 
-## Add a review to a business
-
-```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/business/add-review/:business_id" \
-  -H "Authorization: Bearer jsonwebtoken" \
-  -H 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'reviewer=5dd570d1873225ab198e47d4' \
-  --data-urlencode 'rating=10' \
-  --data-urlencode 'title=Great enterprise business.' \
-  --data-urlencode 'description=Helped make my company a lot more enterprise by offering me great service at a great price.'
-```
-
->The above command returns JSON structured like this:
-
-```json
-{ "message": "Saved new review for business", "status": 200 }
-```
-
-This endpoint adds a review to a business.
-
-### HTTP Request
-
-`POST https://dev.linsta.nl/v1/admin/business/add-review/:business_id"`
-
-### Body Parameters
-
-| Parameter   | Default   | Description                         |
-| ----------- | --------- | ----------------------------------- |
-| reviewer    | undefined | Mongoose Object ID of the reviewer  |
-| rating      | undefined | Number out of 1-10 of review rating |
-| title       | undefined | Title of the review                 |
-| description | undefined | Description of the review           |
-
 ## Get reviews
 
 ```shell
