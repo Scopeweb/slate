@@ -1530,7 +1530,7 @@ This endpoint update the visibility of a region (provincie)
 ## Get KB categories
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/view/kb-categories" \
+curl --location --request GET "https://dev.linsta.nl/v1/admin/view/kb-categories" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1571,3 +1571,34 @@ This endpoint retrieve all the knowledge base categories.
 | Parameter | Default   | Description        |
 | --------- | --------- | ------------------ |
 | userGroup | undefined | String of category |
+
+## Create KB category
+
+```shell
+curl --location --request GET "https://dev.linsta.nl/v1/admin/create/kb-category" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'title=Testing' \
+  --data-urlencode 'description=This is a test.' \
+  --data-urlencode 'userGroup=Test' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{"message": "De categorie is aan de kennisbank toegevoegd.", "status": 200}
+```
+
+This endpoint create KB category.
+
+### HTTP Request
+
+`GET https://dev.linsta.nl/v1/admin/create/kb-category`
+
+### Body Parameters
+
+| Parameter   | Default   | Description           |
+| ----------- | --------- | --------------------- |
+| title       | undefined | String of title       |
+| description | undefined | String of description |
+| userGroup   | undefined | String of userGroup   |
