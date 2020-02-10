@@ -118,3 +118,44 @@ This endpoint creates a new category.
 | keywords    | undefined | String array of keywords    |
 | images      | undefined | Array of image urls         |
 | industry    | undefined | String of the industry name |
+
+## Add Field type
+
+```shell
+curl --location --request POST "https://dev.linsta.nl/v1/admin/place-jobs/add-fieldtype" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'type=radio' \
+  --data-urlencode 'inputType=text' \
+  --data-urlencode 'name=Radio button invoer' \
+  --data-urlencode 'description=Radio button met meerdere keuzemogelijkheden maar gelimiteerd tot 1 uiteindelijke keuze'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "message": "Industry has been added.",
+    "status": 200
+}
+```
+
+This endpoint creates a new fieldtype.
+
+### HTTP Request
+
+`POST https://dev.linsta.nl/v1/admin/place-jobs/add-fieldtype`
+
+### Body
+
+| Parameter   | Default   | Description                 |
+| ----------- | --------- | --------------------------- |
+| type        | undefined | String of type              |
+| inputType   | undefined | String of inputType         |
+| name        | undefined | String of names             |
+| description | undefined | String of description       |
+| industry    | undefined | String of the industry name |
+
+<aside class="warning">
+Developers only
+</aside>
