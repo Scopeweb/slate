@@ -1689,7 +1689,7 @@ curl --location --request PIT "https://dev.linsta.nl/v1/admin/edit/kb-category/:
 { "message": "Updated kb category", "status": 200 }
 ```
 
-This endpoint returns more category infomation.
+This endpoint updates kb category infomation
 
 ### HTTP Request
 
@@ -1703,3 +1703,28 @@ This endpoint returns more category infomation.
 | title       | undefined | String of title                  |
 | description | undefined | String of description            |
 | userGroup   | undefined | String of userGroup              |
+
+## Delete KB article
+
+```shell
+curl --location --request PIT "https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "message": "Het kennisbank artikel is verwijderd", "status": 200 }
+```
+
+This endpoint removes single knowledge base article
+
+### HTTP Request
+
+`PUT https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description             |
+| --------- | --------- | ----------------------- |
+| kb_id     | undefined | MongoDB Object ID of KB |
