@@ -1816,3 +1816,31 @@ This endpoint retrieves feedback
 | ------------ | --------- | -------------------------------------------- |
 | feedbackType | undefined | Sort by feedback type                        |
 | date         | undefined | Sort by created supports (newest and oldest) |
+
+## Delete image
+
+```shell
+curl --location --request POST "https://dev.linsta.nl/v1/admin/delete-image/:image_name" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'reason=Bad image' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{"message": "De afbeelding is verwijderd en de gebruiker is op de hoogte gebracht.", "status": 200}
+```
+
+This endpoint removes a image and sends the reason
+
+### HTTP Request
+
+`POST https://dev.linsta.nl/v1/admin/delete-image/:image_name`
+
+### Body Parameters
+
+| Parameter  | Default   | Description                    |
+| ---------- | --------- | ------------------------------ |
+| image_name | undefined | Image name to remove           |
+| reason     | undefined | Reason for image to be removed |
