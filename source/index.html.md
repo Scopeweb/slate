@@ -1050,7 +1050,7 @@ This endpoint update a qustion order from step.
 ## Delete step
 
 ```shell
-curl --location --request PUT "https://dev.linsta.nl/v1/admin/category/delete-step/:job_id" \
+curl --location --request POST "https://dev.linsta.nl/v1/admin/category/delete-step/:job_id" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'stepId=5dd570d1873225ab198e47d4'
@@ -1069,7 +1069,7 @@ This endpoint update a qustion order from step.
 
 ### HTTP Request
 
-`PUT https://dev.linsta.nl/v1/admin/category/delete-step/:job_id`
+`POST https://dev.linsta.nl/v1/admin/category/delete-step/:job_id`
 
 ### Query Parameters
 
@@ -1082,3 +1082,34 @@ This endpoint update a qustion order from step.
 | Parameter | Default   | Description                             |
 | --------- | --------- | --------------------------------------- |
 | stepId    | undefined | MongoDB Object ID of the step to remove |
+
+## Add industry
+
+```shell
+curl --location --request POST "https://dev.linsta.nl/v1/admin/industry" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'name=Test'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De stap is verwijderd en niet meer zichtbaar",
+  "status": 200
+}
+```
+
+This endpoint add new industry.
+
+### HTTP Request
+
+`POST https://dev.linsta.nl/v1/admin/industry`
+
+### Body Parameters
+
+| Parameter | Default   | Description    |
+| --------- | --------- | -------------- |
+| name      | undefined | String of name |
+
