@@ -1176,3 +1176,54 @@ This endpoint updates industry.
 | Parameter     | Default   | Description             |
 | ------------- | --------- | ----------------------- |
 | industry_name | undefined | String of industry name |
+
+## Get industry
+
+```shell
+curl --location --request GET "https://dev.linsta.nl/v1/admin/industries" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "industries": [
+        {
+            "_id": "5deff89e0d7146299c84419e",
+            "name": "Aannemer",
+            "createdAt": "2020-01-07T00:44:15.231Z",
+            "updatedAt": "2020-01-07T20:19:45.069Z",
+            "__v": 0
+        },
+        {
+            "_id": "5deff8a80d7146299c84419f",
+            "name": "Badkamer specialist",
+            "createdAt": "2020-01-07T00:44:15.231Z",
+            "updatedAt": "2020-01-07T20:19:45.069Z",
+            "__v": 0
+        },
+        {
+            "_id": "5deff8d00d7146299c8441a0",
+            "name": "Behanger",
+            "createdAt": "2020-01-07T00:44:15.231Z",
+            "updatedAt": "2020-01-07T20:19:45.069Z",
+            "__v": 0
+        },
+        {
+            "_id": "5deff8ea0d7146299c8441a1",
+            "name": "Dakspecialist",
+            "createdAt": "2020-01-07T00:44:15.231Z",
+            "updatedAt": "2020-01-07T20:19:45.069Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint retrieves all available industries.
+
+### HTTP Request
+
+`GET https://dev.linsta.nl/v1/admin/industries`
