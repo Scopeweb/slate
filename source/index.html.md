@@ -1478,3 +1478,51 @@ This endpoint update the visibility of a region (provincie)
 | category    | undefined | String of category    |
 | description | undefined | String of description |
 | userGroup   | undefined | String of userGroup   |
+
+## Get KB articles
+
+```shell
+curl --location --request POST "https://dev.linsta.nl/v1/admin/view-kb" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "articles": [
+        {
+            "feedback": [],
+            "_id": "5e1f3b979354cc1fc3bf76ee",
+            "title": "Leverage agile frameworks ",
+            "category": {
+                "_id": "5e1f7926efac6e58c731b346",
+                "title": "Mijn Account",
+                "description": "Account gerelateerde kennisbank FAQ vragen & antwoorden",
+                "createdAt": "2020-01-15T20:42:14.071Z",
+                "updatedAt": "2020-01-15T20:42:14.071Z",
+                "__v": 0
+            },
+            "description": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+            "createdAt": "2020-01-15T16:19:35.642Z",
+            "updatedAt": "2020-01-26T17:07:25.246Z",
+            "__v": 0,
+            "userGroup": "Leverage agile frameworks "
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint update the visibility of a region (provincie)
+
+### HTTP Request
+
+`GET https://dev.linsta.nl/v1/admin/view-kb`
+
+### Query Parameters
+
+| Parameter | Default   | Description         |
+| --------- | --------- | ------------------- |
+| category  | undefined | String of category  |
+| userGroup | undefined | String of userGroup |
