@@ -1675,7 +1675,7 @@ This endpoint returns more category infomation.
 ## Edit KB category infomation
 
 ```shell
-curl --location --request PIT "https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id" \
+curl --location --request PUT "https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'title=Great enterprise business.' \
@@ -1707,7 +1707,7 @@ This endpoint updates kb category infomation
 ## Delete KB article
 
 ```shell
-curl --location --request PIT "https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id" \
+curl --location --request DELETE "https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id" \
   -H "Authorization: Bearer jsonwebtoken" 
 ```
 
@@ -1721,10 +1721,52 @@ This endpoint removes single knowledge base article
 
 ### HTTP Request
 
-`PUT https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id`
+`DELETE https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id`
 
 ### Body Parameters
 
 | Parameter | Default   | Description             |
 | --------- | --------- | ----------------------- |
 | kb_id     | undefined | MongoDB Object ID of KB |
+
+## Get applications
+
+```shell
+curl --location --request GET "https://dev.linsta.nl/v1/admin/view/applications" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "applications": [
+        {
+            "_id": "5e29be6d2571812aeb1da531",
+            "name": "John Doe",
+            "email": "joe@doe.com",
+            "motivation": "test",
+            "photo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1579794036/linsta/vacatures/profiel-foto/profiel-foto-HvLhgEPSL5s29gf2yVkKw2jU.jpg",
+            "photoId": "profiel-foto-HvLhgEPSL5s29gf2yVkKw2jU",
+            "resume": "http://localhost:8080/uploads/application/gTq8all2zYSeUzZasesbKt2p.pdf",
+            "resumeId": "test-lIusdpLokadWoMoWqGw9MgRj",
+            "createdAt": "2020-01-23T15:40:36.139Z",
+            "updatedAt": "2020-01-23T15:40:36.139Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint retrieves job applications
+
+### HTTP Request
+
+`GET https://dev.linsta.nl/v1/admin/view/applications`
+
+### Query Parameters
+
+| Parameter | Default   | Description                                  |
+| --------- | --------- | -------------------------------------------- |
+| date      | undefined | Sort by created supports (newest and oldest) |
