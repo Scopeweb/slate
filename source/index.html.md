@@ -1425,3 +1425,28 @@ This endpoint add region.
 | fullName  | undefined | String of fullName |
 | active    | undefined | String of active   |
 
+## Update region visibility
+
+```shell
+curl --location --request PUT "https://dev.linsta.nl/v1/admin/geo/region-visibility/:regionId" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "message": "De zichtbaarheid van de provincie is gewijzigd", "status": 200 }
+```
+
+This endpoint update the visibility of a region (provincie)
+
+### HTTP Request
+
+`PUT https://dev.linsta.nl/v1/admin/geo/region-visibility/:regionId`
+
+### Body Parameters
+
+| Parameter | Default   | Description                   |
+| --------- | --------- | ----------------------------- |
+| status    | undefined | MongoDB Object ID of regionId |
+| status    | undefined | String of status              |
