@@ -1450,3 +1450,31 @@ This endpoint update the visibility of a region (provincie)
 | --------- | --------- | ----------------------------- |
 | status    | undefined | MongoDB Object ID of regionId |
 | status    | undefined | String of status              |
+
+## Create KB article
+
+```shell
+curl --location --request POST "https://dev.linsta.nl/v1/admin/kb/create" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "message": "Knowledge base article has been created.", "status": 200 }
+```
+
+This endpoint update the visibility of a region (provincie)
+
+### HTTP Request
+
+`POST https://dev.linsta.nl/v1/admin/kb/create`
+
+### Body Parameters
+
+| Parameter   | Default   | Description           |
+| ----------- | --------- | --------------------- |
+| title       | undefined | String of title       |
+| category    | undefined | String of category    |
+| description | undefined | String of description |
+| userGroup   | undefined | String of userGroup   |
