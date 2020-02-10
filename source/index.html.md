@@ -815,21 +815,71 @@ curl --location --request GET "https://dev.linsta.nl/v1/admin/category/:category
 {
     "category": {
         "keywords": [
-            "Aanbouw",
-            " Opbouw",
-            " Aanbouw plaatsen",
-            " Opbouw plaatsen",
-            " Aanbouw of opbouw",
-            " Aanbouw of opbouw plaatsen"
+            "Test 1",
+            "Test 2",
+            "Test 3"
         ],
-        "steps": [],
+        "steps": [
+            {
+                "isActive": true,
+                "formFields": [
+                    {
+                        "required": true,
+                        "readOnly": false,
+                        "disabled": false,
+                        "isActive": true,
+                        "_id": "5e417ddee6f708c62a545540",
+                        "fieldType": "select",
+                        "name": "Test",
+                        "label": "Test",
+                        "isRequired": true,
+                        "placeholder": "",
+                        "checkBoxValues": [],
+                        "radioValues": [],
+                        "selectValues": [
+                            {
+                                "value": "Test me"
+                            },
+                            {
+                                "value": "TEst you"
+                            },
+                            {
+                                "value": "Test"
+                            }
+                        ],
+                        "__v": 0
+                    },
+                    {
+                        "required": true,
+                        "readOnly": false,
+                        "disabled": false,
+                        "isActive": true,
+                        "_id": "5e417ddee6f708c62a545541",
+                        "fieldType": "input",
+                        "name": "Test",
+                        "label": "Test",
+                        "isRequired": true,
+                        "placeholder": "Test",
+                        "checkBoxValues": [],
+                        "radioValues": [],
+                        "selectValues": [],
+                        "__v": 0
+                    }
+                ],
+                "_id": "5e417ddee6f708c62a545542",
+                "stepNumber": 0,
+                "createdAt": "2020-02-10T15:59:26.692Z",
+                "updatedAt": "2020-02-10T15:59:26.692Z",
+                "__v": 0
+            }
+        ],
         "images": [],
-        "_id": "5dffe9e9c579034d9380b961",
-        "serviceName": "Aanbouw of opbouw plaatsen",
-        "industry": "Aannemer",
-        "createdAt": "2019-12-22T22:10:49.323Z",
-        "updatedAt": "2020-01-08T09:50:13.774Z",
-        "__v": 2
+        "_id": "5e417ddee6f708c62a545543",
+        "serviceName": "Test",
+        "industry": "Klusbedrijf",
+        "createdAt": "2020-02-10T15:59:26.692Z",
+        "updatedAt": "2020-02-10T15:59:26.692Z",
+        "__v": 0
     },
     "status": 200
 }
@@ -840,6 +890,31 @@ This endpoint retrieves category with steps.
 ### HTTP Request
 
 `GET https://dev.linsta.nl/v1/admin/category/:category_id`
+
+### Query Parameters
+
+| Parameter   | Default   | Description                        |
+| ----------- | --------- | ---------------------------------- |
+| category_id | undefined | MongoDB Object ID of the  category |
+
+## Update category
+
+```shell
+curl --location --request PUT "https://dev.linsta.nl/v1/admin/update-category/:category_id" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+
+```
+
+This endpoint updates a category.
+
+### HTTP Request
+
+`PUT https://dev.linsta.nl/v1/admin/update-category/:category_id`
 
 ### Query Parameters
 
