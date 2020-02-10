@@ -958,7 +958,7 @@ curl --location --request PUT "https://dev.linsta.nl/v1/admin/category/add-quest
 }
 ```
 
-This endpoint updates a category.
+This endpoint adds a qustion to step.
 
 ### HTTP Request
 
@@ -982,3 +982,31 @@ This endpoint updates a category.
 | disabled    | undefined | String of disabled    |
 | isActive    | undefined | String of isActive    |
 | placeholder | undefined | String of placeholder |
+
+## Delete category question
+
+```shell
+curl --location --request DELETE "https://dev.linsta.nl/v1/admin/category/add-question/:step_id" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Removed qustion from step",
+  "status": 200
+}
+```
+
+This endpoint delete a qustion from step.
+
+### HTTP Request
+
+`DELETE https://dev.linsta.nl/v1/admin/category/:question_id/:step_id`
+
+### Query Parameters
+
+| Parameter | Default   | Description                   |
+| --------- | --------- | ----------------------------- |
+| step_id   | undefined | MongoDB Object ID of the step |
