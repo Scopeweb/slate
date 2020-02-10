@@ -1046,3 +1046,39 @@ This endpoint update a qustion order from step.
 | ----------- | --------- | ------------ |
 | newPosition | undefined | New Position |
 | oldPosition | undefined | Old Position |
+
+## Delete step
+
+```shell
+curl --location --request PUT "https://dev.linsta.nl/v1/admin/category/delete-step/:job_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'stepId=5dd570d1873225ab198e47d4'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De stap is verwijderd en niet meer zichtbaar",
+  "status": 200
+}
+```
+
+This endpoint update a qustion order from step.
+
+### HTTP Request
+
+`PUT https://dev.linsta.nl/v1/admin/category/delete-step/:job_id`
+
+### Query Parameters
+
+| Parameter | Default   | Description                  |
+| --------- | --------- | ---------------------------- |
+| job_id    | undefined | MongoDB Object ID of the job |
+
+### Body Parameters
+
+| Parameter | Default   | Description                             |
+| --------- | --------- | --------------------------------------- |
+| stepId    | undefined | MongoDB Object ID of the step to remove |
