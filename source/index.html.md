@@ -1113,3 +1113,38 @@ This endpoint add new industry.
 | --------- | --------- | -------------- |
 | name      | undefined | String of name |
 
+## Update industry
+
+```shell
+curl --location --request POST "https://dev.linsta.nl/v1/admin/industry/:industry_name" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'name=Test'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Industry has been updated.",
+  "status": 200
+}
+```
+
+This endpoint updates industry.
+
+### HTTP Request
+
+`POST https://dev.linsta.nl/v1/admin/industry/:industry_name`
+
+### Query Parameters
+
+| Parameter     | Default   | Description             |
+| ------------- | --------- | ----------------------- |
+| industry_name | undefined | String of industry name |
+
+### Body Parameters
+
+| Parameter | Default   | Description    |
+| --------- | --------- | -------------- |
+| name      | undefined | String of name |
