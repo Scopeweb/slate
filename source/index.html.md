@@ -1322,7 +1322,7 @@ This endpoint find category and steps via industry keyword.
 ## Get Admins
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin" \
+curl --location --request GET "https://dev.linsta.nl/v1/admin" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1349,4 +1349,36 @@ This endpoint retrieve list of admins.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin`
+`GET https://dev.linsta.nl/v1/admin`
+
+## Get regions
+
+```shell
+curl --location --request POST "https://dev.linsta.nl/v1/admin/regions" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "admins": [
+        {
+            "_id": "5dd585fd84501322bb9bcb07",
+            "email": "nathan@scopeweb.nl",
+            "userProfile": {
+                "_id": "5dd56a4f84501322bb9bcb08",
+                "firstName": "Nathan",
+                "lastName": "Henniges"
+            }
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint retrieve list of admins.
+
+### HTTP Request
+
+`GET https://dev.linsta.nl/v1/admin/regions`
