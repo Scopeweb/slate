@@ -135,7 +135,7 @@ curl --location --request POST "https://dev.linsta.nl/v1/admin/place-jobs/add-fi
 
 ```json
 {
-    "message": "Industry has been added.",
+    "message": "Added new fieldtype",
     "status": 200
 }
 ```
@@ -159,3 +159,25 @@ This endpoint creates a new fieldtype.
 <aside class="warning">
 Developers only
 </aside>
+
+## Delete Place Job
+
+```shell
+curl --location --request DELETE "https://dev.linsta.nl/v1/admin/category/:job_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "message": "Industry has been added.",
+    "status": 200
+}
+```
+
+This endpoint creates a new fieldtype.
+
+### HTTP Request
+
+`DELETE https://dev.linsta.nl/v1/admin/category/:job_id`
