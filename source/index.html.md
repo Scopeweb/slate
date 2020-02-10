@@ -119,7 +119,7 @@ This endpoint creates a new category.
 | images      | undefined | Array of image urls         |
 | industry    | undefined | String of the industry name |
 
-## Add Field type
+## Add place job field type
 
 ```shell
 curl --location --request POST "https://dev.linsta.nl/v1/admin/place-jobs/add-fieldtype" \
@@ -180,4 +180,133 @@ This endpoint deletes a category.
 
 ### HTTP Request
 
-`DELETE https://dev.linsta.nl/v1/admin/category/:job_id`
+`DELETE https://dev.linsta.nl/v1/admin/place-jobs/fieldtypes`
+
+## Get Place Job fieldtypes
+
+```shell
+curl --location --request GET "https://dev.linsta.nl/v1/admin/place-jobs/fieldtypes" \
+  -H "Authorization: Bearer jsonwebtoken" \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "fieldTypes": [
+        {
+            "_id": "5dc94328543a5b4f67018516",
+            "type": "input",
+            "inputType": "text",
+            "name": "Tekst invoer",
+            "description": "Veld voor korte tekst invoer",
+            "icon": "https://res.cloudinary.com/scope-web-llc/image/upload/v1573482529/Klusnet/text-icon.png",
+            "createdAt": "2019-11-11T11:16:56.360Z",
+            "updatedAt": "2019-11-11T11:16:56.360Z",
+            "__v": 0
+        },
+        {
+            "_id": "5dc94337543a5b4f67018519",
+            "type": "input",
+            "inputType": "number",
+            "name": "Nummer invoer",
+            "description": "Veld voor nummer invoer",
+            "icon": "https://res.cloudinary.com/scope-web-llc/image/upload/v1573482529/Klusnet/text-icon.png",
+            "createdAt": "2019-11-11T11:17:11.199Z",
+            "updatedAt": "2019-11-11T11:17:11.199Z",
+            "__v": 0
+        },
+        {
+            "_id": "5dc9433b543a5b4f6701851a",
+            "type": "input",
+            "inputType": "email",
+            "name": "E-mail invoer",
+            "description": "Veld voor e-mailadres invoer",
+            "icon": "https://res.cloudinary.com/scope-web-llc/image/upload/v1573482529/Klusnet/text-icon.png",
+            "createdAt": "2019-11-11T11:17:15.139Z",
+            "updatedAt": "2019-11-11T11:17:15.139Z",
+            "__v": 0
+        },
+        {
+            "_id": "5dc94341543a5b4f6701851c",
+            "type": "input",
+            "inputType": "tel",
+            "name": "Tel. nr invoer",
+            "description": "Veld voor telefoonnummer invoer",
+            "icon": "https://res.cloudinary.com/scope-web-llc/image/upload/v1573482529/Klusnet/text-icon.png",
+            "createdAt": "2019-11-11T11:17:21.662Z",
+            "updatedAt": "2019-11-11T11:17:21.662Z",
+            "__v": 0
+        },
+        {
+            "_id": "5dc9438b543a5b4f67018520",
+            "type": "textarea",
+            "inputType": "text",
+            "name": "Textarea",
+            "description": "Tekstveld met meerdere rijen",
+            "icon": "https://res.cloudinary.com/scope-web-llc/image/upload/v1573482529/Klusnet/text-icon.png",
+            "createdAt": "2019-11-11T11:18:35.212Z",
+            "updatedAt": "2019-11-11T11:18:35.212Z",
+            "__v": 0
+        },
+        {
+            "_id": "5dc943a6543a5b4f67018526",
+            "type": "checkbox",
+            "inputType": "text",
+            "name": "Checkbox invoer",
+            "description": "Checkbox vakje met meerdere keuze mogelijkheden",
+            "icon": "https://res.cloudinary.com/scope-web-llc/image/upload/v1573482529/Klusnet/text-icon.png",
+            "createdAt": "2019-11-11T11:19:02.486Z",
+            "updatedAt": "2019-11-11T11:19:02.486Z",
+            "__v": 0
+        },
+        {
+            "_id": "5dc943ab543a5b4f67018527",
+            "type": "radio",
+            "inputType": "text",
+            "name": "Radio button invoer",
+            "description": "Radio button met meerdere keuzemogelijkheden maar gelimiteerd tot 1 uiteindelijke keuze",
+            "icon": "https://res.cloudinary.com/scope-web-llc/image/upload/v1573482529/Klusnet/text-icon.png",
+            "createdAt": "2019-11-11T11:19:07.043Z",
+            "updatedAt": "2019-11-11T11:19:07.043Z",
+            "__v": 0
+        },
+        {
+            "_id": "5dc943ad543a5b4f67018528",
+            "type": "select",
+            "inputType": "text",
+            "name": "Select dropdown",
+            "description": "Dropdown met meerdere keuzes",
+            "icon": "https://res.cloudinary.com/scope-web-llc/image/upload/v1573482529/Klusnet/text-icon.png",
+            "createdAt": "2019-11-11T11:19:09.528Z",
+            "updatedAt": "2019-11-11T11:19:09.528Z",
+            "__v": 0
+        },
+        {
+            "_id": "5e4185736b126f154a403e91",
+            "type": "radio",
+            "inputType": "text",
+            "name": "Radio button invoer",
+            "description": "Radio button met meerdere keuzemogelijkheden maar gelimiteerd tot 1 uiteindelijke keuze",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint retrieves all available fieldtypes
+
+### HTTP Request
+
+`POST https://dev.linsta.nl/v1/admin/place-jobs/add-fieldtype`
+
+### Body
+
+| Parameter   | Default   | Description                 |
+| ----------- | --------- | --------------------------- |
+| type        | undefined | String of type              |
+| inputType   | undefined | String of inputType         |
+| name        | undefined | String of names             |
+| description | undefined | String of description       |
+| industry    | undefined | String of the industry name |
