@@ -1411,7 +1411,7 @@ curl --location --request POST "https://dev.linsta.nl/v1/admin/geo/add-region" \
 { "message": "Created new region", "status": 200 }
 ```
 
-This endpoint retrieve list of regions.
+This endpoint add region.
 
 ### HTTP Request
 
@@ -1424,3 +1424,4 @@ This endpoint retrieve list of regions.
 | name      | undefined | String of industry |
 | fullName  | undefined | String of fullName |
 | active    | undefined | String of active   |
+
