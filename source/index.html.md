@@ -1770,3 +1770,49 @@ This endpoint retrieves job applications
 | Parameter | Default   | Description                                  |
 | --------- | --------- | -------------------------------------------- |
 | date      | undefined | Sort by created supports (newest and oldest) |
+
+## Get Feeedback
+
+```shell
+curl --location --request GET "https://dev.linsta.nl/v1/admin/view/feedback" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "feedback": [
+        {
+            "_id": "5e2c8db7053d042e0887eeb6",
+            "comment": "This is just a test",
+            "feedbackType": "Good",
+            "createdAt": "2020-01-25T18:49:27.475Z",
+            "updatedAt": "2020-01-25T18:49:27.475Z",
+            "__v": 0
+        },
+        {
+            "_id": "5e2edcb4f960e1dad9ea3835",
+            "comment": "This is just a test",
+            "feedbackType": "Bad",
+            "createdAt": "2019-01-25T18:49:27.475Z",
+            "updatedAt": "2019-01-25T18:49:27.475Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint retrieves feedback
+
+### HTTP Request
+
+`GET https://dev.linsta.nl/v1/admin/view/feedback`
+
+### Query Parameters
+
+| Parameter    | Default   | Description                                  |
+| ------------ | --------- | -------------------------------------------- |
+| feedbackType | undefined | Sort by feedback type                        |
+| date         | undefined | Sort by created supports (newest and oldest) |
