@@ -907,7 +907,10 @@ curl --location --request PUT "https://dev.linsta.nl/v1/admin/update-category/:c
 >The above command returns JSON structured like this:
 
 ```json
-
+{
+    "message": "Category has been updated.",
+    "status": 200
+}
 ```
 
 This endpoint updates a category.
@@ -921,3 +924,11 @@ This endpoint updates a category.
 | Parameter   | Default   | Description                        |
 | ----------- | --------- | ---------------------------------- |
 | category_id | undefined | MongoDB Object ID of the  category |
+
+### Body Parameters
+
+| Parameter    | Default   | Description            |
+| ------------ | --------- | ---------------------- |
+| industryName | undefined | String of industry name |
+| serviceName  | undefined | String of service name |
+| keywords     | undefined | Array of keywords      |
