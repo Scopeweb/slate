@@ -1227,3 +1227,94 @@ This endpoint retrieves all available industries.
 ### HTTP Request
 
 `GET https://dev.linsta.nl/v1/admin/industries`
+
+## Get category and steps
+
+```shell
+curl --location --request POST "https://dev.linsta.nl/v1/admin/category" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "category": [
+        {
+            "keywords": [
+                "Aanbouw",
+                " Opbouw",
+                " Aanbouw plaatsen",
+                " Opbouw plaatsen",
+                " Aanbouw of opbouw",
+                " Aanbouw of opbouw plaatsen"
+            ],
+            "steps": [
+                "5dffe9e9c579034d9380b959",
+                "5dffe9e9c579034d9380b960",
+                "5dffe9e9c579034d9380b95d"
+            ],
+            "images": [],
+            "_id": "5dffe9e9c579034d9380b961",
+            "serviceName": "Aanbouw of opbouw plaatsen",
+            "industry": "Aannemer",
+            "createdAt": "2019-12-22T22:10:49.323Z",
+            "updatedAt": "2020-01-08T09:50:13.774Z",
+            "__v": 2
+        },
+        {
+            "keywords": [
+                "Car",
+                " Port",
+                " Carport",
+                " Carport plaatsen"
+            ],
+            "steps": [
+                "5e002c9d21e54950c27dcc95",
+                "5e002c9d21e54950c27dcc93"
+            ],
+            "images": [],
+            "_id": "5e002c9d21e54950c27dcc96",
+            "serviceName": "Carport plaatsen",
+            "industry": "Aannemer",
+            "createdAt": "2019-12-23T02:55:25.226Z",
+            "updatedAt": "2020-01-03T10:27:18.300Z",
+            "__v": 3
+        },
+        {
+            "keywords": [
+                "Af",
+                " afvoeren",
+                " afvoer",
+                " grof",
+                " vuil",
+                " grofvuil"
+            ],
+            "steps": [
+                "5e0f14b1739a279ebcfc732a",
+                "5e0f14b1739a279ebcfc732e"
+            ],
+            "images": [],
+            "_id": "5e0f14b1739a279ebcfc732f",
+            "serviceName": "Afvoer puin / grof vuil",
+            "industry": "Aannemer",
+            "createdAt": "2020-01-03T10:17:21.411Z",
+            "updatedAt": "2020-01-04T14:21:05.284Z",
+            "__v": 0
+        },
+    ],
+    "status": 200
+}
+```
+
+This endpoint find category and steps via industry keyword.
+
+### HTTP Request
+
+`POST https://dev.linsta.nl/v1/admin/category`
+
+### Body Parameters
+
+| Parameter | Default   | Description        |
+| --------- | --------- | ------------------ |
+| industry  | undefined | String of industry |
