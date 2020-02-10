@@ -109,7 +109,7 @@ This endpoint creates a new category.
 
 `POST https://dev.linsta.nl/v1/admin/categories/add-category`
 
-### Body
+### Body Parameters
 
 | Parameter   | Default   | Description                 |
 | ----------- | --------- | --------------------------- |
@@ -146,7 +146,7 @@ This endpoint creates a new fieldtype.
 
 `POST https://dev.linsta.nl/v1/admin/place-jobs/add-fieldtype`
 
-### Body
+### Body Parameters
 
 | Parameter   | Default   | Description                 |
 | ----------- | --------- | --------------------------- |
@@ -325,7 +325,7 @@ This endpoint adds a review to a business.
 
 `POST https://dev.linsta.nl/v1/admin/business/add-review/:business_id"`
 
-### Body
+### Body Parameters
 
 | Parameter   | Default   | Description                         |
 | ----------- | --------- | ----------------------------------- |
@@ -333,3 +333,29 @@ This endpoint adds a review to a business.
 | rating      | undefined | Number out of 1-10 of review rating |
 | title       | undefined | Title of the review                 |
 | description | undefined | Description of the review           |
+
+## Get reviews
+
+```shell
+curl --location --request POST "https://dev.linsta.nl/v1/admin/reviews/:filter_type" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "message": "Saved new review for business", "status": 200 }
+```
+
+This endpoint retrieves all reviews with the ability to filter then.
+
+### HTTP Request
+
+`POST https://dev.linsta.nl/v1/admin/reviews/:filter_type`
+
+### Query Parameters
+
+| Parameter   | Default   | Description                                                        |
+| ----------- | --------- | ------------------------------------------------------------------ |
+| filter_type | undefined | Type of filter.  Supported ones are newest, oldest, rateHL, rateLH |
+| industry    | undefined | String ofindustry name                                             |
