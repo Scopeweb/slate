@@ -1602,3 +1602,37 @@ This endpoint create KB category.
 | title       | undefined | String of title       |
 | description | undefined | String of description |
 | userGroup   | undefined | String of userGroup   |
+
+## Edit KB article
+
+```shell
+curl --location --request POST "https://dev.linsta.nl/v1/admin/edit/kb/:kb_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'title=Testing' \
+  --data-urlencode 'category=Test' \
+  --data-urlencode 'description=This is a test.' \
+  --data-urlencode 'userGroup=Test' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{"message": "Het kennisbank artikel is gewijzigd en opgeslagen.", "status": 200}
+```
+
+This endpoint edit a KB article.
+
+### HTTP Request
+
+`POST https://dev.linsta.nl/v1/admin/edit/kb/:kb_id`
+
+### Body Parameters
+
+| Parameter   | Default   | Description                     |
+| ----------- | --------- | ------------------------------- |
+| kb_id       | undefined | MongoDB Object ID of KB article |
+| title       | undefined | String of title                 |
+| description | undefined | String of description           |
+| category    | undefined | String of category              |
+| userGroup   | undefined | String of userGroup             |
