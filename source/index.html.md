@@ -1148,3 +1148,31 @@ This endpoint updates industry.
 | Parameter | Default   | Description    |
 | --------- | --------- | -------------- |
 | name      | undefined | String of name |
+
+## Delete industry
+
+```shell
+curl --location --request DELETE "https://dev.linsta.nl/v1/admin/industry/:industry_name" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Industry has been removed.",
+  "status": 200
+}
+```
+
+This endpoint updates industry.
+
+### HTTP Request
+
+`DELETE https://dev.linsta.nl/v1/admin/industry/:industry_name`
+
+### Query Parameters
+
+| Parameter     | Default   | Description             |
+| ------------- | --------- | ----------------------- |
+| industry_name | undefined | String of industry name |
