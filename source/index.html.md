@@ -171,12 +171,12 @@ curl --location --request DELETE "https://dev.linsta.nl/v1/admin/category/:job_i
 
 ```json
 {
-    "message": "Industry has been added.",
+    "message": "Deleted job",
     "status": 200
 }
 ```
 
-This endpoint creates a new fieldtype.
+This endpoint deletes a category.
 
 ### HTTP Request
 
