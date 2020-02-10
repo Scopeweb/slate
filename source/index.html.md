@@ -614,7 +614,7 @@ This endpoint retrieves all reviews with the ability to filter then.
 | filter_type | undefined | Type of filter.  Supported ones are newest, oldest, rateHL, rateLH |
 | industry    | undefined | String ofindustry name                                             |
 
-## Get all categories
+## Get categories
 
 ```shell
 curl --location --request GET "https://dev.linsta.nl/v1/admin/list-categories" \
@@ -705,7 +705,7 @@ This endpoint retrieves all categories.
 
 `GET https://dev.linsta.nl/v1/admin/list-categories`
 
-## Get all categories by industry name
+## Get categories by industry
 
 ```shell
 curl --location --request GET "https://dev.linsta.nl/v1/admin/list-categories/:industryName" \
@@ -794,4 +794,55 @@ This endpoint retrieves all categories by the industry name.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/list-categories`
+`GET https://dev.linsta.nl/v1/admin/list-categories/:industryName`
+
+### Query Parameters
+
+| Parameter    | Default   | Description            |
+| ------------ | --------- | ---------------------- |
+| industryName | undefined | String ofindustry name |
+
+## Get category with steps
+
+```shell
+curl --location --request GET "https://dev.linsta.nl/v1/admin/category/:category_id" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "category": {
+        "keywords": [
+            "Aanbouw",
+            " Opbouw",
+            " Aanbouw plaatsen",
+            " Opbouw plaatsen",
+            " Aanbouw of opbouw",
+            " Aanbouw of opbouw plaatsen"
+        ],
+        "steps": [],
+        "images": [],
+        "_id": "5dffe9e9c579034d9380b961",
+        "serviceName": "Aanbouw of opbouw plaatsen",
+        "industry": "Aannemer",
+        "createdAt": "2019-12-22T22:10:49.323Z",
+        "updatedAt": "2020-01-08T09:50:13.774Z",
+        "__v": 2
+    },
+    "status": 200
+}
+```
+
+This endpoint retrieves category with steps.
+
+### HTTP Request
+
+`GET https://dev.linsta.nl/v1/admin/category/:category_id`
+
+### Query Parameters
+
+| Parameter   | Default   | Description                        |
+| ----------- | --------- | ---------------------------------- |
+| category_id | undefined | MongoDB Object ID of the  category |
