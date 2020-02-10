@@ -1671,3 +1671,35 @@ This endpoint returns more category infomation.
 | Parameter   | Default   | Description                      |
 | ----------- | --------- | -------------------------------- |
 | category_id | undefined | MongoDB Object ID of KB category |
+
+## Edit KB category infomation
+
+```shell
+curl --location --request PIT "https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'title=Great enterprise business.' \
+  --data-urlencode 'description=Helped make my company a lot more enterprise by offering me great service at a great price.'
+  --data-urlencode 'userGroup=Testing' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "message": "Updated kb category", "status": 200 }
+```
+
+This endpoint returns more category infomation.
+
+### HTTP Request
+
+`PUT https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id`
+
+### Body Parameters
+
+| Parameter   | Default   | Description                      |
+| ----------- | --------- | -------------------------------- |
+| category_id | undefined | MongoDB Object ID of KB category |
+| title       | undefined | String of title                  |
+| description | undefined | String of description            |
+| userGroup   | undefined | String of userGroup              |
