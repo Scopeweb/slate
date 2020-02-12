@@ -2777,6 +2777,37 @@ This endpoint login the user and returns a jwt token.
 | email     | undefined | String of the email    |
 | password  | undefined | String of the password |
 
+## Login with Two Factor
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/login-2fa/:token" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDU2OWZkODQ1MDEzMjJiYjliY2IwNyIsImF2YXRhciI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL3Njb3BlLXdlYi1sbGMvaW1hZ2UvdXBsb2FkL3YxNTc5MTkxMTg1L2xpbnN0YS92YWttYW5uZW4vcG9ydGZvbGlvL3Byb2plY3QtYWZiZWVsZGluZy02NTg4MjcyMy5qcGciLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1ODE1MTk4MTYsImV4cCI6MTU4MTU2MzAxNn0.645Mpm9V0sBhepNX0Ij8M0Hh7k7ECKzIDvDUZV6a7G4",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDU2OWZkODQ1MDEzMjJiYjliY2IwNyIsImF2YXRhciI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL3Njb3BlLXdlYi1sbGMvaW1hZ2UvdXBsb2FkL3YxNTc5MTkxMTg1L2xpbnN0YS92YWttYW5uZW4vcG9ydGZvbGlvL3Byb2plY3QtYWZiZWVsZGluZy02NTg4MjcyMy5qcGciLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1ODE1MTk4MTYsImV4cCI6MTU4MTU2MzAxNn0.645Mpm9V0sBhepNX0Ij8M0Hh7k7ECKzIDvDUZV6a7G4",
+    "twoFactor": true,
+    "status": 200
+}
+```
+
+This endpoint login the user and returns a jwt token.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/login-2fa/:token`
+
+### Body Parameters
+
+| Parameter | Default   | Description                   |
+| --------- | --------- | ----------------------------- |
+| token     | undefined | String of the two factor code |
+
+
 ## Resend Two Factor
 
 ```shell
