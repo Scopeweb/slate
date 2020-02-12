@@ -2736,10 +2736,10 @@ This endpoint creates a new user.
 
 ### Body Parameters
 
-| Parameter | Default   | Description            |
-| --------- | --------- | ---------------------- |
-| email     | undefined | String of the email    |
-| password  | undefined | String of the password |
+| Parameter   | Default   | Description               |
+| ----------- | --------- | ------------------------- |
+| email       | undefined | String of the email       |
+| password    | undefined | String of the password    |
 | accountType | undefined | String of the accountType |
 | role        | undefined | String of the role        |
 
@@ -2764,7 +2764,7 @@ curl --location --request GET "https://api.linsta.nl/v1/auth/login" \
 }
 ```
 
-This endpoint creates a new user.
+This endpoint login the user and returns a jwt token.
 
 ### HTTP Request
 
@@ -2772,7 +2772,38 @@ This endpoint creates a new user.
 
 ### Body Parameters
 
-| Parameter   | Default   | Description               |
-| ----------- | --------- | ------------------------- |
-| email       | undefined | String of the email       |
-| password    | undefined | String of the password    |
+| Parameter | Default   | Description            |
+| --------- | --------- | ---------------------- |
+| email     | undefined | String of the email    |
+| password  | undefined | String of the password |
+
+## Resend Two Factor
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/login-2fa/resend" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'email=nathan@scopeweb.nl' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Two Factor token has been sent to your email.",
+  "twoFactor": true,
+  "status": 200
+}
+```
+
+This endpoint login the user and returns a jwt token.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/login-2fa/resend`
+
+### Body Parameters
+
+| Parameter | Default   | Description         |
+| --------- | --------- | ------------------- |
+| email     | undefined | String of the email |
