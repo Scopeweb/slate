@@ -2890,3 +2890,28 @@ This endpoint login the user and returns a jwt token.
 | street         | undefined | If account type is consument use string street              |
 | zipCode        | undefined | If account type is consument use string zipCode             |
 | city           | undefined | If account type is consument use string city                |
+
+## Verify Token
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/verify-token" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'companyZipCode=3232HE' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDU2OWZkODQ1MDEzMjJiYjliY2IwNyIsImF2YXRhciI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL3Njb3BlLXdlYi1sbGMvaW1hZ2UvdXBsb2FkL3YxNTc5MTkxMTg1L2xpbnN0YS92YWttYW5uZW4vcG9ydGZvbGlvL3Byb2plY3QtYWZiZWVsZGluZy02NTg4MjcyMy5qcGciLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1ODE1NDY1ODUsImV4cCI6MTU4MTYzMjk4NX0.-04ZyxTDT1A0rjdOxrF8Pizigbqfv-Jp4jfKHTp2RSo",
+    "expiresIn": "2020-02-13T22:29:45.272Z",
+    "status": 200
+}
+```
+
+This endpoint login the user and returns a jwt token.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/verify-token`
