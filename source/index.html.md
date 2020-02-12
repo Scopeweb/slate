@@ -2736,9 +2736,43 @@ This endpoint creates a new user.
 
 ### Body Parameters
 
+| Parameter | Default   | Description            |
+| --------- | --------- | ---------------------- |
+| email     | undefined | String of the email    |
+| password  | undefined | String of the password |
+| accountType | undefined | String of the accountType |
+| role        | undefined | String of the role        |
+
+## Login
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/login" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'email=nathan@scopeweb.nl' \
+  --data-urlencode 'password=thisisapassword' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDU2OWZkODQ1MDEzMjJiYjliY2IwNyIsImF2YXRhciI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL3Njb3BlLXdlYi1sbGMvaW1hZ2UvdXBsb2FkL3YxNTc5MTkxMTg1L2xpbnN0YS92YWttYW5uZW4vcG9ydGZvbGlvL3Byb2plY3QtYWZiZWVsZGluZy02NTg4MjcyMy5qcGciLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1ODE1MTk4MTYsImV4cCI6MTU4MTU2MzAxNn0.645Mpm9V0sBhepNX0Ij8M0Hh7k7ECKzIDvDUZV6a7G4",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDU2OWZkODQ1MDEzMjJiYjliY2IwNyIsImF2YXRhciI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL3Njb3BlLXdlYi1sbGMvaW1hZ2UvdXBsb2FkL3YxNTc5MTkxMTg1L2xpbnN0YS92YWttYW5uZW4vcG9ydGZvbGlvL3Byb2plY3QtYWZiZWVsZGluZy02NTg4MjcyMy5qcGciLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1ODE1MTk4MTYsImV4cCI6MTU4MTU2MzAxNn0.645Mpm9V0sBhepNX0Ij8M0Hh7k7ECKzIDvDUZV6a7G4",
+    "twoFactor": false,
+    "status": 200
+}
+```
+
+This endpoint creates a new user.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/login`
+
+### Body Parameters
+
 | Parameter   | Default   | Description               |
 | ----------- | --------- | ------------------------- |
 | email       | undefined | String of the email       |
 | password    | undefined | String of the password    |
-| accountType | undefined | String of the accountType |
-| role        | undefined | String of the role        |
