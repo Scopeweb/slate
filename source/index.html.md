@@ -2692,7 +2692,7 @@ curl --location --request POST "https://api.linsta.nl/v1/utility/feedback" \
 >The above command returns JSON structured like this:
 
 ```json
-{ "message": "Feedback sent.", "status": 200 }
+{ "message": "Uw feedback is verstuurd", "status": 200 }
 ```
 
 This endpoint adds feedback.
