@@ -49,7 +49,7 @@ You must replace <code>Bearer jsonwebtoken</code> with your personal API key.
 ## Add category
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/categories/add-category" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/categories/add-category" \
   -H "Authorization: Bearer jsonwebtoken" \
   --header 'Content-Type: application/json' \
   --data-raw '{
@@ -107,7 +107,7 @@ This endpoint creates a new category.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/categories/add-category`
+`POST https://api.linsta.nl/v1/admin/categories/add-category`
 
 ### Body Parameters
 
@@ -122,7 +122,7 @@ This endpoint creates a new category.
 ## Add Place Job field type
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/place-jobs/add-fieldtype" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/place-jobs/add-fieldtype" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'type=radio' \
@@ -144,7 +144,7 @@ This endpoint creates a new fieldtype.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/place-jobs/add-fieldtype`
+`POST https://api.linsta.nl/v1/admin/place-jobs/add-fieldtype`
 
 ### Body Parameters
 
@@ -163,7 +163,7 @@ Developers only
 ## Delete Place Job
 
 ```shell
-curl --location --request DELETE "https://dev.linsta.nl/v1/admin/category/:job_id" \
+curl --location --request DELETE "https://api.linsta.nl/v1/admin/category/:job_id" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -180,12 +180,12 @@ This endpoint deletes a category.
 
 ### HTTP Request
 
-`DELETE https://dev.linsta.nl/v1/admin/place-jobs/fieldtypes`
+`DELETE https://api.linsta.nl/v1/admin/place-jobs/fieldtypes`
 
 ## Get Place Job fieldtypes
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/place-jobs/fieldtypes" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/place-jobs/fieldtypes" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -299,12 +299,12 @@ This endpoint retrieves all available fieldtypes
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/place-jobs/fieldtypes`
+`GET https://api.linsta.nl/v1/admin/place-jobs/fieldtypes`
 
 ## Get reviews
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/reviews" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/reviews" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -452,12 +452,12 @@ This endpoint retrieves all reviews with the ability to filter then.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/reviews`
+`GET https://api.linsta.nl/v1/admin/reviews`
 
 ## Get reviews with fitler
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/reviews/:filter_type" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/reviews/:filter_type" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -605,7 +605,7 @@ This endpoint retrieves all reviews with the ability to filter then.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/reviews/:filter_type`
+`GET https://api.linsta.nl/v1/admin/reviews/:filter_type`
 
 ### Query Parameters
 
@@ -617,7 +617,7 @@ This endpoint retrieves all reviews with the ability to filter then.
 ## Get categories
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/list-categories" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/list-categories" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -703,12 +703,12 @@ This endpoint retrieves all categories.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/list-categories`
+`GET https://api.linsta.nl/v1/admin/list-categories`
 
 ## Get categories by industry
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/list-categories/:industryName" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/list-categories/:industryName" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -794,7 +794,7 @@ This endpoint retrieves all categories by the industry name.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/list-categories/:industryName`
+`GET https://api.linsta.nl/v1/admin/list-categories/:industryName`
 
 ### Query Parameters
 
@@ -805,7 +805,7 @@ This endpoint retrieves all categories by the industry name.
 ## Get category with steps
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/category/:category_id" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/category/:category_id" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -889,7 +889,7 @@ This endpoint retrieves category with steps.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/category/:category_id`
+`GET https://api.linsta.nl/v1/admin/category/:category_id`
 
 ### Query Parameters
 
@@ -900,7 +900,7 @@ This endpoint retrieves category with steps.
 ## Update category
 
 ```shell
-curl --location --request PUT "https://dev.linsta.nl/v1/admin/update-category/:category_id" \
+curl --location --request PUT "https://api.linsta.nl/v1/admin/update-category/:category_id" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -917,7 +917,7 @@ This endpoint updates a category.
 
 ### HTTP Request
 
-`PUT https://dev.linsta.nl/v1/admin/update-category/:category_id`
+`PUT https://api.linsta.nl/v1/admin/update-category/:category_id`
 
 ### Query Parameters
 
@@ -936,7 +936,7 @@ This endpoint updates a category.
 ## Add category question
 
 ```shell
-curl --location --request PUT "https://dev.linsta.nl/v1/admin/category/add-question/:step_id" \
+curl --location --request PUT "https://api.linsta.nl/v1/admin/category/add-question/:step_id" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'type=Test' \
@@ -962,7 +962,7 @@ This endpoint adds a qustion to step.
 
 ### HTTP Request
 
-`PUT https://dev.linsta.nl/v1/admin/category/add-question/:step_id`
+`PUT https://api.linsta.nl/v1/admin/category/add-question/:step_id`
 
 ### Query Parameters
 
@@ -986,7 +986,7 @@ This endpoint adds a qustion to step.
 ## Delete category question
 
 ```shell
-curl --location --request DELETE "https://dev.linsta.nl/v1/admin/category/:question_id/:step_id" \
+curl --location --request DELETE "https://api.linsta.nl/v1/admin/category/:question_id/:step_id" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1003,7 +1003,7 @@ This endpoint delete a qustion from step.
 
 ### HTTP Request
 
-`DELETE https://dev.linsta.nl/v1/admin/category/:question_id/:step_id`
+`DELETE https://api.linsta.nl/v1/admin/category/:question_id/:step_id`
 
 ### Query Parameters
 
@@ -1015,7 +1015,7 @@ This endpoint delete a qustion from step.
 ## Update category question order
 
 ```shell
-curl --location --request PUT "https://dev.linsta.nl/v1/admin/category/update-step/:step_id" \
+curl --location --request PUT "https://api.linsta.nl/v1/admin/category/update-step/:step_id" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1032,7 +1032,7 @@ This endpoint update a qustion order from step.
 
 ### HTTP Request
 
-`PUT https://dev.linsta.nl/v1/admin/category/update-step/:step_id`
+`PUT https://api.linsta.nl/v1/admin/category/update-step/:step_id`
 
 ### Query Parameters
 
@@ -1050,7 +1050,7 @@ This endpoint update a qustion order from step.
 ## Delete step
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/category/delete-step/:job_id" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/category/delete-step/:job_id" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'stepId=5dd570d1873225ab198e47d4'
@@ -1069,7 +1069,7 @@ This endpoint update a qustion order from step.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/category/delete-step/:job_id`
+`POST https://api.linsta.nl/v1/admin/category/delete-step/:job_id`
 
 ### Query Parameters
 
@@ -1086,7 +1086,7 @@ This endpoint update a qustion order from step.
 ## Add industry
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/industry" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/industry" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'name=Test'
@@ -1105,7 +1105,7 @@ This endpoint add new industry.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/industry`
+`POST https://api.linsta.nl/v1/admin/industry`
 
 ### Body Parameters
 
@@ -1116,7 +1116,7 @@ This endpoint add new industry.
 ## Update industry
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/industry/:industry_name" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/industry/:industry_name" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'name=Test'
@@ -1135,7 +1135,7 @@ This endpoint updates industry.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/industry/:industry_name`
+`POST https://api.linsta.nl/v1/admin/industry/:industry_name`
 
 ### Query Parameters
 
@@ -1152,7 +1152,7 @@ This endpoint updates industry.
 ## Delete industry
 
 ```shell
-curl --location --request DELETE "https://dev.linsta.nl/v1/admin/industry/:industry_name" \
+curl --location --request DELETE "https://api.linsta.nl/v1/admin/industry/:industry_name" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1169,7 +1169,7 @@ This endpoint updates industry.
 
 ### HTTP Request
 
-`DELETE https://dev.linsta.nl/v1/admin/industry/:industry_name`
+`DELETE https://api.linsta.nl/v1/admin/industry/:industry_name`
 
 ### Query Parameters
 
@@ -1180,7 +1180,7 @@ This endpoint updates industry.
 ## Get industry
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/industries" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/industries" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1226,12 +1226,12 @@ This endpoint retrieves all available industries.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/industries`
+`GET https://api.linsta.nl/v1/admin/industries`
 
 ## Serach category and steps
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/category" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/category" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1311,7 +1311,7 @@ This endpoint find category and steps via industry keyword.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/category`
+`POST https://api.linsta.nl/v1/admin/category`
 
 ### Body Parameters
 
@@ -1322,7 +1322,7 @@ This endpoint find category and steps via industry keyword.
 ## Get Admins
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin" \
+curl --location --request GET "https://api.linsta.nl/v1/admin" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1349,12 +1349,12 @@ This endpoint retrieve list of admins.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin`
+`GET https://api.linsta.nl/v1/admin`
 
 ## Get regions
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/regions" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/regions" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1396,12 +1396,12 @@ This endpoint retrieve list of regions.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/regions`
+`GET https://api.linsta.nl/v1/admin/regions`
 
 ## Add region
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/geo/add-region" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/geo/add-region" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1415,7 +1415,7 @@ This endpoint add region.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/geo/add-region`
+`POST https://api.linsta.nl/v1/admin/geo/add-region`
 
 ### Body Parameters
 
@@ -1428,7 +1428,7 @@ This endpoint add region.
 ## Update region visibility
 
 ```shell
-curl --location --request PUT "https://dev.linsta.nl/v1/admin/geo/region-visibility/:regionId" \
+curl --location --request PUT "https://api.linsta.nl/v1/admin/geo/region-visibility/:regionId" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1442,7 +1442,7 @@ This endpoint update the visibility of a region (provincie)
 
 ### HTTP Request
 
-`PUT https://dev.linsta.nl/v1/admin/geo/region-visibility/:regionId`
+`PUT https://api.linsta.nl/v1/admin/geo/region-visibility/:regionId`
 
 ### Body Parameters
 
@@ -1454,7 +1454,7 @@ This endpoint update the visibility of a region (provincie)
 ## Create KB article
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/kb/create" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/kb/create" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1468,7 +1468,7 @@ This endpoint update the visibility of a region (provincie)
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/kb/create`
+`POST https://api.linsta.nl/v1/admin/kb/create`
 
 ### Body Parameters
 
@@ -1482,7 +1482,7 @@ This endpoint update the visibility of a region (provincie)
 ## Get KB articles
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/view-kb" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/view-kb" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1518,7 +1518,7 @@ This endpoint update the visibility of a region (provincie)
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/view-kb`
+`GET https://api.linsta.nl/v1/admin/view-kb`
 
 ### Query Parameters
 
@@ -1530,7 +1530,7 @@ This endpoint update the visibility of a region (provincie)
 ## Get KB categories
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/view/kb-categories" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/view/kb-categories" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1564,7 +1564,7 @@ This endpoint retrieve all the knowledge base categories.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/view/kb-categories`
+`GET https://api.linsta.nl/v1/admin/view/kb-categories`
 
 ### Query Parameters
 
@@ -1575,7 +1575,7 @@ This endpoint retrieve all the knowledge base categories.
 ## Create KB category
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/create/kb-category" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/create/kb-category" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'title=Testing' \
@@ -1593,7 +1593,7 @@ This endpoint create KB category.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/create/kb-category`
+`GET https://api.linsta.nl/v1/admin/create/kb-category`
 
 ### Body Parameters
 
@@ -1606,7 +1606,7 @@ This endpoint create KB category.
 ## Edit KB article
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/edit/kb/:kb_id" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/edit/kb/:kb_id" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'title=Testing' \
@@ -1625,7 +1625,7 @@ This endpoint edit a KB article.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/edit/kb/:kb_id`
+`POST https://api.linsta.nl/v1/admin/edit/kb/:kb_id`
 
 ### Body Parameters
 
@@ -1640,7 +1640,7 @@ This endpoint edit a KB article.
 ## Get KB category infomation
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/view/kb-category/:category_id" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/view/kb-category/:category_id" \
   -H "Authorization: Bearer jsonwebtoken" 
 ```
 
@@ -1664,7 +1664,7 @@ This endpoint returns more category infomation.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/view/kb-category/:category_id`
+`GET https://api.linsta.nl/v1/admin/view/kb-category/:category_id`
 
 ### Body Parameters
 
@@ -1675,7 +1675,7 @@ This endpoint returns more category infomation.
 ## Edit KB category infomation
 
 ```shell
-curl --location --request PUT "https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id" \
+curl --location --request PUT "https://api.linsta.nl/v1/admin/edit/kb-category/:category_id" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'title=Great enterprise business.' \
@@ -1693,7 +1693,7 @@ This endpoint updates kb category infomation
 
 ### HTTP Request
 
-`PUT https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id`
+`PUT https://api.linsta.nl/v1/admin/edit/kb-category/:category_id`
 
 ### Body Parameters
 
@@ -1707,7 +1707,7 @@ This endpoint updates kb category infomation
 ## Delete KB article
 
 ```shell
-curl --location --request DELETE "https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id" \
+curl --location --request DELETE "https://api.linsta.nl/v1/admin/edit/kb-category/:category_id" \
   -H "Authorization: Bearer jsonwebtoken" 
 ```
 
@@ -1721,7 +1721,7 @@ This endpoint removes single knowledge base article
 
 ### HTTP Request
 
-`DELETE https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id`
+`DELETE https://api.linsta.nl/v1/admin/edit/kb-category/:category_id`
 
 ### Body Parameters
 
@@ -1732,7 +1732,7 @@ This endpoint removes single knowledge base article
 ## Get applications
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/view/applications" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/view/applications" \
   -H "Authorization: Bearer jsonwebtoken" 
 ```
 
@@ -1763,7 +1763,7 @@ This endpoint retrieves job applications
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/view/applications`
+`GET https://api.linsta.nl/v1/admin/view/applications`
 
 ### Query Parameters
 
@@ -1774,7 +1774,7 @@ This endpoint retrieves job applications
 ## Get Feeedback
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/view/feedback" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/view/feedback" \
   -H "Authorization: Bearer jsonwebtoken" 
 ```
 
@@ -1808,7 +1808,7 @@ This endpoint retrieves feedback
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/view/feedback`
+`GET https://api.linsta.nl/v1/admin/view/feedback`
 
 ### Query Parameters
 
@@ -1820,7 +1820,7 @@ This endpoint retrieves feedback
 ## Delete image
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/delete-image/:image_name" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/delete-image/:image_name" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'reason=Bad image' \
@@ -1836,7 +1836,7 @@ This endpoint removes a image and sends the reason
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/delete-image/:image_name`
+`POST https://api.linsta.nl/v1/admin/delete-image/:image_name`
 
 ### Body Parameters
 
@@ -1850,7 +1850,7 @@ This endpoint removes a image and sends the reason
 ## View analytics
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/analytics" \
+curl --location --request POST "https://api.linsta.nl/v1/analytics" \
   -H "Authorization: Bearer jsonwebtoken" 
 ```
 
@@ -1885,7 +1885,7 @@ This endpoint view analytics.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/analytics`
+`GET https://api.linsta.nl/v1/analytics`
 
 ### Query Parameters
 
@@ -1897,7 +1897,7 @@ This endpoint view analytics.
 ## View Gigs
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/analytics/gig" \
+curl --location --request POST "https://api.linsta.nl/v1/analytics/gig" \
   -H "Authorization: Bearer jsonwebtoken" 
 ```
 
@@ -2050,7 +2050,7 @@ This endpoint view analytics gigs.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/analytics/gig`
+`GET https://api.linsta.nl/v1/analytics/gig`
 
 ### Query Parameters
 
@@ -2062,7 +2062,7 @@ This endpoint view analytics gigs.
 ## View Pitches
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/analytics/pitches" \
+curl --location --request POST "https://api.linsta.nl/v1/analytics/pitches" \
   -H "Authorization: Bearer jsonwebtoken" 
 ```
 
@@ -2098,7 +2098,7 @@ This endpoint view analytics pitches.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/analytics/pitches`
+`GET https://api.linsta.nl/v1/analytics/pitches`
 
 ### Query Parameters
 
@@ -2111,7 +2111,7 @@ This endpoint view analytics pitches.
 ## View Professionals
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/analytics/professionals" \
+curl --location --request POST "https://api.linsta.nl/v1/analytics/professionals" \
   -H "Authorization: Bearer jsonwebtoken" 
 ```
 
@@ -2229,7 +2229,7 @@ This endpoint view analytics professionals.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/analytics/professionals`
+`GET https://api.linsta.nl/v1/analytics/professionals`
 
 ### Query Parameters
 
@@ -2242,7 +2242,7 @@ This endpoint view analytics professionals.
 ## View users
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/analytics/users" \
+curl --location --request POST "https://api.linsta.nl/v1/analytics/users" \
   -H "Authorization: Bearer jsonwebtoken" 
 ```
 
@@ -2432,7 +2432,7 @@ This endpoint view analytics users.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/analytics/users`
+`GET https://api.linsta.nl/v1/analytics/users`
 
 ### Query Parameters
 
