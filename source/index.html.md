@@ -2476,3 +2476,34 @@ This endpoint creates a new contact.
 | email     | undefined | String of email   |
 | subject   | undefined | String of subject |
 | message   | undefined | String of message |
+
+# Geo
+
+## Calculate the distance
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/geo/distance" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'zipCodeFrom=12564'
+  --data-urlencode 'zipCodeTo=12365'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "success": "Your message has been sent.", "status": 200 }  
+```
+
+This endpoint calculate the distance between two zipcodes.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/geo/distance`
+
+### Body Parameters
+
+| Parameter   | Default   | Description            |
+| ----------- | --------- | ---------------------- |
+| zipCodeFrom | undefined | String of from zipcode |
+| zipCodeTo   | undefined | String of to zipcode   |
