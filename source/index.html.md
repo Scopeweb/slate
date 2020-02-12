@@ -2536,3 +2536,95 @@ This endpoint subscribes the email to the newsletter.
 | Parameter | Default   | Description     |
 | --------- | --------- | --------------- |
 | email     | undefined | String of email |
+
+# Lead
+
+## Import Leads
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/lead/import" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --form 'file=@/C:/Users/scopeweb B.V/Downloads/leads.csv'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "success": "CSV has been imported", "status": 200 }  
+```
+
+This endpoint upload and import a CSV.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/lead/import`
+
+### Body Parameters
+
+| Parameter | Default   | Description |
+| --------- | --------- | ----------- |
+| file      | undefined | CSV file    |
+
+## View imported leads
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/lead/view-all" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "lead": [
+        {
+            "_id": "5e42fe0b53f60cc43d1cdf6f",
+            "businessName": "Hulsman Bouw B.V. ",
+            "street": "Dorpsstraat",
+            "number": 20,
+            "numberAddition": "",
+            "zipCode": "3626 AD",
+            "city": "NIEUWER TER AA",
+            "province": "UT",
+            "phoneNumber": "0294-234154",
+            "email": "info@huismanbouw.nl",
+            "url": "www.huismanbouw.nl",
+            "mainLocation": "Ja",
+            "kvkNumber": 300003140000,
+            "branche": 4120,
+            "businessDescription": "Algemene burgerlijke en utiliteitsbouw",
+            "createdAt": "2020-02-11T19:18:35.129Z",
+            "updatedAt": "2020-02-11T19:18:35.129Z",
+            "__v": 0
+        },
+        {
+            "_id": "5e42fe0b53f60cc43d1cdf70",
+            "businessName": "Bouwbedrijf Van Schaik Breukelen B.V. ",
+            "street": "Poeldijk",
+            "number": 1,
+            "numberAddition": "",
+            "zipCode": "3621 CZ",
+            "city": "BREUKELEN UT",
+            "province": "UT",
+            "phoneNumber": "0346-262344",
+            "email": "info@bouwbedrijfvanschaik.nl",
+            "url": "www.bouwbedrijfvanschaik.nl",
+            "mainLocation": "Ja",
+            "kvkNumber": 300033550000,
+            "branche": 4120,
+            "businessDescription": "Algemene burgerlijke en utiliteitsbouw",
+            "createdAt": "2020-02-11T19:18:35.130Z",
+            "updatedAt": "2020-02-11T19:18:35.130Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+} 
+```
+
+This endpoint shows all the leads in a array.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/lead/view-all`
