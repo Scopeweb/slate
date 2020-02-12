@@ -2695,7 +2695,7 @@ curl --location --request POST "https://api.linsta.nl/v1/utility/feedback" \
 { "message": "Feedback sent.", "status": 200 }
 ```
 
-This endpoint retrieve available budgets.
+This endpoint adds feedback.
 
 ### HTTP Request
 
