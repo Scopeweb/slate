@@ -2536,3 +2536,95 @@ This endpoint subscribes the email to the newsletter.
 | Parameter | Default   | Description     |
 | --------- | --------- | --------------- |
 | email     | undefined | String of email |
+
+# Lead
+
+## Import Leads
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/lead/import" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --form 'file=@/C:/Users/scopeweb B.V/Downloads/leads.csv'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "success": "CSV has been imported", "status": 200 }  
+```
+
+This endpoint upload and import a CSV.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/lead/import`
+
+### Body Parameters
+
+| Parameter | Default   | Description |
+| --------- | --------- | ----------- |
+| file      | undefined | CSV file    |
+
+## View imported leads
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/lead/view-all" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "lead": [
+        {
+            "_id": "5e42fe0b25f60cc43d1cdf6f",
+            "businessName": "bedrijfsnaam",
+            "street": "Straatnaam",
+            "number": 20,
+            "numberAddition": "",
+            "zipCode": "1234 AB",
+            "city": "STAD",
+            "province": "ZH",
+            "phoneNumber": "06-12345678",
+            "email": "email@email.nl",
+            "url": "www.website.nl",
+            "mainLocation": "Ja",
+            "kvkNumber": 12345678,
+            "branche": 4120,
+            "businessDescription": "Algemene burgerlijke en utiliteitsbouw",
+            "createdAt": "2020-02-11T19:18:35.129Z",
+            "updatedAt": "2020-02-11T19:18:35.129Z",
+            "__v": 0
+        },
+        {
+            "_id": "5e42fe0b45f60cc43d1cdf70",
+            "businessName": "bedrijfsnaam.",
+            "street": "Straatnaam",
+            "number": 1,
+            "numberAddition": "",
+            "zipCode": "1234 AB",
+            "city": "STAD",
+            "province": "ZH",
+            "phoneNumber": "06-12345678",
+            "email": "email@email.nl",
+            "url": "www.website.nl",
+            "mainLocation": "Ja",
+            "kvkNumber": 12345678,
+            "branche": 4120,
+            "businessDescription": "Algemene burgerlijke en utiliteitsbouw",
+            "createdAt": "2020-02-11T19:18:35.130Z",
+            "updatedAt": "2020-02-11T19:18:35.130Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+} 
+```
+
+This endpoint shows all the leads in a array.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/lead/view-all`
