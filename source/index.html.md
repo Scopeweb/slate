@@ -2439,5 +2439,40 @@ This endpoint view analytics users.
 | Parameter        | Default   | Description                                  |
 | ---------------- | --------- | -------------------------------------------- |
 | profileCompleted | undefined | String of profileCompleted                   |
-| accountType      | undefined | String of accountType                         |
+| accountType      | undefined | String of accountType                        |
 | createdAt        | undefined | String of date supported (newest and oldest) |
+
+# Contact
+
+## Add contact
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/contact" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'name=Test'
+  --data-urlencode 'email=example@example.com'
+  --data-urlencode 'subject=Test Subject 9001'
+  --data-urlencode 'message=I wanted to contact you.'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "success": "Your message has been sent.", "status": 200 }  
+```
+
+This endpoint creates a new contact.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/contact`
+
+### Body Parameters
+
+| Parameter | Default   | Description       |
+| --------- | --------- | ----------------- |
+| name      | undefined | String of name    |
+| email     | undefined | String of email   |
+| subject   | undefined | String of subject |
+| message   | undefined | String of message |
