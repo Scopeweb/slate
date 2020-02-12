@@ -2707,3 +2707,38 @@ This endpoint adds feedback.
 | ------------ | --------- | -------------------------- |
 | description  | undefined | String of the description  |
 | feedbackType | undefined | String of the service name |
+
+# Auth
+
+## Signup
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/register" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'email=nathan@scopeweb.nl' \
+  --data-urlencode 'password=thisisapassword' \
+  --data-urlencode 'accountType=developer' \
+  --data-urlencode 'role=developer'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "message": "Registration successful.", "status": 200 }
+```
+
+This endpoint creates a new user.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/register`
+
+### Body Parameters
+
+| Parameter   | Default   | Description               |
+| ----------- | --------- | ------------------------- |
+| email       | undefined | String of the email       |
+| password    | undefined | String of the password    |
+| accountType | undefined | String of the accountType |
+| role        | undefined | String of the role        |
