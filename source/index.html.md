@@ -2682,7 +2682,7 @@ This endpoint retrieve available budgets.
 ## Add feedback
 
 ```shell
-curl --location --request GET "https://api.linsta.nl/v1/utility/feedback" \
+curl --location --request POST "https://api.linsta.nl/v1/utility/feedback" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'description=This is great.' \
