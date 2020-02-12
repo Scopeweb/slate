@@ -2507,3 +2507,32 @@ This endpoint calculate the distance between two zipcodes.
 | ----------- | --------- | ---------------------- |
 | zipCodeFrom | undefined | String of from zipcode |
 | zipCodeTo   | undefined | String of to zipcode   |
+
+# Newsletter
+
+## Subscribe to newsletter
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/newsletter/subscribe" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'email=example@example.com'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "success": "Bedankt voor uw inschrijving voor de Linsta nieuwsbrief, u blijft nu op de hoogte van de laatste nieuwtjes", "status": 200 }  
+```
+
+This endpoint subscribes the email to the newsletter.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/newsletter/subscribe`
+
+### Body Parameters
+
+| Parameter | Default   | Description     |
+| --------- | --------- | --------------- |
+| email     | undefined | String of email |
