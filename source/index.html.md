@@ -49,7 +49,7 @@ You must replace <code>Bearer jsonwebtoken</code> with your personal API key.
 ## Add category
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/categories/add-category" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/categories/add-category" \
   -H "Authorization: Bearer jsonwebtoken" \
   --header 'Content-Type: application/json' \
   --data-raw '{
@@ -107,7 +107,7 @@ This endpoint creates a new category.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/categories/add-category`
+`POST https://api.linsta.nl/v1/admin/categories/add-category`
 
 ### Body Parameters
 
@@ -122,7 +122,7 @@ This endpoint creates a new category.
 ## Add Place Job field type
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/place-jobs/add-fieldtype" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/place-jobs/add-fieldtype" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'type=radio' \
@@ -144,7 +144,7 @@ This endpoint creates a new fieldtype.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/place-jobs/add-fieldtype`
+`POST https://api.linsta.nl/v1/admin/place-jobs/add-fieldtype`
 
 ### Body Parameters
 
@@ -163,7 +163,7 @@ Developers only
 ## Delete Place Job
 
 ```shell
-curl --location --request DELETE "https://dev.linsta.nl/v1/admin/category/:job_id" \
+curl --location --request DELETE "https://api.linsta.nl/v1/admin/category/:job_id" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -180,12 +180,12 @@ This endpoint deletes a category.
 
 ### HTTP Request
 
-`DELETE https://dev.linsta.nl/v1/admin/place-jobs/fieldtypes`
+`DELETE https://api.linsta.nl/v1/admin/place-jobs/fieldtypes`
 
 ## Get Place Job fieldtypes
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/place-jobs/fieldtypes" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/place-jobs/fieldtypes" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -299,12 +299,12 @@ This endpoint retrieves all available fieldtypes
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/place-jobs/fieldtypes`
+`GET https://api.linsta.nl/v1/admin/place-jobs/fieldtypes`
 
 ## Get reviews
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/reviews" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/reviews" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -452,12 +452,12 @@ This endpoint retrieves all reviews with the ability to filter then.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/reviews`
+`GET https://api.linsta.nl/v1/admin/reviews`
 
 ## Get reviews with fitler
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/reviews/:filter_type" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/reviews/:filter_type" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -605,7 +605,7 @@ This endpoint retrieves all reviews with the ability to filter then.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/reviews/:filter_type`
+`GET https://api.linsta.nl/v1/admin/reviews/:filter_type`
 
 ### Query Parameters
 
@@ -617,7 +617,7 @@ This endpoint retrieves all reviews with the ability to filter then.
 ## Get categories
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/list-categories" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/list-categories" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -703,12 +703,12 @@ This endpoint retrieves all categories.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/list-categories`
+`GET https://api.linsta.nl/v1/admin/list-categories`
 
 ## Get categories by industry
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/list-categories/:industryName" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/list-categories/:industryName" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -794,7 +794,7 @@ This endpoint retrieves all categories by the industry name.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/list-categories/:industryName`
+`GET https://api.linsta.nl/v1/admin/list-categories/:industryName`
 
 ### Query Parameters
 
@@ -805,7 +805,7 @@ This endpoint retrieves all categories by the industry name.
 ## Get category with steps
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/category/:category_id" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/category/:category_id" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -889,7 +889,7 @@ This endpoint retrieves category with steps.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/category/:category_id`
+`GET https://api.linsta.nl/v1/admin/category/:category_id`
 
 ### Query Parameters
 
@@ -900,7 +900,7 @@ This endpoint retrieves category with steps.
 ## Update category
 
 ```shell
-curl --location --request PUT "https://dev.linsta.nl/v1/admin/update-category/:category_id" \
+curl --location --request PUT "https://api.linsta.nl/v1/admin/update-category/:category_id" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -917,7 +917,7 @@ This endpoint updates a category.
 
 ### HTTP Request
 
-`PUT https://dev.linsta.nl/v1/admin/update-category/:category_id`
+`PUT https://api.linsta.nl/v1/admin/update-category/:category_id`
 
 ### Query Parameters
 
@@ -936,7 +936,7 @@ This endpoint updates a category.
 ## Add category question
 
 ```shell
-curl --location --request PUT "https://dev.linsta.nl/v1/admin/category/add-question/:step_id" \
+curl --location --request PUT "https://api.linsta.nl/v1/admin/category/add-question/:step_id" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'type=Test' \
@@ -962,7 +962,7 @@ This endpoint adds a qustion to step.
 
 ### HTTP Request
 
-`PUT https://dev.linsta.nl/v1/admin/category/add-question/:step_id`
+`PUT https://api.linsta.nl/v1/admin/category/add-question/:step_id`
 
 ### Query Parameters
 
@@ -986,7 +986,7 @@ This endpoint adds a qustion to step.
 ## Delete category question
 
 ```shell
-curl --location --request DELETE "https://dev.linsta.nl/v1/admin/category/:question_id/:step_id" \
+curl --location --request DELETE "https://api.linsta.nl/v1/admin/category/:question_id/:step_id" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1003,7 +1003,7 @@ This endpoint delete a qustion from step.
 
 ### HTTP Request
 
-`DELETE https://dev.linsta.nl/v1/admin/category/:question_id/:step_id`
+`DELETE https://api.linsta.nl/v1/admin/category/:question_id/:step_id`
 
 ### Query Parameters
 
@@ -1015,7 +1015,7 @@ This endpoint delete a qustion from step.
 ## Update category question order
 
 ```shell
-curl --location --request PUT "https://dev.linsta.nl/v1/admin/category/update-step/:step_id" \
+curl --location --request PUT "https://api.linsta.nl/v1/admin/category/update-step/:step_id" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1032,7 +1032,7 @@ This endpoint update a qustion order from step.
 
 ### HTTP Request
 
-`PUT https://dev.linsta.nl/v1/admin/category/update-step/:step_id`
+`PUT https://api.linsta.nl/v1/admin/category/update-step/:step_id`
 
 ### Query Parameters
 
@@ -1050,7 +1050,7 @@ This endpoint update a qustion order from step.
 ## Delete step
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/category/delete-step/:job_id" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/category/delete-step/:job_id" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'stepId=5dd570d1873225ab198e47d4'
@@ -1069,7 +1069,7 @@ This endpoint update a qustion order from step.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/category/delete-step/:job_id`
+`POST https://api.linsta.nl/v1/admin/category/delete-step/:job_id`
 
 ### Query Parameters
 
@@ -1086,7 +1086,7 @@ This endpoint update a qustion order from step.
 ## Add industry
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/industry" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/industry" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'name=Test'
@@ -1105,7 +1105,7 @@ This endpoint add new industry.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/industry`
+`POST https://api.linsta.nl/v1/admin/industry`
 
 ### Body Parameters
 
@@ -1116,7 +1116,7 @@ This endpoint add new industry.
 ## Update industry
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/industry/:industry_name" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/industry/:industry_name" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'name=Test'
@@ -1135,7 +1135,7 @@ This endpoint updates industry.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/industry/:industry_name`
+`POST https://api.linsta.nl/v1/admin/industry/:industry_name`
 
 ### Query Parameters
 
@@ -1152,7 +1152,7 @@ This endpoint updates industry.
 ## Delete industry
 
 ```shell
-curl --location --request DELETE "https://dev.linsta.nl/v1/admin/industry/:industry_name" \
+curl --location --request DELETE "https://api.linsta.nl/v1/admin/industry/:industry_name" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1169,7 +1169,7 @@ This endpoint updates industry.
 
 ### HTTP Request
 
-`DELETE https://dev.linsta.nl/v1/admin/industry/:industry_name`
+`DELETE https://api.linsta.nl/v1/admin/industry/:industry_name`
 
 ### Query Parameters
 
@@ -1180,7 +1180,7 @@ This endpoint updates industry.
 ## Get industry
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/industries" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/industries" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1226,12 +1226,12 @@ This endpoint retrieves all available industries.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/industries`
+`GET https://api.linsta.nl/v1/admin/industries`
 
 ## Serach category and steps
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/category" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/category" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1311,7 +1311,7 @@ This endpoint find category and steps via industry keyword.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/category`
+`POST https://api.linsta.nl/v1/admin/category`
 
 ### Body Parameters
 
@@ -1322,7 +1322,7 @@ This endpoint find category and steps via industry keyword.
 ## Get Admins
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin" \
+curl --location --request GET "https://api.linsta.nl/v1/admin" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1349,12 +1349,12 @@ This endpoint retrieve list of admins.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin`
+`GET https://api.linsta.nl/v1/admin`
 
 ## Get regions
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/regions" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/regions" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1396,12 +1396,12 @@ This endpoint retrieve list of regions.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/regions`
+`GET https://api.linsta.nl/v1/admin/regions`
 
 ## Add region
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/geo/add-region" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/geo/add-region" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1415,7 +1415,7 @@ This endpoint add region.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/geo/add-region`
+`POST https://api.linsta.nl/v1/admin/geo/add-region`
 
 ### Body Parameters
 
@@ -1428,7 +1428,7 @@ This endpoint add region.
 ## Update region visibility
 
 ```shell
-curl --location --request PUT "https://dev.linsta.nl/v1/admin/geo/region-visibility/:regionId" \
+curl --location --request PUT "https://api.linsta.nl/v1/admin/geo/region-visibility/:regionId" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1442,7 +1442,7 @@ This endpoint update the visibility of a region (provincie)
 
 ### HTTP Request
 
-`PUT https://dev.linsta.nl/v1/admin/geo/region-visibility/:regionId`
+`PUT https://api.linsta.nl/v1/admin/geo/region-visibility/:regionId`
 
 ### Body Parameters
 
@@ -1454,7 +1454,7 @@ This endpoint update the visibility of a region (provincie)
 ## Create KB article
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/kb/create" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/kb/create" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1468,7 +1468,7 @@ This endpoint update the visibility of a region (provincie)
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/kb/create`
+`POST https://api.linsta.nl/v1/admin/kb/create`
 
 ### Body Parameters
 
@@ -1482,7 +1482,7 @@ This endpoint update the visibility of a region (provincie)
 ## Get KB articles
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/view-kb" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/view-kb" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1518,7 +1518,7 @@ This endpoint update the visibility of a region (provincie)
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/view-kb`
+`GET https://api.linsta.nl/v1/admin/view-kb`
 
 ### Query Parameters
 
@@ -1530,7 +1530,7 @@ This endpoint update the visibility of a region (provincie)
 ## Get KB categories
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/view/kb-categories" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/view/kb-categories" \
   -H "Authorization: Bearer jsonwebtoken"
 ```
 
@@ -1564,7 +1564,7 @@ This endpoint retrieve all the knowledge base categories.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/view/kb-categories`
+`GET https://api.linsta.nl/v1/admin/view/kb-categories`
 
 ### Query Parameters
 
@@ -1575,7 +1575,7 @@ This endpoint retrieve all the knowledge base categories.
 ## Create KB category
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/create/kb-category" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/create/kb-category" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'title=Testing' \
@@ -1593,7 +1593,7 @@ This endpoint create KB category.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/create/kb-category`
+`GET https://api.linsta.nl/v1/admin/create/kb-category`
 
 ### Body Parameters
 
@@ -1606,7 +1606,7 @@ This endpoint create KB category.
 ## Edit KB article
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/edit/kb/:kb_id" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/edit/kb/:kb_id" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'title=Testing' \
@@ -1625,7 +1625,7 @@ This endpoint edit a KB article.
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/edit/kb/:kb_id`
+`POST https://api.linsta.nl/v1/admin/edit/kb/:kb_id`
 
 ### Body Parameters
 
@@ -1640,7 +1640,7 @@ This endpoint edit a KB article.
 ## Get KB category infomation
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/view/kb-category/:category_id" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/view/kb-category/:category_id" \
   -H "Authorization: Bearer jsonwebtoken" 
 ```
 
@@ -1664,7 +1664,7 @@ This endpoint returns more category infomation.
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/view/kb-category/:category_id`
+`GET https://api.linsta.nl/v1/admin/view/kb-category/:category_id`
 
 ### Body Parameters
 
@@ -1675,7 +1675,7 @@ This endpoint returns more category infomation.
 ## Edit KB category infomation
 
 ```shell
-curl --location --request PUT "https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id" \
+curl --location --request PUT "https://api.linsta.nl/v1/admin/edit/kb-category/:category_id" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'title=Great enterprise business.' \
@@ -1693,7 +1693,7 @@ This endpoint updates kb category infomation
 
 ### HTTP Request
 
-`PUT https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id`
+`PUT https://api.linsta.nl/v1/admin/edit/kb-category/:category_id`
 
 ### Body Parameters
 
@@ -1707,7 +1707,7 @@ This endpoint updates kb category infomation
 ## Delete KB article
 
 ```shell
-curl --location --request DELETE "https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id" \
+curl --location --request DELETE "https://api.linsta.nl/v1/admin/edit/kb-category/:category_id" \
   -H "Authorization: Bearer jsonwebtoken" 
 ```
 
@@ -1721,7 +1721,7 @@ This endpoint removes single knowledge base article
 
 ### HTTP Request
 
-`DELETE https://dev.linsta.nl/v1/admin/edit/kb-category/:category_id`
+`DELETE https://api.linsta.nl/v1/admin/edit/kb-category/:category_id`
 
 ### Body Parameters
 
@@ -1732,7 +1732,7 @@ This endpoint removes single knowledge base article
 ## Get applications
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/view/applications" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/view/applications" \
   -H "Authorization: Bearer jsonwebtoken" 
 ```
 
@@ -1763,7 +1763,7 @@ This endpoint retrieves job applications
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/view/applications`
+`GET https://api.linsta.nl/v1/admin/view/applications`
 
 ### Query Parameters
 
@@ -1774,7 +1774,7 @@ This endpoint retrieves job applications
 ## Get Feeedback
 
 ```shell
-curl --location --request GET "https://dev.linsta.nl/v1/admin/view/feedback" \
+curl --location --request GET "https://api.linsta.nl/v1/admin/view/feedback" \
   -H "Authorization: Bearer jsonwebtoken" 
 ```
 
@@ -1808,7 +1808,7 @@ This endpoint retrieves feedback
 
 ### HTTP Request
 
-`GET https://dev.linsta.nl/v1/admin/view/feedback`
+`GET https://api.linsta.nl/v1/admin/view/feedback`
 
 ### Query Parameters
 
@@ -1820,7 +1820,7 @@ This endpoint retrieves feedback
 ## Delete image
 
 ```shell
-curl --location --request POST "https://dev.linsta.nl/v1/admin/delete-image/:image_name" \
+curl --location --request POST "https://api.linsta.nl/v1/admin/delete-image/:image_name" \
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'reason=Bad image' \
@@ -1836,7 +1836,7 @@ This endpoint removes a image and sends the reason
 
 ### HTTP Request
 
-`POST https://dev.linsta.nl/v1/admin/delete-image/:image_name`
+`POST https://api.linsta.nl/v1/admin/delete-image/:image_name`
 
 ### Body Parameters
 
@@ -1844,3 +1844,600 @@ This endpoint removes a image and sends the reason
 | ---------- | --------- | ------------------------------ |
 | image_name | undefined | Image name to remove           |
 | reason     | undefined | Reason for image to be removed |
+
+# Analytics
+
+## View analytics
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/analytics" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "reviews": {
+        "posted": 0
+    },
+    "vacancies": {
+        "posted": 0
+    },
+    "gig": {
+        "professionals": {
+            "selected": 0
+        },
+        "total": 1
+    },
+    "pitches": {
+        "avgPrice": "2750.00",
+        "sent": 2
+    },
+    "paying": {
+        "total": 1
+    },
+    "status": 200
+} 
+```
+
+This endpoint view analytics.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/analytics`
+
+### Query Parameters
+
+| Parameter | Default   | Description                |
+| --------- | --------- | -------------------------- |
+| region    | undefined | String of type of region   |
+| industry  | undefined | String of type of industry |
+
+## View Gigs
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/analytics/gig" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "gigs": [
+        {
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    52.17905700000001,
+                    5.27834
+                ]
+            },
+            "matchedProfessionals": [
+                {
+                    "gigStatus": 0,
+                    "hasReplied": false,
+                    "_id": "5e4303ec8cf85ee10b5e038b",
+                    "professional": "5e3dc07d8a59d476a83f761e",
+                    "industry": "Aannemer",
+                    "gig": "5e4303ec8cf85ee10b5e038a",
+                    "createdAt": "2020-02-11T19:43:40.261Z",
+                    "updatedAt": "2020-02-11T19:43:40.261Z",
+                    "__v": 0
+                },
+                {
+                    "gigStatus": 2,
+                    "hasReplied": false,
+                    "_id": "5e4303ec8cf85ee10b5e038c",
+                    "professional": "5e3db32c6389b859f05b598b",
+                    "industry": "Aannemer",
+                    "gig": "5e4303ec8cf85ee10b5e038a",
+                    "createdAt": "2020-02-11T19:43:40.261Z",
+                    "updatedAt": "2020-02-11T19:47:28.348Z",
+                    "__v": 0
+                }
+            ],
+            "approvedProfessionals": [
+                {
+                    "gigStatus": 2,
+                    "hasReplied": false,
+                    "_id": "5e4303ec8cf85ee10b5e038c",
+                    "professional": "5e3db32c6389b859f05b598b",
+                    "industry": "Aannemer",
+                    "gig": "5e4303ec8cf85ee10b5e038a",
+                    "createdAt": "2020-02-11T19:43:40.261Z",
+                    "updatedAt": "2020-02-11T19:47:28.348Z",
+                    "__v": 0
+                }
+            ],
+            "invitedProfessionals": [],
+            "declinedProfessionals": [],
+            "underReviewProfessionals": [],
+            "hasBeenUpdated": false,
+            "pitches": [
+                "5e4304668cf85ee10b5e0390"
+            ],
+            "_id": "5e4303ec8cf85ee10b5e038a",
+            "title": "Aan - & uitbouw",
+            "zipCode": "3762KG",
+            "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt augue at nunc elementum egestas. Sed id enim sit amet mi porttitor vehicula quis vel nunc. Suspendisse vel fermentum leo. In ex mi, bibendum eget nisl vel, euismod sodales ligula. Quisque posuere nisi dolor, sit amet dapibus purus fringilla ac. Nam nec erat gravida, aliquet urna nec, imperdiet tellus. Duis et consequat urna. Curabitur sed laoreet ante. Nulla quis dignissim elit. Aenean at diam posuere, posuere ex faucibus, imperdiet sem. Vivamus consectetur a nibh interdum semper. Mauris sit amet euismod nibh, sit amet viverra nibh. Nulla facilisi. Vestibulum quis tempus diam.",
+            "projectPictures": [],
+            "industry": "Aannemer",
+            "consumer": "5e3dbfac8a59d476a83f7618",
+            "budgetIndication": "€ 5000 - € 10.000",
+            "city": "Soest",
+            "steps": [
+                {
+                    "select": [],
+                    "radio": [],
+                    "checkbox": [],
+                    "value": "100",
+                    "fieldType": "other",
+                    "title": "Wat is de grootte van de aan- of uitbouw in m2? ",
+                    "ref": "5e2efe83123cb54da3be0d6d"
+                },
+                {
+                    "select": [],
+                    "radio": [
+                        "Nee"
+                    ],
+                    "checkbox": [],
+                    "fieldType": "radio",
+                    "title": "Is een fundering noodzakelijk?",
+                    "ref": "5e2efe83123cb54da3be0d6e"
+                },
+                {
+                    "select": [],
+                    "radio": [
+                        "Plat dak"
+                    ],
+                    "checkbox": [],
+                    "fieldType": "radio",
+                    "title": "Welk soort dak wil je laten plaatsen?",
+                    "ref": "5e2efe83123cb54da3be0d70"
+                },
+                {
+                    "select": [],
+                    "radio": [],
+                    "checkbox": [],
+                    "value": "6",
+                    "fieldType": "other",
+                    "title": "Hoeveel ramen wil je laten plaatsen?",
+                    "ref": "5e2efe83123cb54da3be0d71"
+                },
+                {
+                    "select": [],
+                    "radio": [],
+                    "checkbox": [],
+                    "value": "2",
+                    "fieldType": "other",
+                    "title": "Hoeveel deuren wil je laten plaatsen?",
+                    "ref": "5e2efe83123cb54da3be0d72"
+                },
+                {
+                    "select": [],
+                    "radio": [
+                        "Nee"
+                    ],
+                    "checkbox": [],
+                    "fieldType": "radio",
+                    "title": "Heb je al bouwtekeningen?",
+                    "ref": "5e2efe83123cb54da3be0d74"
+                },
+                {
+                    "select": [],
+                    "radio": [
+                        "Nee - niet nodig"
+                    ],
+                    "checkbox": [],
+                    "fieldType": "radio",
+                    "title": "Heb je al een bouwvergunning?",
+                    "ref": "5e2efe83123cb54da3be0d75"
+                }
+            ],
+            "createdAt": "2020-02-11T19:43:40.269Z",
+            "updatedAt": "2020-02-11T19:47:28.353Z",
+            "orderNumber": 8403869585,
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint view analytics gigs.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/analytics/gig`
+
+### Query Parameters
+
+| Parameter | Default   | Description                                  |
+| --------- | --------- | -------------------------------------------- |
+| date      | undefined | String of date supported (newest and oldest) |
+| budget    | undefined | String of the budget (must in database)      |
+
+## View Pitches
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/analytics/pitches" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "pitches": [
+        {
+            "_id": "5e4304668cf85ee10b5e0390",
+            "owner": {
+                "_id": "5e3db2c86389b859f05b5989",
+                "businessProfile": {
+                    "_id": "5e3db32c6389b859f05b598b",
+                    "companyName": "Pro-Ject Klussenbedrijf"
+                }
+            },
+            "gig": "5e4303ec8cf85ee10b5e038a",
+            "price": 5500,
+            "description": "Fusce euismod erat a ligula convallis lacinia. Nunc eu scelerisque arcu, vel mollis odio. Nulla eleifend mi erat, quis finibus purus condimentum ac. Donec ipsum orci, faucibus tristique rutrum sed, vehicula sed augue. Cras non enim eros. Maecenas bibendum lacinia luctus. Donec nisi lorem, mollis sed odio at, cursus luctus augue. Suspendisse porttitor tempor dolor, vel faucibus sapien fermentum at. Maecenas tempus nunc urna, quis sodales ipsum sagittis sed. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hendrerit massa nec ipsum rhoncus viverra. Nunc bibendum a lacus sed dapibus. Ut accumsan tempor neque, nec eleifend enim viverra non. Vivamus tristique sapien porttitor augue ornare commodo. Etiam suscipit sapien in mauris semper, id commodo nisi finibus.",
+            "gigProfessional": "5e4303ec8cf85ee10b5e038c",
+            "createdAt": "2020-02-11T19:45:42.228Z",
+            "updatedAt": "2020-02-11T19:45:42.228Z",
+            "pitchId": 7935188203,
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint view analytics pitches.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/analytics/pitches`
+
+### Query Parameters
+
+| Parameter | Default   | Description                                  |
+| --------- | --------- | -------------------------------------------- |
+| date      | undefined | String of date supported (newest and oldest) |
+| priceFrom | undefined | String of priceFrom                          |
+| priceTo   | undefined | String of priceTo                            |
+
+## View Professionals
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/analytics/professionals" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "professionals": [
+        {
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    52.14384099999999,
+                    5.5695808
+                ]
+            },
+            "industries": [
+                "Aannemer"
+            ],
+            "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+            "pageVisible": false,
+            "accountLevel": "basic",
+            "reviews": [],
+            "activeSubscription": true,
+            "_id": "5e3db32c6389b859f05b598b",
+            "KvkNumber": "12345678",
+            "companyName": "Pro-Ject Klussenbedrijf",
+            "companyCity": "Barneveld",
+            "companyAddress": "Straat 1",
+            "companyZipCode": "3771ZD",
+            "region": "GE",
+            "firstName": "Pieter",
+            "lastName": "Klus",
+            "phone": "0181729191",
+            "projectPictures": [],
+            "pageSlug": "pro-ject-klussenbedrijf",
+            "createdAt": "2020-02-07T18:57:48.488Z",
+            "updatedAt": "2020-02-07T21:08:04.707Z",
+            "avgReviews": 0,
+            "__v": 0,
+            "subscriptionLevel": "Professional"
+        },
+        {
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    52.1742004,
+                    5.2848865
+                ]
+            },
+            "industries": [
+                "Aannemer"
+            ],
+            "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+            "pageVisible": false,
+            "accountLevel": "basic",
+            "reviews": [],
+            "activeSubscription": false,
+            "_id": "5e3dc07d8a59d476a83f761e",
+            "KvkNumber": "12345678",
+            "companyName": "Vakman 3",
+            "companyCity": "Soest",
+            "companyAddress": "Straat 1",
+            "companyZipCode": "3762XK",
+            "region": "UT",
+            "firstName": "Vakman",
+            "lastName": "MatchTest",
+            "phone": "0181729191",
+            "projectPictures": [],
+            "pageSlug": "vakman-3",
+            "createdAt": "2020-02-07T19:54:37.293Z",
+            "updatedAt": "2020-02-07T19:54:37.293Z",
+            "avgReviews": 0,
+            "__v": 0
+        },
+        {
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    52.25661729999999,
+                    6.2995715
+                ]
+            },
+            "industries": [
+                "Aannemer"
+            ],
+            "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+            "pageVisible": false,
+            "accountLevel": "basic",
+            "reviews": [],
+            "activeSubscription": false,
+            "_id": "5e3dc5908a59d476a83f7620",
+            "KvkNumber": "12345678",
+            "companyName": "Aap B.V.",
+            "companyCity": "Apenhuizen",
+            "companyAddress": "Straat 1",
+            "companyZipCode": "7437SB",
+            "region": "Overste",
+            "firstName": "Test",
+            "lastName": "Aap",
+            "phone": "0612345678",
+            "projectPictures": [],
+            "pageSlug": "aap-bv",
+            "createdAt": "2020-02-07T20:16:16.292Z",
+            "updatedAt": "2020-02-07T20:16:16.292Z",
+            "avgReviews": 0,
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint view analytics professionals.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/analytics/professionals`
+
+### Query Parameters
+
+| Parameter          | Default   | Description                                  |
+| ------------------ | --------- | -------------------------------------------- |
+| createdAt          | undefined | String of date supported (newest and oldest) |
+| avgReviews         | undefined | String of avgReviews                         |
+| activeSubscription | undefined | String of true or false                      |
+
+## View users
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/analytics/users" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "user": [
+        {
+            "profileCompleted": true,
+            "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+            "role": "admin",
+            "_id": "5dc16583e67a00461058ae2d",
+            "accountType": "admin",
+            "createdAt": "2019-11-05T12:05:23.127Z",
+            "userProfile": {
+                "_id": "5dc16727e67a00461058ae2e",
+                "firstName": "Admin",
+                "lastName": "Account",
+                "street": "Straat 1",
+                "zipCode": "1234AB",
+                "city": "Brielle",
+                "phone": "0612345678",
+                "createdAt": "2019-11-05T12:12:23.675Z",
+                "updatedAt": "2019-11-12T16:08:19.847Z",
+                "__v": 0
+            }
+        },
+        {
+            "profileCompleted": true,
+            "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+            "role": "admin",
+            "_id": "5dc431ddf522236be10ca75b",
+            "accountType": "admin",
+            "createdAt": "2019-11-07T15:01:49.084Z",
+            "userProfile": {
+                "_id": "5dc43209f522236be10ca75c",
+                "firstName": "Amy",
+                "lastName": "Anderson",
+                "street": "Van Galenstraat 5",
+                "zipCode": "3071AG",
+                "city": "Rotterdam",
+                "phone": "0612345678",
+                "createdAt": "2019-11-07T15:02:33.083Z",
+                "updatedAt": "2019-11-07T15:02:33.083Z",
+                "__v": 0
+            }
+        },
+        {
+            "profileCompleted": true,
+            "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+            "role": "admin",
+            "_id": "5dc58ab69f2c053aeb04ed01",
+            "accountType": "admin",
+            "createdAt": "2019-11-08T15:33:10.288Z",
+            "userProfile": {
+                "_id": "5dc43209f522236be10ca85c",
+                "firstName": "Wieger",
+                "lastName": "van Ooijen",
+                "street": "Straat 1",
+                "zipCode": "1234AB",
+                "city": "Leusden",
+                "phone": "0612345678",
+                "createdAt": "2019-11-07T15:02:33.083Z",
+                "updatedAt": "2019-11-08T15:41:15.305Z",
+                "__v": 0
+            }
+        },
+        {
+            "profileCompleted": true,
+            "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1579191185/linsta/vakmannen/portfolio/project-afbeelding-65882723.jpg",
+            "role": "admin",
+            "_id": "5dd569fd84501322bb9bcb07",
+            "accountType": "developer",
+            "createdAt": "2019-11-20T16:29:49.967Z",
+            "userProfile": {
+                "_id": "5dd56a4f84501322bb9bcb08",
+                "firstName": "Nathan",
+                "lastName": "Henniges",
+                "street": " Wielingen 8",
+                "zipCode": "3232HH",
+                "city": "Brielle",
+                "phone": "6084666280",
+                "createdAt": "2019-11-20T16:31:11.154Z",
+                "updatedAt": "2019-11-20T16:31:11.154Z",
+                "__v": 0
+            }
+        },
+        {
+            "profileCompleted": true,
+            "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+            "role": "admin",
+            "_id": "5dd570d1873225ab198e47d4",
+            "accountType": "developer",
+            "createdAt": "2019-11-20T16:58:57.568Z",
+            "userProfile": {
+                "_id": "5dd570f7873225ab198e47d5",
+                "firstName": "Stephan",
+                "lastName": "Moerman",
+                "street": "Wielingen 8",
+                "zipCode": "3232HH",
+                "city": "Brielle",
+                "phone": "0612434923",
+                "createdAt": "2019-11-20T16:59:35.240Z",
+                "updatedAt": "2019-11-20T16:59:35.240Z",
+                "__v": 0
+            }
+        },
+        {
+            "profileCompleted": true,
+            "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+            "role": "consument",
+            "_id": "5de1a0ee54d8b4755fec5e35",
+            "accountType": "consument",
+            "createdAt": "2019-11-29T22:51:26.995Z",
+            "userProfile": {
+                "_id": "5de1a10054d8b4755fec5e36",
+                "firstName": "Admin",
+                "lastName": "Name",
+                "street": "Street 1",
+                "zipCode": "1234 AB",
+                "city": "Amsterdam",
+                "phone": "06712212746217",
+                "createdAt": "2019-11-29T22:51:44.032Z",
+                "updatedAt": "2019-11-29T22:51:44.032Z",
+                "__v": 0
+            }
+        },
+        {
+            "profileCompleted": true,
+            "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+            "role": "vakman",
+            "_id": "5e3db2c86389b859f05b5989",
+            "accountType": "vakman",
+            "createdAt": "2020-02-07T18:56:08.688Z"
+        },
+        {
+            "profileCompleted": true,
+            "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+            "role": "consument",
+            "_id": "5e3dbfac8a59d476a83f7618",
+            "accountType": "consument",
+            "createdAt": "2020-02-07T19:51:08.419Z",
+            "userProfile": {
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        52.1171789,
+                        5.404344
+                    ]
+                },
+                "_id": "5e3dbfc58a59d476a83f7619",
+                "firstName": "Jan",
+                "lastName": "Jansen",
+                "street": "straatnaam 1",
+                "zipCode": "3832CK",
+                "region": "UT",
+                "city": "Amersfoort",
+                "phone": "06123456789",
+                "createdAt": "2020-02-07T19:51:33.978Z",
+                "updatedAt": "2020-02-07T19:51:33.978Z",
+                "__v": 0
+            }
+        },
+        {
+            "profileCompleted": true,
+            "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+            "role": "vakman",
+            "_id": "5e3dc02f8a59d476a83f761d",
+            "accountType": "vakman",
+            "createdAt": "2020-02-07T19:53:19.584Z"
+        },
+        {
+            "profileCompleted": true,
+            "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+            "role": "vakman",
+            "_id": "5e3dc56a8a59d476a83f761f",
+            "accountType": "vakman",
+            "createdAt": "2020-02-07T20:15:38.156Z"
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint view analytics users.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/analytics/users`
+
+### Query Parameters
+
+| Parameter        | Default   | Description                                  |
+| ---------------- | --------- | -------------------------------------------- |
+| profileCompleted | undefined | String of profileCompleted                   |
+| accountType      | undefined | String of accountType                         |
+| createdAt        | undefined | String of date supported (newest and oldest) |
