@@ -2628,3 +2628,82 @@ This endpoint shows all the leads in a array.
 ### HTTP Request
 
 `GET https://api.linsta.nl/v1/lead/view-all`
+
+# Utility
+
+## View budgets
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/utility/budgets" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "budgets": [
+        {
+            "_id": "5e1fb0506ccd161000c8690f",
+            "budget": "€ 1500 of minder",
+            "__v": 0
+        },
+        {
+            "_id": "5e1fb0656ccd161000c86910",
+            "budget": "€ 1500 - € 5000",
+            "__v": 0
+        },
+        {
+            "_id": "5e1fb06b6ccd161000c86911",
+            "budget": "€ 5000 - € 10.000",
+            "__v": 0
+        },
+        {
+            "_id": "5e1fb0726ccd161000c86912",
+            "budget": "€ 10.000 of meer",
+            "__v": 0
+        },
+        {
+            "_id": "5e1fb0776ccd161000c86913",
+            "budget": "Nader te bepalen",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint retrieve available budgets.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/utility/budgets`
+
+## Add feedback
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/utility/feedback" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'description=This is great.' \
+  --data-urlencode 'feedbackType=Good' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "message": "Feedback sent.", "status": 200 }
+```
+
+This endpoint retrieve available budgets.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/utility/feedback`
+
+### Body Parameters
+
+| Parameter    | Default   | Description                |
+| ------------ | --------- | -------------------------- |
+| description  | undefined | String of the description  |
+| feedbackType | undefined | String of the service name |
