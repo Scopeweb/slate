@@ -2838,3 +2838,55 @@ This endpoint login the user and returns a jwt token.
 | Parameter | Default   | Description         |
 | --------- | --------- | ------------------- |
 | email     | undefined | String of the email |
+
+## Complate Profile
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/complete-profile" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'companyZipCode=3232HE' 
+  --data-urlencode 'email=nathan@scopeweb.nl' 
+  --data-urlencode 'industries=Aannemer,Elektricien,Metselaar,Verhuisbedrijf' 
+  --data-urlencode 'KvKnumber=12345678' 
+  --data-urlencode 'companyName=Vakman' 
+  --data-urlencode 'companyCity=IJsselmuiden' 
+  --data-urlencode 'firstName=Test' 
+  --data-urlencode 'lastName=Vakman 1'
+  --data-urlencode 'phone=0612345678'
+  --data-urlencode 'street=Straat 1'
+  --data-urlencode 'zipCode=3544 CL'
+  --data-urlencode 'city=Woonplaats'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+      "success": "Uw Linsta account is succesvol geactiveerd",
+      status: 200
+}
+```
+
+This endpoint login the user and returns a jwt token.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/complete-profile`
+
+### Body Parameters
+
+| Parameter      | Default   | Description                                                 |
+| -------------- | --------- | ----------------------------------------------------------- |
+| companyZipCode | undefined | If account type is vakman use string companyZipCode         |
+| industries     | undefined | If account type is vakman use string industries             |
+| KvKnumber      | undefined | If account type is vakman use string KvKnumber              |
+| companyName    | undefined | If account type is vakman use string companyName            |
+| companyCity    | undefined | If account type is vakman use string companyCity            |
+| companyAddress | undefined | If account type is vakman use string companyAddress         |
+| firstName      | undefined | If account type is vakman or consument use string firstName |
+| lastName       | undefined | If account type is vakman or consument use string lastName  |
+| phone          | undefined | If account type is vakman or consument  use string phone    |
+| street         | undefined | If account type is consument use string street              |
+| zipCode        | undefined | If account type is consument use string zipCode             |
+| city           | undefined | If account type is consument use string city                |
