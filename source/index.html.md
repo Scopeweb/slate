@@ -2962,3 +2962,42 @@ This endpoint process password reset token.
 | Parameter | Default   | Description                    |
 | --------- | --------- | ------------------------------ |
 | token     | undefined | String of password reset token |
+
+# Helpdesk
+
+## Create ticket
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/admin/helpdesk/create-ticket" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'type=Critical issue' \
+  --data-urlencode 'tags=text' \
+  --data-urlencode 'subject=Testing helpdesk ticket' \
+  --data-urlencode 'issue=EZ Clap'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Support ticket #37935274 created.",
+  "status": 200
+}
+```
+
+
+This endpoint creates a new category.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/admin/helpdesk/create-ticket`
+
+### Body Parameters
+
+| Parameter | Default   | Description           |
+| --------- | --------- | --------------------- |
+| type      | undefined | String of type        |
+| tags      | undefined | String array of tags  |
+| subject   | undefined | String of the subject |
+| issue     | undefined | String of the issue   |
