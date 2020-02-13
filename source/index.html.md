@@ -3942,3 +3942,178 @@ This endpoint update business email.
 | Parameter | Default   | Description         |
 | --------- | --------- | ------------------- |
 | email     | undefined | String of new email |
+
+## Update business visibility
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/business/page-settings" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'pageVisible=false' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Page visibility has been updated",
+  "status": 200
+}
+```
+
+This endpoint update business visibility.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/business/page-settings`
+
+### Body Parameters
+
+| Parameter   | Default   | Description             |
+| ----------- | --------- | ----------------------- |
+| pageVisible | undefined | String of true or false |
+
+## Post a job
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/business/list-a-job" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'functionTitle=Test' \
+  --data-urlencode 'functionProfile=Aannemer' \
+  --data-urlencode 'jobDescription=Adding this vacature to test the update functionality.' \
+  --data-urlencode 'phoneNumber=0123456789' \
+  --data-urlencode 'hours=40' \
+  --data-urlencode 'location=3071BG' \
+  --data-urlencode 'salaryIndication=2485 - 2970' \
+  --data-urlencode 'startDate=2020-01-13T22:57:00.000Z' \
+  --data-urlencode 'endDate=ISODate("2020-01-27T22:44:00.000Z")' \
+  --data-urlencode 'contactEmail=example@example.nl' \
+  --data-urlencode 'contactTel=0123456789' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Job has been posted",
+  "status": 200
+}
+```
+
+This endpoint alllows the business owner to list a job.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/business/list-a-job`
+
+### Body Parameters
+
+| Parameter            | Default   | Description                    |
+| -------------------- | --------- | ------------------------------ |
+| functionTitle        | undefined | String of functionTitle        |
+| functionProfile      | undefined | String of functionProfile      |
+| jobDescription       | undefined | String of jobDescription       |
+| phoneNumber          | undefined | String of phoneNumber          |
+| hours                | undefined | String of hours                |
+| location             | undefined | String of location             |
+| salaryIndication     | undefined | String of salaryIndication     |
+| salaryPer            | undefined | String of salaryPer            |
+| industryName         | undefined | String of industryName         |
+| distanceFromLocation | undefined | String of distanceFromLocation |
+| totalFTE             | undefined | String of totalFTE             |
+| experienceLevel      | undefined | String of experienceLevel      |
+| startDateSelect      | undefined | String of startDateSelect      |
+| startDate            | undefined | String of startDate            |
+| endDate              | undefined | String of endDate              |
+| jobDuration          | undefined | String of jobDuration          |
+| sameContact          | undefined | String of sameContact          |
+| contactEmail         | undefined | String of contactEmail         |
+| contactTel           | undefined | String of contactTel           |
+
+## Update Job
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/business/edit-job/:job_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'functionTitle=Test' \
+  --data-urlencode 'functionProfile=Aannemer' \
+  --data-urlencode 'jobDescription=Adding this vacature to test the update functionality.' \
+  --data-urlencode 'phoneNumber=0123456789' \
+  --data-urlencode 'hours=40' \
+  --data-urlencode 'location=3071BG' \
+  --data-urlencode 'salaryIndication=2485 - 2970' \
+  --data-urlencode 'startDate=2020-01-13T22:57:00.000Z' \
+  --data-urlencode 'endDate=ISODate("2020-01-27T22:44:00.000Z")' \
+  --data-urlencode 'contactEmail=example@example.nl' \
+  --data-urlencode 'contactTel=0123456789' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Job has been posted",
+  "status": 200
+}
+```
+
+This endpoint alllows the business owner to edit list a job.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/business/edit-job/:job_id`
+
+### Body Parameters
+
+| Parameter            | Default   | Description                     |
+| -------------------- | --------- | ------------------------------- |
+| job_id               | undefined | String MongoDB Object ID of job |
+| functionTitle        | undefined | String of functionTitle         |
+| functionProfile      | undefined | String of functionProfile       |
+| jobDescription       | undefined | String of jobDescription        |
+| phoneNumber          | undefined | String of phoneNumber           |
+| hours                | undefined | String of hours                 |
+| location             | undefined | String of location              |
+| salaryIndication     | undefined | String of salaryIndication      |
+| salaryPer            | undefined | String of salaryPer             |
+| industryName         | undefined | String of industryName          |
+| distanceFromLocation | undefined | String of distanceFromLocation  |
+| totalFTE             | undefined | String of totalFTE              |
+| experienceLevel      | undefined | String of experienceLevel       |
+| startDateSelect      | undefined | String of startDateSelect       |
+| startDate            | undefined | String of startDate             |
+| endDate              | undefined | String of endDate               |
+| jobDuration          | undefined | String of jobDuration           |
+| sameContact          | undefined | String of sameContact           |
+| contactEmail         | undefined | String of contactEmail          |
+| contactTel           | undefined | String of contactTel            |
+
+## Delete Job
+
+```shell
+curl --location --request DELETE "https://api.linsta.nl/v1/business/delete-job/:job_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Deleted job",
+  "status": 200
+}
+```
+
+This endpoint alllows the business owner to delete a job
+
+### HTTP Request
+
+`DELETE https://api.linsta.nl/v1/business/delete-job/:job_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                     |
+| --------- | --------- | ------------------------------- |
+| job_id    | undefined | String MongoDB Object ID of job |
