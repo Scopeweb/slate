@@ -3308,7 +3308,7 @@ This endpoint retrieve ticket by its ID.
 
 `GET https://api.linsta.nl/v1/helpdesk/admin/view-tickets/:ticket_id`
 
-### Query Parameters
+### Body Parameters
 
 | Parameter | Default   | Description                     |
 | --------- | --------- | ------------------------------- |
@@ -3329,15 +3329,187 @@ curl --location --request POST "https://api.linsta.nl/v1/helpdesk/admin/assign-t
 { "messaage": "Ticket has been asigned", "status": 200 }
 ```
 
-This endpoint assign ticket to someone
+This endpoint assign ticket to someone.
 
 ### HTTP Request
 
 `POST https://api.linsta.nl/v1/helpdesk/admin/assign-ticket/:ticket_id`
 
-### Query Parameters
+### Body Parameters
 
 | Parameter | Default   | Description                     |
 | --------- | --------- | ------------------------------- |
 | ticket_id | undefined | MongoDB Object ID of the ticket |
 | assignee  | undefined | Who assignee of the ticket      |
+
+## ReAssign ticket
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/helpdesk/admin/reassign-ticket/:ticket_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'assignee=5e19e9eba95d3e3721b39da1'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "messaage": "Ticket has been reassign", "status": 200 }
+```
+
+This endpoint reassign ticket to someone.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/helpdesk/admin/reassign-ticket/:ticket_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                     |
+| --------- | --------- | ------------------------------- |
+| ticket_id | undefined | MongoDB Object ID of the ticket |
+| assignee  | undefined | Who assignee of the ticket      |
+
+## Archive ticket
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/helpdesk/admin/archive-ticket/:ticket_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "messaage": "Ticket has been reassign", "status": 200 }
+```
+
+This endpoint archive ticket.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/helpdesk/admin/archive-ticket/:ticket_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                     |
+| --------- | --------- | ------------------------------- |
+| ticket_id | undefined | MongoDB Object ID of the ticket |
+
+## View Archive tickets
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/helpdesk/admin/archive-tickets" \
+  -H "Authorization: Bearer jsonwebtoken
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "tickets": [
+        {
+            "deleted": false,
+            "status": 3,
+            "comments": [],
+            "notes": [],
+            "attachments": [],
+            "history": [
+                {
+                    "_id": "5e1e54e3a666f656c540e997",
+                    "action": "assigned",
+                    "owner": "5dc16583e67a00461058ae2d",
+                    "date": "2020-01-14T23:55:15.645Z",
+                    "__v": 0
+                }
+            ],
+            "_id": "5e1e50af0452dd30df4fcd59",
+            "owner": {
+                "_id": "5dd569fd84501322bb9bcb07",
+                "userProfile": {
+                    "_id": "5dd56a4f84501322bb9bcb08",
+                    "firstName": "Nathan",
+                    "lastName": "Henniges"
+                }
+            },
+            "type": "Critical issue",
+            "subject": "Testing helpdesk ticket",
+            "issue": "EZ Clap",
+            "createdAt": "2020-01-14T23:37:19.815Z",
+            "updatedAt": "2020-01-14T23:55:15.667Z",
+            "ticketId": 37935274,
+            "__v": 1,
+            "assignee": {
+                "_id": "5dc58ab69f2c053aeb04ed01",
+                "userProfile": {
+                    "_id": "5dc43209f522236be10ca85c",
+                    "firstName": "Wieger",
+                    "lastName": "van Ooijen"
+                }
+            }
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint archive tickets.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/helpdesk/admin/archive-tickets`
+
+## Admin Comment on ticket
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/helpdesk/admin/:ticket_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'comment=Hello World' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "messaage": "Admin Comment was added", "status": 200 }
+```
+
+This endpoint adds a admin comment to ticket.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/helpdesk/admin/:ticket_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                     |
+| --------- | --------- | ------------------------------- |
+| ticket_id | undefined | MongoDB Object ID of the ticket |
+| comment   | undefined | String of comment               |
+
+## User Comment on ticket
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/helpdesk/user/:ticket_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'comment=Hello World' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "messaage": "Comment was added", "status": 200 }
+```
+
+This endpoint adds a comment to ticket.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/helpdesk/user/:ticket_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                     |
+| --------- | --------- | ------------------------------- |
+| ticket_id | undefined | MongoDB Object ID of the ticket |
+| comment   | undefined | String of comment               |
