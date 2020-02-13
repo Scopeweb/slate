@@ -2827,7 +2827,7 @@ curl --location --request GET "https://api.linsta.nl/v1/auth/login-2fa/resend" \
 }
 ```
 
-This endpoint login the user and returns a jwt token.
+This endpoint resends a two factor token to the user email
 
 ### HTTP Request
 
@@ -2868,7 +2868,7 @@ curl --location --request GET "https://api.linsta.nl/v1/auth/complete-profile" \
 }
 ```
 
-This endpoint login the user and returns a jwt token.
+This endpoint complates the user or business profile.
 
 ### HTTP Request
 
@@ -2895,9 +2895,7 @@ This endpoint login the user and returns a jwt token.
 
 ```shell
 curl --location --request GET "https://api.linsta.nl/v1/auth/verify-token" \
-  -H "Authorization: Bearer jsonwebtoken" \
-  -H 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'companyZipCode=3232HE' 
+  -H "Authorization: Bearer jsonwebtoken"
 ```
 
 >The above command returns JSON structured like this:
@@ -2910,8 +2908,57 @@ curl --location --request GET "https://api.linsta.nl/v1/auth/verify-token" \
 }
 ```
 
-This endpoint login the user and returns a jwt token.
+This endpoint verify token and returns a new one.
 
 ### HTTP Request
 
 `POST https://api.linsta.nl/v1/auth/verify-token`
+
+## Forgot Password
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/forgot-password" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'email=nathan@scopeweb.nl' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "success": "We hebben een e-mail verstuurd naar ${req.body.email} met verdere instructies",
+  "status": 200
+}
+```
+
+This endpoint login the user and returns a jwt token.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/forgot-password`
+
+| Parameter | Default   | Description     |
+| --------- | --------- | --------------- |
+| email     | undefined | String of email |
+
+## Reset Password with Token
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/forgot-password/:token" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "success": "Uw nieuwe wachtwoord is opgeslagen", "status": 200 }
+```
+
+This endpoint process password reset token.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/forgot-password/:token`
+
+| Parameter | Default   | Description                    |
+| --------- | --------- | ------------------------------ |
+| token     | undefined | String of password reset token |
