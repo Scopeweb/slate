@@ -3558,3 +3558,41 @@ This endpoint creates a new ticket.
 | Parameter | Default   | Description            |
 | --------- | --------- | ---------------------- |
 | orderId   | undefined | String of the order id |
+
+# Vacancy
+
+## Apply for job
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/vacancy/apply/:vacancy_id " \
+  -H "Authorization: Bearer jsonwebtoken" \
+  --form 'name=Nathan Henniges' \
+  --form 'email=nathan@scopeweb.nl' \
+  --form 'photo=base64s' \
+  --form 'motivation=Hello World' \
+  --form 'phoneNumber=Hello World' \
+  --form 'file=@/C:/Users/scopeweb B.V/Downloads/resumeFile.pdf'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "messaage": "Uw sollicitatie is in goede orde ontvangen", "status": 200 }
+```
+
+This endpoint apply for job
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/vacancy/apply/:vacancy_id `
+
+### Body Parameters
+
+| Parameter   | Default   | Description                      |
+| ----------- | --------- | -------------------------------- |
+| vacancy_id  | undefined | MongoDB Object ID of the vacancy |
+| name        | undefined | String of name                   |
+| email       | undefined | String of email                  |
+| photo       | undefined | Base64 of file photo             |
+| motivation  | undefined | String of motivation             |
+| phoneNumber | undefined | String of phoneNumber            |
