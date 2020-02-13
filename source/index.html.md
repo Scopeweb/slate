@@ -3314,3 +3314,30 @@ This endpoint retrieve ticket by its ID.
 | --------- | --------- | ------------------------------- |
 | ticket_id | undefined | MongoDB Object ID of the ticket |
 
+## Assign ticket
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/helpdesk/admin/assign-ticket/:ticket_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'assignee=5e19e9eba95d3e3721b39da1'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "messaage": "Ticket has been asigned", "status": 200 }
+```
+
+This endpoint assign ticket to someone
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/helpdesk/admin/assign-ticket/:ticket_id`
+
+### Query Parameters
+
+| Parameter | Default   | Description                     |
+| --------- | --------- | ------------------------------- |
+| ticket_id | undefined | MongoDB Object ID of the ticket |
+| assignee  | undefined | Who assignee of the ticket      |
