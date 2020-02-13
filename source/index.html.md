@@ -4117,3 +4117,53 @@ This endpoint alllows the business owner to delete a job
 | Parameter | Default   | Description                     |
 | --------- | --------- | ------------------------------- |
 | job_id    | undefined | String MongoDB Object ID of job |
+
+## View Job
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view-job/:job_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "job": {
+        "contactDetails": {
+            "email": ""
+        },
+        "comments": [],
+        "_id": "5e165e7d6bed775a52c5d039",
+        "functionTitle": "Test",
+        "functionProfile": "Aannemer",
+        "jobDescription": "Adding this vacature to test the update functionality.",
+        "salaryIndication": "2485 - 2970",
+        "totalFTE": "Specifieke periode",
+        "experienceLevel": "MBO",
+        "startDate": "2020-01-13T22:57:00.000Z",
+        "sameContact": false,
+        "businessProfile": "5e09b6027521a16081b1b389",
+        "createdAt": "2020-01-08T22:58:05.214Z",
+        "updatedAt": "2020-01-18T15:36:44.534Z",
+        "__v": 0,
+        "location": "3071BG",
+        "endDate": "2020-04-30T14:26:00.000Z",
+        "salaryPer": "per maand",
+        "hours": "40"
+    },
+    "status": 200
+}
+```
+
+This endpoint alllows the view of a job.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view-job/:job_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                     |
+| --------- | --------- | ------------------------------- |
+| job_id    | undefined | String MongoDB Object ID of job |
