@@ -3564,7 +3564,7 @@ This endpoint creates a new ticket.
 ## Apply for job
 
 ```shell
-curl --location --request POST "https://api.linsta.nl/v1/vacancy/apply/:vacancy_id " \
+curl --location --request POST "https://api.linsta.nl/v1/vacancy/apply/:vacancy_id" \
   -H "Authorization: Bearer jsonwebtoken" \
   --form 'name=Nathan Henniges' \
   --form 'email=nathan@scopeweb.nl' \
@@ -3584,7 +3584,7 @@ This endpoint apply for job
 
 ### HTTP Request
 
-`POST https://api.linsta.nl/v1/vacancy/apply/:vacancy_id `
+`POST https://api.linsta.nl/v1/vacancy/apply/:vacancy_id`
 
 ### Body Parameters
 
@@ -3596,3 +3596,152 @@ This endpoint apply for job
 | photo       | undefined | Base64 of file photo             |
 | motivation  | undefined | String of motivation             |
 | phoneNumber | undefined | String of phoneNumber            |
+
+# Business
+
+## Get business
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/:companyId" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "business": {
+        "location": {
+            "type": "Point",
+            "coordinates": [
+                51.8961104,
+                4.1722762
+            ]
+        },
+        "industries": [],
+        "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+        "pageVisible": false,
+        "accountLevel": "basic",
+        "reviews": [],
+        "activeSubscription": false,
+        "_id": "5e19ebb45afd28391470b121",
+        "KvkNumber": "12345678",
+        "companyName": "Aannemersbedrijf De Jong B.V.",
+        "companyAddress": "Vakman 1",
+        "companyZipCode": "3232HE",
+        "region": "ZH",
+        "firstName": "Jan",
+        "lastName": "De Vakman",
+        "phone": "0612345678",
+        "pageSlug": "aannemersbedrijf-de-jong-bv",
+        "createdAt": "2020-01-11T15:37:24.126Z",
+        "updatedAt": "2020-01-11T15:37:24.126Z",
+        "__v": 0,
+        "projectPictures": []
+    },
+    "jobs": [],
+    "status": 200
+}
+```
+
+This endpoint get business infomation by its id.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/:companyId`
+
+### Body Parameters
+
+| Parameter | Default   | Description                      |
+| --------- | --------- | -------------------------------- |
+| companyId | undefined | MongoDB Object ID of the company |
+
+## Get business for pages
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/page/:pageSlug" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "business": {
+        "location": {
+            "type": "Point",
+            "coordinates": [
+                51.8961104,
+                4.1722762
+            ]
+        },
+        "industries": [],
+        "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+        "pageVisible": false,
+        "accountLevel": "basic",
+        "reviews": [],
+        "activeSubscription": false,
+        "_id": "5e19ebb45afd28391470b121",
+        "KvkNumber": "12345678",
+        "companyName": "Aannemersbedrijf De Jong B.V.",
+        "companyAddress": "Vakman 1",
+        "companyZipCode": "3232HE",
+        "region": "ZH",
+        "firstName": "Jan",
+        "lastName": "De Vakman",
+        "phone": "0612345678",
+        "pageSlug": "aannemersbedrijf-de-jong-bv",
+        "createdAt": "2020-01-11T15:37:24.126Z",
+        "updatedAt": "2020-01-11T15:37:24.126Z",
+        "__v": 0,
+        "projectPictures": []
+    },
+    "jobs": [],
+    "status": 200
+}
+```
+
+This endpoint get business infomation by its id.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/page/:pageSlug`
+
+### Body Parameters
+
+| Parameter | Default   | Description        |
+| --------- | --------- | ------------------ |
+| pageSlug  | undefined | String of pageSlug |
+
+## Get business industries
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/profile/industries" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "business": {
+        "industries": [
+            "Aannemer"
+        ],
+        "_id": "5e3db32c6389b859f05b598b"
+    },
+    "status": 200
+}
+```
+
+This endpoint retrieve industries active for a business.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/profile/industries`
+
+### Body Parameters
+
+| Parameter | Default   | Description        |
+| --------- | --------- | ------------------ |
+| pageSlug  | undefined | String of pageSlug |
