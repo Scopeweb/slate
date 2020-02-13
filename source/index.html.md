@@ -2962,3 +2962,554 @@ This endpoint process password reset token.
 | Parameter | Default   | Description                    |
 | --------- | --------- | ------------------------------ |
 | token     | undefined | String of password reset token |
+
+# Helpdesk
+
+## Create ticket
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/helpdesk/create-ticket" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'type=Critical issue' \
+  --data-urlencode 'tags=test,test 2,test 3' \
+  --data-urlencode 'subject=Testing helpdesk ticket' \
+  --data-urlencode 'issue=EZ Clap'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Support ticket #37935274 created.",
+  "status": 200
+}
+```
+
+
+This endpoint creates a new ticket.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/helpdesk/create-ticket`
+
+### Body Parameters
+
+| Parameter | Default   | Description           |
+| --------- | --------- | --------------------- |
+| type      | undefined | String of type        |
+| tags      | undefined | String array of tags  |
+| subject   | undefined | String of the subject |
+| issue     | undefined | String of the issue   |
+
+## Edit ticket
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/helpdesk/edit-ticket" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'ticketId=Critical issue' \
+  --data-urlencode 'issue=EZ Clap'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Ticket has been updated",
+  "status": 200
+}
+```
+
+
+This endpoint edit a ticket by its ID.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/helpdesk/edit-ticket`
+
+### Body Parameters
+
+| Parameter | Default   | Description         |
+| --------- | --------- | ------------------- |
+| ticketId  | undefined | String of ID        |
+| issue     | undefined | String of the issue |
+
+## Delete ticket
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/helpdesk/delete-ticket" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'ticketId=Critical issue' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Ticket has been deleted",
+  "status": 200
+}
+```
+
+
+This endpoint mark ticket as delete.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/helpdesk/delete-ticket`
+
+### Body Parameters
+
+| Parameter | Default   | Description  |
+| --------- | --------- | ------------ |
+| ticketId  | undefined | String of ID |
+
+
+## List tickets (user)
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/helpdesk/user/view-tickets" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "_count": 1,
+    "tickets": [
+        {
+            "deleted": false,
+            "status": 1,
+            "comments": [],
+            "notes": [],
+            "attachments": [],
+            "history": [
+                "5e1e54e3a666f656c540e997"
+            ],
+            "_id": "5e1e50af0452dd30df4fcd59",
+            "owner": "5dd569fd84501322bb9bcb07",
+            "type": "Critical issue",
+            "subject": "Testing helpdesk ticket",
+            "issue": "EZ Clap",
+            "createdAt": "2020-01-14T23:37:19.815Z",
+            "updatedAt": "2020-01-14T23:55:15.667Z",
+            "ticketId": 37935274,
+            "__v": 1,
+            "assignee": "5dc58ab69f2c053aeb04ed01"
+        }
+    ],
+    "status": 200
+}
+```
+
+
+This endpoint retrieve all user tickets.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/helpdesk/user/view-tickets`
+
+## List tickets (admin)
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/helpdesk/admin/view-tickets" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "_count": 2,
+    "tickets": [
+        {
+            "deleted": false,
+            "status": 1,
+            "comments": [
+                {
+                    "deleted": false,
+                    "_id": "5df2a66784e0106d29bf8cb5",
+                    "owner": "5dd569fd84501322bb9bcb07",
+                    "date": "2019-12-12T20:43:19.254Z",
+                    "comment": "Hello World",
+                    "__v": 0
+                }
+            ],
+            "notes": [],
+            "attachments": [],
+            "history": [
+                {
+                    "_id": "5df12af9a3a4262782032ba2",
+                    "action": "assigned",
+                    "owner": "5dd569fd84501322bb9bcb07",
+                    "date": "2019-12-11T17:44:25.163Z",
+                    "__v": 0
+                }
+            ],
+            "_id": "5deffaaf4b4947368d238f4d",
+            "owner": {
+                "role": "consument",
+                "_id": "5e0fae88f756286cbe61f36a",
+                "userProfile": {
+                    "_id": "5e0fc4771c5efe6969f10e44",
+                    "firstName": "User",
+                    "lastName": "Demo"
+                }
+            },
+            "type": "Critical issue",
+            "subject": "Testing helpdesk ticket",
+            "issue": "EZ Clap",
+            "createdAt": "2019-12-10T20:06:07.468Z",
+            "updatedAt": "2019-12-12T20:44:35.872Z",
+            "ticketId": 54496259,
+            "__v": 77,
+            "assignee": {
+                "role": "admin",
+                "_id": "5dd569fd84501322bb9bcb07",
+                "userProfile": {
+                    "_id": "5dd56a4f84501322bb9bcb08",
+                    "firstName": "Nathan",
+                    "lastName": "Henniges"
+                }
+            }
+        },
+        {
+            "deleted": false,
+            "status": 1,
+            "comments": [],
+            "notes": [],
+            "attachments": [],
+            "history": [
+                {
+                    "_id": "5e1e54e3a666f656c540e997",
+                    "action": "assigned",
+                    "owner": "5dc16583e67a00461058ae2d",
+                    "date": "2020-01-14T23:55:15.645Z",
+                    "__v": 0
+                }
+            ],
+            "_id": "5e1e50af0452dd30df4fcd59",
+            "owner": {
+                "role": "admin",
+                "_id": "5dd569fd84501322bb9bcb07",
+                "userProfile": {
+                    "_id": "5dd56a4f84501322bb9bcb08",
+                    "firstName": "Nathan",
+                    "lastName": "Henniges"
+                }
+            },
+            "type": "Critical issue",
+            "subject": "Testing helpdesk ticket",
+            "issue": "EZ Clap",
+            "createdAt": "2020-01-14T23:37:19.815Z",
+            "updatedAt": "2020-01-14T23:55:15.667Z",
+            "ticketId": 37935274,
+            "__v": 1,
+            "assignee": {
+                "role": "admin",
+                "_id": "5dc58ab69f2c053aeb04ed01",
+                "userProfile": {
+                    "_id": "5dc43209f522236be10ca85c",
+                    "firstName": "Wieger",
+                    "lastName": "van Ooijen"
+                }
+            }
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint retrieve all tickets.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/helpdesk/admin/view-tickets`
+
+### Query Parameters
+
+| Parameter  | Default   | Description                                 |
+| ---------- | --------- | ------------------------------------------- |
+| date       | undefined | String of date supports (newest and oldest) |
+| ticketType | undefined | String of ticketType                        |
+| status     | undefined | String of status                            |
+
+
+## View ticket by id
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/helpdesk/admin/view-tickets/:ticket_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "ticket": {
+        "deleted": false,
+        "status": 1,
+        "comments": [],
+        "notes": [],
+        "attachments": [],
+        "history": [
+            {
+                "_id": "5e1e54e3a666f656c540e997",
+                "action": "assigned",
+                "owner": {
+                    "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+                    "_id": "5dc16583e67a00461058ae2d",
+                    "email": "admin@demo.nl",
+                    "userProfile": {
+                        "_id": "5dc16727e67a00461058ae2e",
+                        "firstName": "Admin",
+                        "lastName": "Account"
+                    }
+                },
+                "date": "2020-01-14T23:55:15.645Z",
+                "__v": 0
+            }
+        ],
+        "_id": "5e1e50af0452dd30df4fcd59",
+        "owner": {
+            "_id": "5dd569fd84501322bb9bcb07",
+            "userProfile": {
+                "_id": "5dd56a4f84501322bb9bcb08",
+                "firstName": "Nathan",
+                "lastName": "Henniges"
+            }
+        },
+        "type": "Critical issue",
+        "subject": "Testing helpdesk ticket",
+        "issue": "EZ Clap",
+        "createdAt": "2020-01-14T23:37:19.815Z",
+        "updatedAt": "2020-01-14T23:55:15.667Z",
+        "ticketId": 37935274,
+        "__v": 1,
+        "assignee": {
+            "_id": "5dc58ab69f2c053aeb04ed01",
+            "userProfile": {
+                "_id": "5dc43209f522236be10ca85c",
+                "firstName": "Wieger",
+                "lastName": "van Ooijen"
+            }
+        }
+    },
+    "status": 200
+}
+```
+
+This endpoint retrieve ticket by its ID.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/helpdesk/admin/view-tickets/:ticket_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                     |
+| --------- | --------- | ------------------------------- |
+| ticket_id | undefined | MongoDB Object ID of the ticket |
+
+## Assign ticket
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/helpdesk/admin/assign-ticket/:ticket_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'assignee=5e19e9eba95d3e3721b39da1'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "messaage": "Ticket has been asigned", "status": 200 }
+```
+
+This endpoint assign ticket to someone.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/helpdesk/admin/assign-ticket/:ticket_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                     |
+| --------- | --------- | ------------------------------- |
+| ticket_id | undefined | MongoDB Object ID of the ticket |
+| assignee  | undefined | Who assignee of the ticket      |
+
+## ReAssign ticket
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/helpdesk/admin/reassign-ticket/:ticket_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'assignee=5e19e9eba95d3e3721b39da1'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "messaage": "Ticket has been reassign", "status": 200 }
+```
+
+This endpoint reassign ticket to someone.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/helpdesk/admin/reassign-ticket/:ticket_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                     |
+| --------- | --------- | ------------------------------- |
+| ticket_id | undefined | MongoDB Object ID of the ticket |
+| assignee  | undefined | Who assignee of the ticket      |
+
+## Archive ticket
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/helpdesk/admin/archive-ticket/:ticket_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "messaage": "Ticket has been reassign", "status": 200 }
+```
+
+This endpoint archive ticket.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/helpdesk/admin/archive-ticket/:ticket_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                     |
+| --------- | --------- | ------------------------------- |
+| ticket_id | undefined | MongoDB Object ID of the ticket |
+
+## View Archive tickets
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/helpdesk/admin/archive-tickets" \
+  -H "Authorization: Bearer jsonwebtoken
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "tickets": [
+        {
+            "deleted": false,
+            "status": 3,
+            "comments": [],
+            "notes": [],
+            "attachments": [],
+            "history": [
+                {
+                    "_id": "5e1e54e3a666f656c540e997",
+                    "action": "assigned",
+                    "owner": "5dc16583e67a00461058ae2d",
+                    "date": "2020-01-14T23:55:15.645Z",
+                    "__v": 0
+                }
+            ],
+            "_id": "5e1e50af0452dd30df4fcd59",
+            "owner": {
+                "_id": "5dd569fd84501322bb9bcb07",
+                "userProfile": {
+                    "_id": "5dd56a4f84501322bb9bcb08",
+                    "firstName": "Nathan",
+                    "lastName": "Henniges"
+                }
+            },
+            "type": "Critical issue",
+            "subject": "Testing helpdesk ticket",
+            "issue": "EZ Clap",
+            "createdAt": "2020-01-14T23:37:19.815Z",
+            "updatedAt": "2020-01-14T23:55:15.667Z",
+            "ticketId": 37935274,
+            "__v": 1,
+            "assignee": {
+                "_id": "5dc58ab69f2c053aeb04ed01",
+                "userProfile": {
+                    "_id": "5dc43209f522236be10ca85c",
+                    "firstName": "Wieger",
+                    "lastName": "van Ooijen"
+                }
+            }
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint archive tickets.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/helpdesk/admin/archive-tickets`
+
+## Admin Comment on ticket
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/helpdesk/admin/:ticket_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'comment=Hello World' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "messaage": "Admin Comment was added", "status": 200 }
+```
+
+This endpoint adds a admin comment to ticket.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/helpdesk/admin/:ticket_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                     |
+| --------- | --------- | ------------------------------- |
+| ticket_id | undefined | MongoDB Object ID of the ticket |
+| comment   | undefined | String of comment               |
+
+## User Comment on ticket
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/helpdesk/user/:ticket_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'comment=Hello World' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "messaage": "Comment was added", "status": 200 }
+```
+
+This endpoint adds a comment to ticket.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/helpdesk/user/:ticket_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                     |
+| --------- | --------- | ------------------------------- |
+| ticket_id | undefined | MongoDB Object ID of the ticket |
+| comment   | undefined | String of comment               |
