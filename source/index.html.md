@@ -3513,3 +3513,48 @@ This endpoint adds a comment to ticket.
 | --------- | --------- | ------------------------------- |
 | ticket_id | undefined | MongoDB Object ID of the ticket |
 | comment   | undefined | String of comment               |
+
+# Order
+
+## Get Status
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/order/status?orderId=" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "order": {
+        "status": "paid",
+        "_id": "5e30689405bdd556a23c8d6e",
+        "orderedBy": "5e05427728248507d762ec88",
+        "orderNumber": "2947186430",
+        "paymentMethod": "iDeal",
+        "price": 640.09,
+        "billingCycle": "yearly",
+        "plan": "Enterprise",
+        "paymentId": "tr_WGWbBt8sbD",
+        "createdAt": "2020-01-28T17:00:07.705Z",
+        "updatedAt": "2020-01-28T17:00:32.498Z",
+        "__v": 0,
+        "orderInvoice": "https://res.cloudinary.com/scope-web-llc/raw/upload/v1580230832/linsta/test/Linsta-factuur-2947186430.pdf"
+    },
+    "status": 200
+}
+```
+
+
+This endpoint creates a new ticket.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/order/status`
+
+### Body Parameters
+
+| Parameter | Default   | Description            |
+| --------- | --------- | ---------------------- |
+| orderId   | undefined | String of the order id |
