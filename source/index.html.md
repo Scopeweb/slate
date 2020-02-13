@@ -3745,3 +3745,200 @@ This endpoint retrieve industries active for a business.
 | Parameter | Default   | Description        |
 | --------- | --------- | ------------------ |
 | pageSlug  | undefined | String of pageSlug |
+
+## Update business
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/business/update" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'KvkNumber=12345678' \
+  --data-urlencode 'companyName=Aannemersbedrijf De Jong B.V.' \
+  --data-urlencode 'companyAddress=Vakman 1' \
+  --data-urlencode 'companyZipCode=3232HE' \
+  --data-urlencode 'firstName=Jan' \
+  --data-urlencode 'lastName=De Vakman' \
+  --data-urlencode 'phone=0612345678' \
+  --data-urlencode 'phone=Vakman 1' \
+  --data-urlencode 'companyDescription=Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.' \
+  --data-urlencode 'companySlogan=Voor elke klus, vakman BV dus' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw Linsta profiel is gewijzigd en opgeslagen",
+  "status": 200
+}
+```
+
+This endpoint update business by id of the user.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/business/update`
+
+### Body Parameters
+
+| Parameter          | Default   | Description                  |
+| ------------------ | --------- | ---------------------------- |
+| KvkNumber          | undefined | String of KvkNumber          |
+| companyName        | undefined | String of companyName        |
+| companyAddress     | undefined | String of companyAddress     |
+| companyZipCode     | undefined | String of companyZipCode     |
+| firstName          | undefined | String of firstName          |
+| lastName           | undefined | String of lastName           |
+| phone              | undefined | String of phone              |
+| companyDescription | undefined | String of companyDescription |
+| companySlogan      | undefined | String of companySlogan      |
+
+## Update business industries
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/business/update-industries" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'industries=test,test2,test3' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw Linsta profiel is gewijzigd en opgeslagen",
+  "status": 200
+}
+```
+
+This endpoint update business industries by id of the user.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/business/update-industries`
+
+### Body Parameters
+
+| Parameter  | Default   | Description                 |
+| ---------- | --------- | --------------------------- |
+| industries | undefined | String of industries with , |
+
+## Update business project picture
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/business/upload-project-picture" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'projectPicture=base64 image' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "image": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/linsta/vakmannen/portfolio/project-afbeelding-487844543.png",
+  "fileName": "project-afbeelding-487844543",
+  "message": "Uw project foto is aan uw persoonlijke pagina toegevoegd",
+  "status": 200
+}
+```
+
+This endpoint update business project picture
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/business/upload-project-picture`
+
+### Body Parameters
+
+| Parameter      | Default   | Description            |
+| -------------- | --------- | ---------------------- |
+| projectPicture | undefined | String of base64 image |
+
+## Update business project picture
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/business/delete-project-picture/:imageId" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw projectfoto is verwijderd op uw persoonlijke pagina",
+  "status": 200
+}
+```
+
+This endpoint delete business project picture.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/business/delete-project-picture/:imageId`
+
+### Body Parameters
+
+| Parameter | Default   | Description            |
+| --------- | --------- | ---------------------- |
+| imageId   | undefined | String of the image id |
+
+## Update business logo
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/business/update-logo" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'companyLogo=base64 image' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw Linsta profiel logo is gewijzigd en opgeslagen",
+  "status": 200
+}
+```
+
+This endpoint update business logo.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/business/update-logo`
+
+### Body Parameters
+
+| Parameter   | Default   | Description                  |
+| ----------- | --------- | ---------------------------- |
+| companyLogo | undefined | String of base 64 logo image |
+
+## Update business email
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/business/update-email" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'email=nathan.henniges@scopeweb.nl' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw e-mailadres is gewijzigd en opgeslagen",
+  "status": 200
+}
+```
+
+This endpoint update business email.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/business/update-email`
+
+### Body Parameters
+
+| Parameter | Default   | Description         |
+| --------- | --------- | ------------------- |
+| email     | undefined | String of new email |
