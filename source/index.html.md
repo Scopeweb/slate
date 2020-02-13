@@ -4167,3 +4167,5 @@ This endpoint alllows the view of a job.
 | Parameter | Default   | Description                     |
 | --------- | --------- | ------------------------------- |
 | job_id    | undefined | String MongoDB Object ID of job |
+
+/view/gigs
