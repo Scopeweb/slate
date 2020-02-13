@@ -2692,7 +2692,7 @@ curl --location --request POST "https://api.linsta.nl/v1/utility/feedback" \
 >The above command returns JSON structured like this:
 
 ```json
-{ "message": "Feedback sent.", "status": 200 }
+{ "message": "Uw feedback is verstuurd", "status": 200 }
 ```
 
 This endpoint adds feedback.
@@ -2707,3 +2707,258 @@ This endpoint adds feedback.
 | ------------ | --------- | -------------------------- |
 | description  | undefined | String of the description  |
 | feedbackType | undefined | String of the service name |
+
+# Auth
+
+## Signup
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/register" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'email=nathan@scopeweb.nl' \
+  --data-urlencode 'password=thisisapassword' \
+  --data-urlencode 'accountType=developer' \
+  --data-urlencode 'role=developer'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "message": "Registration successful.", "status": 200 }
+```
+
+This endpoint creates a new user.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/register`
+
+### Body Parameters
+
+| Parameter   | Default   | Description               |
+| ----------- | --------- | ------------------------- |
+| email       | undefined | String of the email       |
+| password    | undefined | String of the password    |
+| accountType | undefined | String of the accountType |
+| role        | undefined | String of the role        |
+
+## Login
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/login" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'email=nathan@scopeweb.nl' \
+  --data-urlencode 'password=thisisapassword' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDU2OWZkODQ1MDEzMjJiYjliY2IwNyIsImF2YXRhciI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL3Njb3BlLXdlYi1sbGMvaW1hZ2UvdXBsb2FkL3YxNTc5MTkxMTg1L2xpbnN0YS92YWttYW5uZW4vcG9ydGZvbGlvL3Byb2plY3QtYWZiZWVsZGluZy02NTg4MjcyMy5qcGciLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1ODE1MTk4MTYsImV4cCI6MTU4MTU2MzAxNn0.645Mpm9V0sBhepNX0Ij8M0Hh7k7ECKzIDvDUZV6a7G4",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDU2OWZkODQ1MDEzMjJiYjliY2IwNyIsImF2YXRhciI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL3Njb3BlLXdlYi1sbGMvaW1hZ2UvdXBsb2FkL3YxNTc5MTkxMTg1L2xpbnN0YS92YWttYW5uZW4vcG9ydGZvbGlvL3Byb2plY3QtYWZiZWVsZGluZy02NTg4MjcyMy5qcGciLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1ODE1MTk4MTYsImV4cCI6MTU4MTU2MzAxNn0.645Mpm9V0sBhepNX0Ij8M0Hh7k7ECKzIDvDUZV6a7G4",
+    "twoFactor": false,
+    "status": 200
+}
+```
+
+This endpoint login the user and returns a jwt token.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/login`
+
+### Body Parameters
+
+| Parameter | Default   | Description            |
+| --------- | --------- | ---------------------- |
+| email     | undefined | String of the email    |
+| password  | undefined | String of the password |
+
+## Login with Two Factor
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/login-2fa/:token" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDU2OWZkODQ1MDEzMjJiYjliY2IwNyIsImF2YXRhciI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL3Njb3BlLXdlYi1sbGMvaW1hZ2UvdXBsb2FkL3YxNTc5MTkxMTg1L2xpbnN0YS92YWttYW5uZW4vcG9ydGZvbGlvL3Byb2plY3QtYWZiZWVsZGluZy02NTg4MjcyMy5qcGciLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1ODE1MTk4MTYsImV4cCI6MTU4MTU2MzAxNn0.645Mpm9V0sBhepNX0Ij8M0Hh7k7ECKzIDvDUZV6a7G4",
+    "refreshToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDU2OWZkODQ1MDEzMjJiYjliY2IwNyIsImF2YXRhciI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL3Njb3BlLXdlYi1sbGMvaW1hZ2UvdXBsb2FkL3YxNTc5MTkxMTg1L2xpbnN0YS92YWttYW5uZW4vcG9ydGZvbGlvL3Byb2plY3QtYWZiZWVsZGluZy02NTg4MjcyMy5qcGciLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1ODE1MTk4MTYsImV4cCI6MTU4MTU2MzAxNn0.645Mpm9V0sBhepNX0Ij8M0Hh7k7ECKzIDvDUZV6a7G4",
+    "twoFactor": true,
+    "status": 200
+}
+```
+
+This endpoint login the user and returns a jwt token.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/login-2fa/:token`
+
+### Body Parameters
+
+| Parameter | Default   | Description                   |
+| --------- | --------- | ----------------------------- |
+| token     | undefined | String of the two factor code |
+
+
+## Resend Two Factor
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/login-2fa/resend" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'email=nathan@scopeweb.nl' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Two Factor token has been sent to your email.",
+  "twoFactor": true,
+  "status": 200
+}
+```
+
+This endpoint resends a two factor token to the user email
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/login-2fa/resend`
+
+### Body Parameters
+
+| Parameter | Default   | Description         |
+| --------- | --------- | ------------------- |
+| email     | undefined | String of the email |
+
+## Complate Profile
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/complete-profile" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'companyZipCode=3232HE' 
+  --data-urlencode 'email=nathan@scopeweb.nl' 
+  --data-urlencode 'industries=Aannemer,Elektricien,Metselaar,Verhuisbedrijf' 
+  --data-urlencode 'KvKnumber=12345678' 
+  --data-urlencode 'companyName=Vakman' 
+  --data-urlencode 'companyCity=IJsselmuiden' 
+  --data-urlencode 'firstName=Test' 
+  --data-urlencode 'lastName=Vakman 1'
+  --data-urlencode 'phone=0612345678'
+  --data-urlencode 'street=Straat 1'
+  --data-urlencode 'zipCode=3544 CL'
+  --data-urlencode 'city=Woonplaats'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+      "success": "Uw Linsta account is succesvol geactiveerd",
+      status: 200
+}
+```
+
+This endpoint complates the user or business profile.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/complete-profile`
+
+### Body Parameters
+
+| Parameter      | Default   | Description                                                 |
+| -------------- | --------- | ----------------------------------------------------------- |
+| companyZipCode | undefined | If account type is vakman use string companyZipCode         |
+| industries     | undefined | If account type is vakman use string industries             |
+| KvKnumber      | undefined | If account type is vakman use string KvKnumber              |
+| companyName    | undefined | If account type is vakman use string companyName            |
+| companyCity    | undefined | If account type is vakman use string companyCity            |
+| companyAddress | undefined | If account type is vakman use string companyAddress         |
+| firstName      | undefined | If account type is vakman or consument use string firstName |
+| lastName       | undefined | If account type is vakman or consument use string lastName  |
+| phone          | undefined | If account type is vakman or consument  use string phone    |
+| street         | undefined | If account type is consument use string street              |
+| zipCode        | undefined | If account type is consument use string zipCode             |
+| city           | undefined | If account type is consument use string city                |
+
+## Verify Token
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/verify-token" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDU2OWZkODQ1MDEzMjJiYjliY2IwNyIsImF2YXRhciI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL3Njb3BlLXdlYi1sbGMvaW1hZ2UvdXBsb2FkL3YxNTc5MTkxMTg1L2xpbnN0YS92YWttYW5uZW4vcG9ydGZvbGlvL3Byb2plY3QtYWZiZWVsZGluZy02NTg4MjcyMy5qcGciLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1ODE1NDY1ODUsImV4cCI6MTU4MTYzMjk4NX0.-04ZyxTDT1A0rjdOxrF8Pizigbqfv-Jp4jfKHTp2RSo",
+    "expiresIn": "2020-02-13T22:29:45.272Z",
+    "status": 200
+}
+```
+
+This endpoint verify token and returns a new one.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/verify-token`
+
+## Forgot Password
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/forgot-password" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'email=nathan@scopeweb.nl' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "success": "We hebben een e-mail verstuurd naar ${req.body.email} met verdere instructies",
+  "status": 200
+}
+```
+
+This endpoint login the user and returns a jwt token.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/forgot-password`
+
+| Parameter | Default   | Description     |
+| --------- | --------- | --------------- |
+| email     | undefined | String of email |
+
+## Reset Password with Token
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/auth/forgot-password/:token" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "success": "Uw nieuwe wachtwoord is opgeslagen", "status": 200 }
+```
+
+This endpoint process password reset token.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/auth/forgot-password/:token`
+
+| Parameter | Default   | Description                    |
+| --------- | --------- | ------------------------------ |
+| token     | undefined | String of password reset token |
