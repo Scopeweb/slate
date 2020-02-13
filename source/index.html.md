@@ -2972,7 +2972,7 @@ curl --location --request POST "https://api.linsta.nl/v1/admin/helpdesk/create-t
   -H "Authorization: Bearer jsonwebtoken" \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'type=Critical issue' \
-  --data-urlencode 'tags=text' \
+  --data-urlencode 'tags=test,test 2,test 3' \
   --data-urlencode 'subject=Testing helpdesk ticket' \
   --data-urlencode 'issue=EZ Clap'
 ```
@@ -2987,7 +2987,7 @@ curl --location --request POST "https://api.linsta.nl/v1/admin/helpdesk/create-t
 ```
 
 
-This endpoint creates a new category.
+This endpoint creates a new ticket.
 
 ### HTTP Request
 
@@ -3001,3 +3001,36 @@ This endpoint creates a new category.
 | tags      | undefined | String array of tags  |
 | subject   | undefined | String of the subject |
 | issue     | undefined | String of the issue   |
+
+## Create ticket
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/admin/helpdesk/edit-ticket" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'ticketId=Critical issue' \
+  --data-urlencode 'issue=EZ Clap'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Ticket has been updated",
+  "status": 200
+}
+```
+
+
+This endpoint edit a ticket by its ID.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/admin/helpdesk/edit-ticket`
+
+### Body Parameters
+
+| Parameter | Default   | Description         |
+| --------- | --------- | ------------------- |
+| ticketId  | undefined | String of ID        |
+| issue     | undefined | String of the issue |
