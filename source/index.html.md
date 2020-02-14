@@ -5547,3 +5547,483 @@ This endpoint allows the business owner to view gig by its id.
 ### HTTP Request
 
 `GET https://api.linsta.nl/v1/business/view/gigs/:gig_id`
+
+## Send Pitch
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/business/reply/gigs/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'price=1500' \
+  --data-urlencode 'pitch=Give me your money' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw reactie is naar de consument verstuurd.",
+  "status": 200
+}
+```
+
+This endpoint allows the business to send a pitch to a gig.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/business/reply/gigs/:gig_id`
+
+### Query Parameters
+
+| Parameter | Default   | Description         |
+| --------- | --------- | ------------------- |
+| price     | undefined | String of the price |
+| pitch     | undefined | String of the pitch |
+
+## Decline Gig
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/business/decline/gig/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "You have declined the gig.",
+  "status": 200
+}
+```
+
+This endpoint allows the business to decline a gig.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/business/decline/gig/:gig_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                         |
+| --------- | --------- | ----------------------------------- |
+| gig_id    | undefined | String MongoDB Object ID of the gig |
+
+## View pitches
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/pitches" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "pitches": [
+        {
+            "_id": "5e42d8e3b79ec91f3ac63679",
+            "owner": {
+                "_id": "5e05427728248507d762ec88",
+                "businessProfile": {
+                    "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+                    "_id": "5e09b6027521a16081b1b389",
+                    "companyName": "Vakman",
+                    "firstName": "Test",
+                    "lastName": "Vakman"
+                }
+            },
+            "gig": {
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        51.8975292,
+                        4.1721361
+                    ]
+                },
+                "matchedProfessionals": [],
+                "approvedProfessionals": [
+                    "5e42d8bcb79ec91f3ac63675"
+                ],
+                "invitedProfessionals": [],
+                "declinedProfessionals": [
+                    "5e42d8bcb79ec91f3ac63676",
+                    "5e42d8bcb79ec91f3ac63677",
+                    "5e42d8bcb79ec91f3ac63678"
+                ],
+                "underReviewProfessionals": [],
+                "hasBeenUpdated": false,
+                "pitches": [
+                    "5e42d8e3b79ec91f3ac63679"
+                ],
+                "_id": "5e42d8bbb79ec91f3ac63674",
+                "title": "Aan - & uitbouw",
+                "zipCode": "3232HB",
+                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum lorem nulla, vitae ultrices nisi elementum id. Nullam at sagittis nisi. Morbi pharetra risus a nunc posuere, vel porttitor dui commodo. Suspendisse malesuada leo ut tristique facilisis. Aenean commodo sit amet ex a tristique. Mauris tempus pharetra urna lobortis sollicitudin. Sed et congue nulla. Donec accumsan interdum aliquam. Nulla vel viverra nisi, nec auctor eros. Ut varius leo ut condimentum bibendum. Aliquam vehicula cursus egestas. Maecenas diam odio, sodales id pharetra sed, fermentum sit amet risus. Integer rutrum aliquet augue et tincidunt. Nulla facilisi. Morbi tincidunt nibh sed posuere blandit. Nullam quis mi eget diam ullamcorper lobortis.",
+                "projectPictures": [],
+                "industry": "Aannemer",
+                "consumer": "5dca7a9a3d5cc53294ff0cff",
+                "budgetIndication": "€ 5000 - € 10.000",
+                "city": "Brielle",
+                "steps": [
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "100",
+                        "fieldType": "other",
+                        "title": "Wat is de grootte van de aan- of uitbouw in m2? ",
+                        "ref": "5e2efe83123cb54da3be0d6d"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Is een fundering noodzakelijk?",
+                        "ref": "5e2efe83123cb54da3be0d6e"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Plat dak"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Welk soort dak wil je laten plaatsen?",
+                        "ref": "5e2efe83123cb54da3be0d70"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "6",
+                        "fieldType": "other",
+                        "title": "Hoeveel ramen wil je laten plaatsen?",
+                        "ref": "5e2efe83123cb54da3be0d71"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "2",
+                        "fieldType": "other",
+                        "title": "Hoeveel deuren wil je laten plaatsen?",
+                        "ref": "5e2efe83123cb54da3be0d72"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al bouwtekeningen?",
+                        "ref": "5e2efe83123cb54da3be0d74"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Ja"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al een bouwvergunning?",
+                        "ref": "5e2efe83123cb54da3be0d75"
+                    }
+                ],
+                "createdAt": "2020-02-11T16:39:24.131Z",
+                "updatedAt": "2020-02-11T19:39:04.786Z",
+                "orderNumber": 7536715943,
+                "__v": 4
+            },
+            "price": 5500,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum lorem nulla, vitae ultrices nisi elementum id. Nullam at sagittis nisi. Morbi pharetra risus a nunc posuere, vel porttitor dui commodo. Suspendisse malesuada leo ut tristique facilisis. Aenean commodo sit amet ex a tristique. Mauris tempus pharetra urna lobortis sollicitudin. Sed et congue nulla. Donec accumsan interdum aliquam. Nulla vel viverra nisi, nec auctor eros. Ut varius leo ut condimentum bibendum. Aliquam vehicula cursus egestas. Maecenas diam odio, sodales id pharetra sed, fermentum sit amet risus. Integer rutrum aliquet augue et tincidunt. Nulla facilisi. Morbi tincidunt nibh sed posuere blandit. Nullam quis mi eget diam ullamcorper lobortis.",
+            "createdAt": "2020-02-11T16:40:03.722Z",
+            "updatedAt": "2020-02-11T16:40:03.722Z",
+            "pitchId": 7486826855,
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint allows the business to view pitchs.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/pitches`
+
+### Body Parameters
+
+| Parameter  | Default   | Description                                                      |
+| ---------- | --------- | ---------------------------------------------------------------- |
+| filterType | undefined | String of filterType supported (newest,oldest, priceHL, priceLH) |
+
+## View jobs
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/jobs" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "jobs": [
+        {
+            "contactDetails": {
+                "email": ""
+            },
+            "comments": [],
+            "_id": "5e165e7d6bed775a52c5d039",
+            "functionTitle": "Test",
+            "functionProfile": "Aannemer",
+            "jobDescription": "Adding this vacature to test the update functionality.",
+            "salaryIndication": "2485 - 2970",
+            "totalFTE": "Specifieke periode",
+            "experienceLevel": "MBO",
+            "startDate": "2020-01-13T22:57:00.000Z",
+            "sameContact": false,
+            "businessProfile": "5e09b6027521a16081b1b389",
+            "createdAt": "2020-01-08T22:58:05.214Z",
+            "updatedAt": "2020-01-18T15:36:44.534Z",
+            "__v": 0,
+            "location": "3071BG",
+            "endDate": "2020-04-30T14:26:00.000Z",
+            "salaryPer": "per maand",
+            "hours": "40"
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint allows the business to view jobs.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/jobs`
+
+## View job by id
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/jobs/:job_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "job": {
+        "contactDetails": {
+            "email": ""
+        },
+        "comments": [],
+        "_id": "5e165e7d6bed775a52c5d039",
+        "functionTitle": "Test",
+        "functionProfile": "Aannemer",
+        "jobDescription": "Adding this vacature to test the update functionality.",
+        "salaryIndication": "2485 - 2970",
+        "totalFTE": "Specifieke periode",
+        "experienceLevel": "MBO",
+        "startDate": "2020-01-13T22:57:00.000Z",
+        "sameContact": false,
+        "businessProfile": "5e09b6027521a16081b1b389",
+        "createdAt": "2020-01-08T22:58:05.214Z",
+        "updatedAt": "2020-01-18T15:36:44.534Z",
+        "__v": 0,
+        "location": "3071BG",
+        "endDate": "2020-04-30T14:26:00.000Z",
+        "salaryPer": "per maand",
+        "hours": "40"
+    },
+    "business": {
+        "location": {
+            "coordinates": [
+                51.8961104,
+                4.1722762
+            ],
+            "type": "Point"
+        },
+        "industries": [
+            "Aannemer",
+            "Elektricien",
+            "Metselaar",
+            "Verhuisbedrijf"
+        ],
+        "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+        "pageVisible": true,
+        "accountLevel": "basic",
+        "reviews": [
+            {
+                "_id": "5e189faf796f851bce1ea314",
+                "reviewer": {
+                    "_id": "5dca7a9a3d5cc53294ff0cff",
+                    "userProfile": {
+                        "_id": "5dca7ab63d5cc53294ff0d00",
+                        "firstName": "Teunis",
+                        "lastName": "van Kerkhof"
+                    }
+                },
+                "company": "5e09b6027521a16081b1b389",
+                "rating": 5,
+                "industry": "Aannemer",
+                "title": "Leverage agile frameworks ",
+                "description": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+                "createdAt": "2020-01-10T16:00:47.591Z",
+                "updatedAt": "2020-01-10T16:00:47.591Z",
+                "__v": 0
+            },
+            {
+                "_id": "5ddc39d93512431f7d33a9da",
+                "reviewer": {
+                    "_id": "5dca7a9a3d5cc53294ff0cff",
+                    "userProfile": {
+                        "_id": "5dca7ab63d5cc53294ff0d00",
+                        "firstName": "Teunis",
+                        "lastName": "van Kerkhof"
+                    }
+                },
+                "company": "5e09b6027521a16081b1b389",
+                "rating": 4.9,
+                "title": "Draagbalk plaatsen",
+                "industry": "Loodgieter",
+                "description": "In contact gekomen met Teunis via Klusnet. Hij was veruit de betrouwbaarste. Een dag later stond hij al bij ons binnen. Duidelijke afspraken gemaakt. Een paar dagen voor dat de klus uitgevoerd werd nam hij weer contact met ons op om de afspraken nog eens door te nemen. Wim en zijn team werken als een razende en binnen een halve dag was de klus geklaard. Kortom een vakman die snel werkt en duidelijke afspraken maakt.",
+                "createdAt": "2019-11-25T20:30:17.660Z",
+                "updatedAt": "2019-11-25T20:30:17.660Z",
+                "__v": 0
+            },
+            {
+                "_id": "5ddc2d8309469d93f9c61e28",
+                "reviewer": {
+                    "_id": "5dd569fd84501322bb9bcb07",
+                    "userProfile": {
+                        "_id": "5dd56a4f84501322bb9bcb08",
+                        "firstName": "Nathan",
+                        "lastName": "Henniges"
+                    }
+                },
+                "company": "5e09b6027521a16081b1b389",
+                "rating": 4.9,
+                "industry": "Glaszetter",
+                "title": "Draagbalk plaatsen",
+                "description": "In contact gekomen met Dhr. De Jong via Klusnet. Hij was veruit de betrouwbaarste. Een dag later stond hij al bij ons binnen. Duidelijke afspraken gemaakt. Een paar dagen voor dat de klus uitgevoerd werd nam hij weer contact met ons op om de afspraken nog eens door te nemen. Wim en zijn team werken als een razende en binnen een halve dag was de klus geklaard. Kortom een vakman die snel werkt en duidelijke afspraken maakt.",
+                "createdAt": "2019-11-25T19:37:39.767Z",
+                "updatedAt": "2019-11-25T19:37:39.767Z",
+                "__v": 0
+            },
+            {
+                "_id": "5dd3ebcf57077ed184631a64",
+                "reviewer": {
+                    "_id": "5dca7a9a3d5cc53294ff0cff",
+                    "userProfile": {
+                        "_id": "5dca7ab63d5cc53294ff0d00",
+                        "firstName": "Teunis",
+                        "lastName": "van Kerkhof"
+                    }
+                },
+                "company": "5e09b6027521a16081b1b389",
+                "rating": 4.4,
+                "industry": "Badkamer specialist",
+                "title": "Buitenkraan plaatsen in achtertuin",
+                "description": "Een vriendelijke, netjes werkenende en snelle vakman. Werkzaamheden al binnen enkele dagen na eerste contact uitgevoerd. Heldere uitleg ná de installatie. Ik beveel deze vakman dan ook van harte aan.",
+                "createdAt": "2019-11-19T13:19:11.996Z",
+                "updatedAt": "2019-11-19T13:19:11.996Z",
+                "__v": 0
+            }
+        ],
+        "activeSubscription": true,
+        "_id": "5e09b6027521a16081b1b389",
+        "KvkNumber": "12345678",
+        "companyName": "Vakman",
+        "companyAddress": "Vakman 1",
+        "companyZipCode": "3232HE",
+        "companyCity": "IJsselmuiden",
+        "region": "XZH",
+        "firstName": "Test",
+        "lastName": "Vakman",
+        "phone": "0612345678",
+        "pageSlug": "testbv",
+        "createdAt": "2019-12-30T08:32:02.129Z",
+        "updatedAt": "2020-01-28T17:00:27.342Z",
+        "__v": 16,
+        "companyDescription": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+        "companySlogan": "Voor elke klus, vakman BV dus",
+        "avgReviewRating": 4.7,
+        "avgReviews": 4.8,
+        "projectPictures": [],
+        "subscriptionLevel": "Enterprise"
+    },
+    "status": 200
+}
+```
+
+This endpoint allows the business to view job by its ID
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/jobs/:job_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                         |
+| --------- | --------- | ----------------------------------- |
+| job_id    | undefined | String MongoDB Object ID of the job |
+
+## View industries
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/industries" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "industries": [
+        "Aannemer",
+        "Badkamer specialist",
+        "Behanger",
+        "Dakspecialist",
+        "Domotica specialist",
+        "Elektricien",
+        "Gevelspecialist",
+        "Glaszetter",
+        "Hovenier",
+        "Installatiebedrijf",
+        "Isolatiebedrijf",
+        "Keukenmonteur",
+        "Klusbedrijf",
+        "Kozijnspecialist",
+        "Loodgieter",
+        "Metselaar",
+        "Ontwerper",
+        "Schilder",
+        "Schoonmaakbedrijf",
+        "Sloopbedrijf",
+        "Stoffeerder",
+        "Stratenmaker",
+        "Stukadoor",
+        "Tegelzetter",
+        "Timmerman",
+        "Verhuisbedrijf",
+        "Vloerspecialist",
+        "Voertuig monteur",
+        "Witgoed reparateur",
+        "Radio button invoer"
+    ],
+    "status": 200
+}
+```
+
+This endpoint allows the business to send a pitch to a gig.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/industries`
