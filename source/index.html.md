@@ -6978,7 +6978,7 @@ This endpoint checks the email is in used.
 ## List created gigs
 
 ```shell
-curl --location --request POST "https://api.linsta.nl/v1/user/gigs/created-gigs" \
+curl --location --request GET "https://api.linsta.nl/v1/user/gigs/created-gigs" \
   -H "Authorization: Bearer jsonwebtoken" 
 ```
 
@@ -6996,7 +6996,7 @@ This endpoint list all created gigs for the user.
 
 ### HTTP Request
 
-`POST https://api.linsta.nl/v1/user/gigs/created-gigs`
+`GET https://api.linsta.nl/v1/user/gigs/created-gigs`
 
 ## Upload image for gig
 
@@ -7027,3 +7027,91 @@ This endpoint allows user upload an image for a new gig
 | Parameter | Default   | Description            |
 | --------- | --------- | ---------------------- |
 | gigImage  | undefined | String of base64 image |
+
+## Get gig
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/gigs/created-gigs/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "error": "De opdracht kon niet gevonden worden",
+  "gig": [],
+  "status": 200
+}
+```
+
+This endpoint view gig infomation by its ID
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/gigs/created-gigs/:gig_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                        |
+| --------- | --------- | ---------------------------------- |
+| gig_id    | undefined | String of MongoDB Object ID of gig |
+
+## Delete Gig
+
+```shell
+curl --location --request DELETE "https://api.linsta.nl/v1/user/gigs/created-gigs/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De opdracht is verwijderd en niet meer zichtbaar",
+  "status": 200
+}
+```
+
+This endpoint view gig infomation by its ID
+
+### HTTP Request
+
+`DELETE https://api.linsta.nl/v1/user/gigs/created-gigs/:gig_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                        |
+| --------- | --------- | ---------------------------------- |
+| gig_id    | undefined | String of MongoDB Object ID of gig |
+
+## Invite Pro to Gig
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/professionals/invite/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'selected=id,id2,id3' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De geselecteerde vakmannen zijn voor uw opdracht uitgenodigd",
+  "status": 200
+}
+```
+
+This endpoint invite pros to a gig.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/gigs/professionals/invite/:gig_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                        |
+| --------- | --------- | ---------------------------------- |
+| gig_id    | undefined | String of MongoDB Object ID of gig |
+| selected  | undefined | Array of selected pros             |
