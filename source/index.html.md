@@ -2325,7 +2325,7 @@ curl --location --request POST "https://api.linsta.nl/v1/analytics/users" \
                 "street": " Wielingen 8",
                 "zipCode": "3232HH",
                 "city": "Brielle",
-                "phone": "6084666280",
+                "phone": "123456789",
                 "createdAt": "2019-11-20T16:31:11.154Z",
                 "updatedAt": "2019-11-20T16:31:11.154Z",
                 "__v": 0
@@ -6115,3 +6115,1199 @@ This endpoint lists bookmarks.
 ### HTTP Request
 
 `GET https://api.linsta.nl/v1/business/list/bookmarks`
+
+# User
+
+## Current User
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/current" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "user": {
+        "profileCompleted": true,
+        "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1579191185/linsta/vakmannen/portfolio/project-afbeelding-65882723.jpg",
+        "role": "admin",
+        "notifications": "daily",
+        "newsletter": false,
+        "twoFactor": false,
+        "bookmarkedBusinesses": [
+            "5dd57df18d4bd0cdd93a1919",
+            "5e19ec5a2156e739680c6e71"
+        ],
+        "_id": "5dd569fd84501322bb9bcb07",
+        "email": "nathan@scopeweb.nl",
+        "accountType": "developer",
+        "lastLogin": "2020-02-14T00:56:29.201Z",
+        "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDU2OWZkODQ1MDEzMjJiYjliY2IwNyIsImF2YXRhciI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL3Njb3BlLXdlYi1sbGMvaW1hZ2UvdXBsb2FkL3YxNTc5MTkxMTg1L2xpbnN0YS92YWttYW5uZW4vcG9ydGZvbGlvL3Byb2plY3QtYWZiZWVsZGluZy02NTg4MjcyMy5qcGciLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1ODE2NDE3ODksImV4cCI6MTU4MTY4NDk4OX0.OOCHcNIOHJWiT1olxL_GMNRplJ21pMk3NYyQQyq9l88",
+        "userProfile": {
+            "_id": "5dd56a4f84501322bb9bcb08",
+            "firstName": "Nathan",
+            "lastName": "Henniges",
+            "street": " Wielingen 8",
+            "zipCode": "3232HH",
+            "city": "Brielle",
+            "phone": "12456789",
+            "createdAt": "2019-11-20T16:31:11.154Z",
+            "updatedAt": "2019-11-20T16:31:11.154Z",
+            "__v": 0
+        },
+        "twoFactorToken": "yXF4m8Q5",
+        "twoFactorTokenExpire": "2019-12-06T18:15:43.030Z"
+    },
+    "status": 200
+}
+```
+
+This endpoint lets you view the current logged in user.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/current`
+
+## View user by ID
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/:user_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "user": {
+        "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1579191185/linsta/vakmannen/portfolio/project-afbeelding-65882723.jpg",
+        "role": "admin",
+        "_id": "5dd569fd84501322bb9bcb07",
+        "email": "nathan@scopeweb.nl",
+        "lastLogin": "2020-02-14T00:56:29.201Z"
+    },
+    "status": 200
+}
+```
+
+This endpoint lets you view via the user id
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/:user_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                          |
+| --------- | --------- | ------------------------------------ |
+| user_id   | undefined | String MongoDB Object ID of the user |
+
+## View reviews by user id
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/:user_id/reviews" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "reviews": [
+        {
+            "_id": "5ddc2d8309469d93f9c61e28",
+            "reviewer": "5dd569fd84501322bb9bcb07",
+            "company": {
+                "location": {
+                    "coordinates": [
+                        51.8961104,
+                        4.1722762
+                    ],
+                    "type": "Point"
+                },
+                "industries": [
+                    "Aannemer",
+                    "Elektricien",
+                    "Metselaar",
+                    "Verhuisbedrijf"
+                ],
+                "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+                "pageVisible": true,
+                "accountLevel": "basic",
+                "reviews": [
+                    "5e189faf796f851bce1ea314",
+                    "5ddc39d93512431f7d33a9da",
+                    "5ddc2d8309469d93f9c61e28",
+                    "5dd3ebcf57077ed184631a64"
+                ],
+                "activeSubscription": true,
+                "_id": "5e09b6027521a16081b1b389",
+                "KvkNumber": "12345678",
+                "companyName": "Vakman",
+                "companyAddress": "Vakman 1",
+                "companyZipCode": "3232HE",
+                "companyCity": "IJsselmuiden",
+                "region": "XZH",
+                "firstName": "Test",
+                "lastName": "Vakman",
+                "phone": "0612345678",
+                "pageSlug": "testbv",
+                "createdAt": "2019-12-30T08:32:02.129Z",
+                "updatedAt": "2020-01-28T17:00:27.342Z",
+                "__v": 16,
+                "companyDescription": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+                "companySlogan": "Voor elke klus, vakman BV dus",
+                "avgReviewRating": 4.7,
+                "avgReviews": 4.8,
+                "projectPictures": [],
+                "subscriptionLevel": "Enterprise"
+            },
+            "rating": 4.9,
+            "industry": "Glaszetter",
+            "title": "Draagbalk plaatsen",
+            "description": "In contact gekomen met Dhr. De Jong via Klusnet. Hij was veruit de betrouwbaarste. Een dag later stond hij al bij ons binnen. Duidelijke afspraken gemaakt. Een paar dagen voor dat de klus uitgevoerd werd nam hij weer contact met ons op om de afspraken nog eens door te nemen. Wim en zijn team werken als een razende en binnen een halve dag was de klus geklaard. Kortom een vakman die snel werkt en duidelijke afspraken maakt.",
+            "createdAt": "2019-11-25T19:37:39.767Z",
+            "updatedAt": "2019-11-25T19:37:39.767Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint returns reviews from the user id.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/:user_id/reviews`
+
+### Body Parameters
+
+| Parameter | Default   | Description                          |
+| --------- | --------- | ------------------------------------ |
+| user_id   | undefined | String MongoDB Object ID of the user |
+
+## Update User
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/update" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'firstName=Nathan' \
+  --data-urlencode 'lastName=Henniges' \
+  --data-urlencode 'phone=1123456789' \
+  --data-urlencode 'street=Wielingen 8' \
+  --data-urlencode 'zipCode=3232HH' \
+  --data-urlencode 'city=Brielle'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Linsta Account profiel wijzigingen zijn opgeslagen",
+  "status": 200
+}
+```
+
+This endpoint update the user.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/update`
+
+### Body Parameters
+
+| Parameter | Default   | Description             |
+| --------- | --------- | ----------------------- |
+| firstName | undefined | String of the firstName |
+| lastName  | undefined | String of the lastName  |
+| phone     | undefined | String of the phone     |
+| street    | undefined | String of the street    |
+| zipCode   | undefined | String of the zipCode   |
+| city      | undefined | String of the city      |
+
+## Update notification preferences
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/update/notifications" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'notifications=true' \
+  --data-urlencode 'newsletter=true' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Linsta Account profiel wijzigingen zijn opgeslagen",
+  "status": 200
+}
+```
+
+This endpoint update users notification preferences
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/update/notifications`
+
+### Body Parameters
+
+| Parameter     | Default   | Description                 |
+| ------------- | --------- | --------------------------- |
+| notifications | undefined | String of the notifications |
+| newsletter    | undefined | String of the newsletter    |
+
+## Update password
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/user/update-password" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'currentPassword=true' \
+  --data-urlencode 'password=true' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw Linsta wachtwoord is gewijzigd",
+  "status": 200
+}
+```
+
+This endpoint update users password.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/user/update-password`
+
+### Body Parameters
+
+| Parameter       | Default   | Description                   |
+| --------------- | --------- | ----------------------------- |
+| currentPassword | undefined | String of the currentPassword |
+| password        | undefined | String of the new password    |
+
+## Delete User
+
+```shell
+curl --location --request DELETE "https://api.linsta.nl/v1/user/:user_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw Linsta wachtwoord is gewijzigd",
+  "status": 200
+}
+```
+
+This endpoint update users password.
+
+### HTTP Request
+
+`DELETE https://api.linsta.nl/v1/user/:user_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                         |
+| --------- | --------- | ----------------------------------- |
+| user_id   | undefined | String of MongoDB Object ID of user |
+
+## Update Two Factor
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/user/update-twofactor" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'status=true' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Updated two factor options.",
+  "status": 200
+}
+```
+
+This endpoint update two factor status.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/user/update-twofactor`
+
+### Body Parameters
+
+| Parameter | Default   | Description                        |
+| --------- | --------- | ---------------------------------- |
+| status    | undefined | String of true or false for status |
+
+## Bookmark a business
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/user/bookmarks/:business_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'bookmarked=true' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De vakman is aan uw favorieten toegevoegd",
+  "status": 200
+}
+```
+
+> Or
+
+```json
+{
+  "message": "De vakman is uit uw favoriete verwijderd",
+  "status": 200
+}
+```
+This endpoint add or remove bookmark business.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/user/bookmarks/:business_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                        |
+| --------- | --------- | ---------------------------------- |
+| status    | undefined | String of true or false for status |
+
+## List bookmarks
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/list/bookmarks" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "bookmarks": [
+        {
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    51.8961104,
+                    4.1722762
+                ]
+            },
+            "industries": [
+                "Aannemer"
+            ],
+            "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+            "pageVisible": false,
+            "accountLevel": "basic",
+            "reviews": [],
+            "activeSubscription": false,
+            "_id": "5e19ec5a2156e739680c6e71",
+            "KvkNumber": "12345678",
+            "companyName": "De Vakman",
+            "companyAddress": "Vakman 1",
+            "companyZipCode": "3232HE",
+            "region": "XZH",
+            "firstName": "Jan",
+            "lastName": "De Vakman",
+            "phone": "0612345678",
+            "pageSlug": "Family-Roofing-BV",
+            "createdAt": "2020-01-11T15:40:10.892Z",
+            "updatedAt": "2020-01-14T23:11:12.819Z",
+            "__v": 1,
+            "companyDescription": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+            "companySlogan": "Your roofing is not heated more.",
+            "avgReviews": 0,
+            "projectPictures": [],
+            "subscriptionLevel": "Basic"
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint list bookmarked businesses
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/list/bookmarks`
+
+## Find category
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/find/category" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "category": [
+        {
+            "keywords": [
+                "Vl",
+                " vloer",
+                " vloerverwarming",
+                " ver",
+                " verwarming",
+                " vloeren",
+                " aannemer"
+            ],
+            "steps": [],
+            "images": [],
+            "_id": "5e20ac15b7de01eed9c8e7cc",
+            "serviceName": "Vloerverwarming plaatsen",
+            "industry": "Aannemer",
+            "createdAt": "2020-01-16T18:31:49.276Z",
+            "updatedAt": "2020-01-16T18:31:49.276Z",
+            "__v": 0
+        },
+        {
+            "keywords": [
+                "Per",
+                " pergola",
+                " tuin",
+                " tuinhuis",
+                " huis",
+                " huisje",
+                " tuinhuisje",
+                " plaatsen",
+                " aannemer"
+            ],
+            "steps": [],
+            "images": [],
+            "_id": "5e20aaaab7de01eed9c8e7c1",
+            "serviceName": "Pergola of Tuinhuis plaatsen",
+            "industry": "Aannemer",
+            "createdAt": "2020-01-16T18:25:46.869Z",
+            "updatedAt": "2020-01-16T18:25:46.869Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint finds a businness category
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/find/category`
+
+### Query Parameters
+
+| Parameter | Default   | Description        |
+| --------- | --------- | ------------------ |
+| industry  | undefined | String of industry |
+
+## Find service
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/service-name/:service_name" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "serviceName": "Dakkapel plaatsen",
+    "keywords": [
+        "Dak",
+        " Dakkapel",
+        " Kapel",
+        " Da",
+        " Dakkapel plaatsen",
+        " Renovatie dakkapel"
+    ],
+    "status": 200
+}
+```
+
+This endpoint finds a businness service
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/service-name/:service_name`
+
+### Body Parameters
+
+| Parameter    | Default   | Description            |
+| ------------ | --------- | ---------------------- |
+| service_name | undefined | String of service_name |
+
+## Update comment on gig
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/place-a-job/update-comment/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'comment=Test' \
+  --data-urlencode 'isChanged=true' \
+  --data-urlencode 'notify=true' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+   "message": "De klus omschrijving is gewijzigd en opgeslagen",
+   "status": 200
+}
+```
+
+This endpoint update a comment on a gig.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/service-name/:service_name`
+
+### Body Parameters
+
+| Parameter | Default   | Description                           |
+| --------- | --------- | ------------------------------------- |
+| gig_id    | undefined | String of MongoDB Object ID of gig_id |
+| comment   | undefined | String of the comment                 |
+| isChanged | undefined | String of the comment                 |
+| notify    | undefined | String of the notify                  |
+
+## Verify location
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/verify-location" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'zipCode=1322 AB' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "city": "Almere",
+    "coordinates": [
+        52.3525621,
+        5.1916845
+    ],
+    "status": 200
+}
+```
+
+This endpoint verify the users zipcode.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/verify-location`
+
+### Body Parameters
+
+| Parameter | Default   | Description           |
+| --------- | --------- | --------------------- |
+| zipCode   | undefined | String of the zipCode |
+
+## Place a job
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/place-a-job " \
+  -H "Authorization: Bearer jsonwebtoken" \
+ --header 'Content-Type: application/json' \
+  --data-raw '{
+    "title": "Test",
+    "zipCode": "Test",
+    "comment": "Test",
+    "email": "Test",
+    "budgetIndication": "Test",
+    "industry": "zipCode",
+    "city": "zipCode",
+    "steps": [
+        {
+            "step": [
+                {
+                    "fieldType": "select",
+                    "inputType": "text",
+                    "label": "Test",
+                    "name": "Test Select",
+                    "placeholder": "",
+                    "isRequired": "true",
+                    "selectValues": [
+                        {
+                            "value": "Test me"
+                        },
+                        {
+                            "value": "Test you"
+                        },
+                        {
+                            "value": "Test"
+                        }
+                    ]
+                },
+                {
+                    "fieldType": "input",
+                    "inputType": "text",
+                    "label": "Test",
+                    "name": "Test",
+                    "placeholder": "Test",
+                    "isRequired": "true"
+                }
+            ]
+        }
+    ]
+}'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw klus is geplaatst. U ontvangt een e-mail ter bevestiging",
+  "status"  : 200
+}
+```
+
+This endpoint allows user to place a job.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/place-a-job`
+
+### Body Parameters
+
+| Parameter        | Default   | Description                    |
+| ---------------- | --------- | ------------------------------ |
+| steps            | undefined | Array of steps                 |
+| title            | undefined | String of the title            |
+| zipCode          | undefined | String of the zipCode          |
+| comment          | undefined | String of the email            |
+| images           | undefined | Array of  images               |
+| industry         | undefined | String of the industry         |
+| budgetIndication | undefined | String of the budgetIndication |
+| city             | undefined | String of the city             |
+
+## Delete Gig
+
+```shell
+curl --location --request DELETE "https://api.linsta.nl/v1/user/gig/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw klus is geplaatst. U ontvangt een e-mail ter bevestiging",
+  "status"  : 200
+}
+```
+
+This endpoint allows user to place a job.
+
+### HTTP Request
+
+`DELETE https://api.linsta.nl/v1/user/gig/:gig_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                      |
+| --------- | --------- | -------------------------------- |
+| steps     | undefined | String MongoDB Object ID  of gig |
+
+## Place Custom Job
+
+```shell
+curl --location --request DELETE "https://api.linsta.nl/v1/user/place-custom-job" \
+  -H "Authorization: Bearer jsonwebtoken" \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'zipCode=3071BG' \
+  --data-urlencode 'title=Aanbouw of opbouw plaatsen' \
+  --data-urlencode 'description=Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante non libero aliquet ultricies in eu erat. Ut id metus mollis, tincidunt ex a, varius augue. Integer posuere dolor non interdum elementum. Nunc eu ullamcorper mi. Nulla gravida, nisi in euismod cursus, lorem ex mattis enim, eu ullamcorper erat enim at tellus. Nulla rhoncus pellentesque placerat. Aenean ante ante, pulvinar ac sapien eget, ornare posuere lacus. Phasellus viverra, nunc ut fermentum venenatis, massa quam placerat leo, eu rutrum orci nisl sit amet ex. In pretium semper odio et faucibus. Sed eleifend nisi nibh, vitae malesuada nisl consectetur quis. Aliquam erat volutpat. Integer maximus lacinia ante a rhoncus.' \
+  --data-urlencode 'firstName=Nathan' \
+  --data-urlencode 'lastName=Henniges' \
+  --data-urlencode 'email=nathan@scopeweb.nl' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De klus is geplaatst. Zodra er een match is ontvang je een email",
+  "status"  : 200
+}
+```
+
+This endpoint allows user to place a job.
+
+### HTTP Request
+
+`DELETE https://api.linsta.nl/v1/user/place-custom-job`
+
+### Body Parameters
+
+| Parameter   | Default   | Description                 |
+| ----------- | --------- | --------------------------- |
+| zipCode     | undefined | String  of the  zipCode     |
+| title       | undefined | String  of the  title       |
+| description | undefined | String  of the  description |
+| firstName   | undefined | String  of the  firstName   |
+| lastName    | undefined | String  of the  lastName    |
+| email       | undefined | String  of the  email       |
+
+## Upload Gig Image
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/upload-gig-image" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'gigImage=base64image' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  imgResult: "https://res.cloudinary.com/scope-web-llc/image/upload/v1579385353/linsta/opdrachten/klus-afbeelding/klus-afbeelding-05559785.jpg",
+  fileName: "klus-afbeelding-05559785",
+  status: 200
+}
+```
+
+This endpoint allows user upload an image for a new gig
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/upload-gig-image`
+
+### Body Parameters
+
+| Parameter | Default   | Description            |
+| --------- | --------- | ---------------------- |
+| gigImage  | undefined | String of base64 image |
+
+## Delete gig image
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/delete-gig-image/:imageId" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "message": "De afbeelding is verwijderd", "status": 200 }
+```
+
+This endpoint allows user delete an image for a new gig
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/delete-gig-image/:imageId`
+
+### Body Parameters
+
+| Parameter  | Default   | Description          |
+| ---------- | --------- | -------------------- |
+| image_name | undefined | String of image name |
+
+## Delete image
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/delete-image/:image_name" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "message": "Image has been deleted", "status": 200 }
+```
+
+This endpoint allows user delete an image
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/delete-image/:image_name`
+
+### Body Parameters
+
+| Parameter  | Default   | Description          |
+| ---------- | --------- | -------------------- |
+| image_name | undefined | String of image name |
+
+## Email check
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/email-check" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'email=nathan@scopeweb.nl' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "message": "User with this email exists", "status": 200 }
+```
+
+This endpoint checks the email is in used.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/email-check`
+
+### Body Parameters
+
+| Parameter | Default   | Description         |
+| --------- | --------- | ------------------- |
+| email     | undefined | String of the email |
+
+## List created gigs
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/gigs/created-gigs" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "error": "Je hebt nog geen opdrachten geplaatst",
+  "gigs": [],
+  "status": 200
+}
+```
+
+This endpoint list all created gigs for the user.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/gigs/created-gigs`
+
+## Upload image for gig
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/gigs/add-image/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'gigImage=base64image' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De afbeelding is aan je klus toegevoegd",
+  "status": 200
+}
+```
+
+This endpoint allows user upload an image for a new gig
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/gigs/add-image/:gig_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description            |
+| --------- | --------- | ---------------------- |
+| gigImage  | undefined | String of base64 image |
+
+## Get gig
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/gigs/created-gigs/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "error": "De opdracht kon niet gevonden worden",
+  "gig": [],
+  "status": 200
+}
+```
+
+This endpoint view gig infomation by its ID
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/gigs/created-gigs/:gig_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                        |
+| --------- | --------- | ---------------------------------- |
+| gig_id    | undefined | String of MongoDB Object ID of gig |
+
+## Delete Gig
+
+```shell
+curl --location --request DELETE "https://api.linsta.nl/v1/user/gigs/created-gigs/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De opdracht is verwijderd en niet meer zichtbaar",
+  "status": 200
+}
+```
+
+This endpoint view gig infomation by its ID
+
+### HTTP Request
+
+`DELETE https://api.linsta.nl/v1/user/gigs/created-gigs/:gig_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                        |
+| --------- | --------- | ---------------------------------- |
+| gig_id    | undefined | String of MongoDB Object ID of gig |
+
+## Invite Pro to Gig
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/professionals/invite/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'selected=id,id2,id3' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De geselecteerde vakmannen zijn voor uw opdracht uitgenodigd",
+  "status": 200
+}
+```
+
+This endpoint invite pros to a gig.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/gigs/professionals/invite/:gig_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                        |
+| --------- | --------- | ---------------------------------- |
+| gig_id    | undefined | String of MongoDB Object ID of gig |
+| selected  | undefined | Array of selected pros             |
+
+## Decline Pro to Gig
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/professionals/decline/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'declinedProfessional=id' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De vakman is uit uw overzicht verwijderd",
+  "status": 200
+}
+```
+
+This endpoint decline pros to a gig.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/gigs/professionals/decline/:gig_id`
+
+### Body Parameters
+
+| Parameter            | Default   | Description                        |
+| -------------------- | --------- | ---------------------------------- |
+| gig_id               | undefined | String of MongoDB Object ID of gig |
+| declinedProfessional | undefined | String of MongoDB Object ID of pro |
+
+## Add review to gig
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/review/business/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'declinedProfessional=id' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Thank you for your review",
+  "status": 200
+}
+```
+
+This endpoint decline pros to a gig.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/gig/review/business/:gig_id`
+
+### Body Parameters
+
+| Parameter   | Default   | Description                        |
+| ----------- | --------- | ---------------------------------- |
+| gig_id      | undefined | String of MongoDB Object ID of gig |
+| rating      | undefined | Number Rating                      |
+| title       | undefined | String of the  title               |
+| description | undefined | String of the  description         |
+
+## Choose Pro
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/professionals/choose/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'professionalId=id' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De vakman is geselecteerd voor uw opdracht",
+  "status": 200
+}
+```
+
+This endpoint allows a user to pick a pitch.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/professionals/choose/:gig_id`
+
+### Body Parameters
+
+| Parameter      | Default   | Description                                 |
+| -------------- | --------- | ------------------------------------------- |
+| gig_id         | undefined | String of MongoDB Object ID of gig          |
+| professionalId | undefined | String of MongoDB Object ID of professional |
+
+## Find KB
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/find/kb" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De vakman is geselecteerd voor uw opdracht",
+  "status": 200
+}
+```
+
+This endpoint serach KB.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/find/kb`
+
+### Body Parameters
+
+| Parameter | Default   | Description      |
+| --------- | --------- | ---------------- |
+| search    | undefined | String of search |
+
+## Find KB by category
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/find-articles/:kb_category" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "articles": [
+        {
+            "feedback": [],
+            "_id": "5e1f3b979354cc1fc3bf76ee",
+            "title": "Leverage agile frameworks ",
+            "category": "5e1f7926efac6e58c731b346",
+            "description": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+            "createdAt": "2020-01-15T16:19:35.642Z",
+            "updatedAt": "2020-01-26T17:07:25.246Z",
+            "__v": 0,
+            "userGroup": "Leverage agile frameworks "
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint retrieve articles in a KB category
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/find-articles/:kb_category`
+
+### Body Parameters
+
+| Parameter   | Default   | Description               |
+| ----------- | --------- | ------------------------- |
+| kb_category | undefined | String of the kb_category |
+
+## Send feedback on KB
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/submit/kb/:kb_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'votedHelpful=Good' \
+  --data-urlencode 'comment=Thanks' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Bedankt voor uw feedback",
+  "status": 200
+}
+```
+
+This endpoint allows a user to send feedback to KB
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/submit/kb/:kb_id`
+
+### Body Parameters
+
+| Parameter    | Default   | Description                       |
+| ------------ | --------- | --------------------------------- |
+| kb_id        | undefined | String of MongoDB Object ID of kb |
+| votedHelpful | undefined | String of the votedHelpful        |
+| comment      | undefined | String of the comment             |
