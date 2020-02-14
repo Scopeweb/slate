@@ -6651,3 +6651,206 @@ This endpoint finds a businness service
 | Parameter    | Default   | Description            |
 | ------------ | --------- | ---------------------- |
 | service_name | undefined | String of service_name |
+
+## Update comment on gig
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/place-a-job/update-comment/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'comment=Test' \
+  --data-urlencode 'isChanged=true' \
+  --data-urlencode 'notify=true' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+   "message": "De klus omschrijving is gewijzigd en opgeslagen",
+   "status": 200
+}
+```
+
+This endpoint update a comment on a gig.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/service-name/:service_name`
+
+### Body Parameters
+
+| Parameter | Default   | Description                           |
+| --------- | --------- | ------------------------------------- |
+| gig_id    | undefined | String of MongoDB Object ID of gig_id |
+| comment   | undefined | String of the comment                 |
+| isChanged | undefined | String of the comment                 |
+| notify    | undefined | String of the notify                  |
+
+## Verify location
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/verify-location" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'zipCode=1322 AB' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "city": "Almere",
+    "coordinates": [
+        52.3525621,
+        5.1916845
+    ],
+    "status": 200
+}
+```
+
+This endpoint verify the users zipcode.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/verify-location`
+
+### Body Parameters
+
+| Parameter | Default   | Description           |
+| --------- | --------- | --------------------- |
+| zipCode   | undefined | String of the zipCode |
+
+## Place a job
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/place-a-job " \
+  -H "Authorization: Bearer jsonwebtoken" \
+ --header 'Content-Type: application/json' \
+  --data-raw '{
+    "title": "Test",
+    "zipCode": "Test",
+    "comment": "Test",
+    "email": "Test",
+    "budgetIndication": "Test",
+    "industry": "zipCode",
+    "city": "zipCode",
+    "steps": [
+        {
+            "step": [
+                {
+                    "fieldType": "select",
+                    "inputType": "text",
+                    "label": "Test",
+                    "name": "Test Select",
+                    "placeholder": "",
+                    "isRequired": "true",
+                    "selectValues": [
+                        {
+                            "value": "Test me"
+                        },
+                        {
+                            "value": "Test you"
+                        },
+                        {
+                            "value": "Test"
+                        }
+                    ]
+                },
+                {
+                    "fieldType": "input",
+                    "inputType": "text",
+                    "label": "Test",
+                    "name": "Test",
+                    "placeholder": "Test",
+                    "isRequired": "true"
+                }
+            ]
+        }
+    ]
+}'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw klus is geplaatst. U ontvangt een e-mail ter bevestiging",
+  "status"  : 200
+}
+```
+
+This endpoint allows user to place a job.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/place-a-job`
+
+### Body Parameters
+
+| Parameter        | Default   | Description                    |
+| ---------------- | --------- | ------------------------------ |
+| steps            | undefined | Array of steps                 |
+| title            | undefined | String of the title            |
+| zipCode          | undefined | String of the zipCode          |
+| comment          | undefined | String of the email            |
+| images           | undefined | Array of  images               |
+| industry         | undefined | String of the industry         |
+| budgetIndication | undefined | String of the budgetIndication |
+| city             | undefined | String of the city             |
+
+## Delete Gig
+
+```shell
+curl --location --request DELETE "https://api.linsta.nl/v1/user/gig/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw klus is geplaatst. U ontvangt een e-mail ter bevestiging",
+  "status"  : 200
+}
+```
+
+This endpoint allows user to place a job.
+
+### HTTP Request
+
+`DELETE https://api.linsta.nl/v1/user/gig/:gig_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                      |
+| --------- | --------- | -------------------------------- |
+| steps     | undefined | String MongoDB Object ID  of gig |
+
+## Place Custom Job
+
+```shell
+curl --location --request DELETE "https://api.linsta.nl/v1/user/place-custom-job" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw klus is geplaatst. U ontvangt een e-mail ter bevestiging",
+  "status"  : 200
+}
+```
+
+This endpoint allows user to place a job.
+
+### HTTP Request
+
+`DELETE https://api.linsta.nl/v1/user/place-custom-job`
+
+### Body Parameters
+
+| Parameter | Default   | Description                      |
+| --------- | --------- | -------------------------------- |
+| steps     | undefined | String MongoDB Object ID  of gig |
