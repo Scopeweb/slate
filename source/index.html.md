@@ -6118,7 +6118,7 @@ This endpoint lists bookmarks.
 
 # User
 
-## Add category
+## Current User
 
 ```shell
 curl --location --request GET "https://api.linsta.nl/v1/user/current" \
@@ -6169,3 +6169,122 @@ This endpoint lets you view the current logged in user.
 ### HTTP Request
 
 `GET https://api.linsta.nl/v1/user/current`
+
+## View user by ID
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/:user_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "user": {
+        "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1579191185/linsta/vakmannen/portfolio/project-afbeelding-65882723.jpg",
+        "role": "admin",
+        "_id": "5dd569fd84501322bb9bcb07",
+        "email": "nathan@scopeweb.nl",
+        "lastLogin": "2020-02-14T00:56:29.201Z"
+    },
+    "status": 200
+}
+```
+
+This endpoint lets you view via the user id
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/:user_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                          |
+| --------- | --------- | ------------------------------------ |
+| user_id   | undefined | String MongoDB Object ID of the user |
+
+## View reviews by user id
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/:user_id/reviews" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "reviews": [
+        {
+            "_id": "5ddc2d8309469d93f9c61e28",
+            "reviewer": "5dd569fd84501322bb9bcb07",
+            "company": {
+                "location": {
+                    "coordinates": [
+                        51.8961104,
+                        4.1722762
+                    ],
+                    "type": "Point"
+                },
+                "industries": [
+                    "Aannemer",
+                    "Elektricien",
+                    "Metselaar",
+                    "Verhuisbedrijf"
+                ],
+                "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+                "pageVisible": true,
+                "accountLevel": "basic",
+                "reviews": [
+                    "5e189faf796f851bce1ea314",
+                    "5ddc39d93512431f7d33a9da",
+                    "5ddc2d8309469d93f9c61e28",
+                    "5dd3ebcf57077ed184631a64"
+                ],
+                "activeSubscription": true,
+                "_id": "5e09b6027521a16081b1b389",
+                "KvkNumber": "12345678",
+                "companyName": "Vakman",
+                "companyAddress": "Vakman 1",
+                "companyZipCode": "3232HE",
+                "companyCity": "IJsselmuiden",
+                "region": "XZH",
+                "firstName": "Test",
+                "lastName": "Vakman",
+                "phone": "0612345678",
+                "pageSlug": "testbv",
+                "createdAt": "2019-12-30T08:32:02.129Z",
+                "updatedAt": "2020-01-28T17:00:27.342Z",
+                "__v": 16,
+                "companyDescription": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+                "companySlogan": "Voor elke klus, vakman BV dus",
+                "avgReviewRating": 4.7,
+                "avgReviews": 4.8,
+                "projectPictures": [],
+                "subscriptionLevel": "Enterprise"
+            },
+            "rating": 4.9,
+            "industry": "Glaszetter",
+            "title": "Draagbalk plaatsen",
+            "description": "In contact gekomen met Dhr. De Jong via Klusnet. Hij was veruit de betrouwbaarste. Een dag later stond hij al bij ons binnen. Duidelijke afspraken gemaakt. Een paar dagen voor dat de klus uitgevoerd werd nam hij weer contact met ons op om de afspraken nog eens door te nemen. Wim en zijn team werken als een razende en binnen een halve dag was de klus geklaard. Kortom een vakman die snel werkt en duidelijke afspraken maakt.",
+            "createdAt": "2019-11-25T19:37:39.767Z",
+            "updatedAt": "2019-11-25T19:37:39.767Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint returns reviews from the user id.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/:user_id/reviews`
+
+### Body Parameters
+
+| Parameter | Default   | Description                          |
+| --------- | --------- | ------------------------------------ |
+| user_id   | undefined | String MongoDB Object ID of the user |
