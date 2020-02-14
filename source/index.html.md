@@ -6115,3 +6115,57 @@ This endpoint lists bookmarks.
 ### HTTP Request
 
 `GET https://api.linsta.nl/v1/business/list/bookmarks`
+
+# User
+
+## Add category
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/current" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "user": {
+        "profileCompleted": true,
+        "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1579191185/linsta/vakmannen/portfolio/project-afbeelding-65882723.jpg",
+        "role": "admin",
+        "notifications": "daily",
+        "newsletter": false,
+        "twoFactor": false,
+        "bookmarkedBusinesses": [
+            "5dd57df18d4bd0cdd93a1919",
+            "5e19ec5a2156e739680c6e71"
+        ],
+        "_id": "5dd569fd84501322bb9bcb07",
+        "email": "nathan@scopeweb.nl",
+        "accountType": "developer",
+        "lastLogin": "2020-02-14T00:56:29.201Z",
+        "token": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVkZDU2OWZkODQ1MDEzMjJiYjliY2IwNyIsImF2YXRhciI6Imh0dHBzOi8vcmVzLmNsb3VkaW5hcnkuY29tL3Njb3BlLXdlYi1sbGMvaW1hZ2UvdXBsb2FkL3YxNTc5MTkxMTg1L2xpbnN0YS92YWttYW5uZW4vcG9ydGZvbGlvL3Byb2plY3QtYWZiZWVsZGluZy02NTg4MjcyMy5qcGciLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE1ODE2NDE3ODksImV4cCI6MTU4MTY4NDk4OX0.OOCHcNIOHJWiT1olxL_GMNRplJ21pMk3NYyQQyq9l88",
+        "userProfile": {
+            "_id": "5dd56a4f84501322bb9bcb08",
+            "firstName": "Nathan",
+            "lastName": "Henniges",
+            "street": " Wielingen 8",
+            "zipCode": "3232HH",
+            "city": "Brielle",
+            "phone": "6084666280",
+            "createdAt": "2019-11-20T16:31:11.154Z",
+            "updatedAt": "2019-11-20T16:31:11.154Z",
+            "__v": 0
+        },
+        "twoFactorToken": "yXF4m8Q5",
+        "twoFactorTokenExpire": "2019-12-06T18:15:43.030Z"
+    },
+    "status": 200
+}
+```
+
+This endpoint lets you view the current logged in user.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/current`
