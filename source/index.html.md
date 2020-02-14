@@ -7115,3 +7115,126 @@ This endpoint invite pros to a gig.
 | --------- | --------- | ---------------------------------- |
 | gig_id    | undefined | String of MongoDB Object ID of gig |
 | selected  | undefined | Array of selected pros             |
+
+## Decline Pro to Gig
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/professionals/decline/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'declinedProfessional=id' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De vakman is uit uw overzicht verwijderd",
+  "status": 200
+}
+```
+
+This endpoint decline pros to a gig.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/gigs/professionals/decline/:gig_id`
+
+### Body Parameters
+
+| Parameter            | Default   | Description                        |
+| -------------------- | --------- | ---------------------------------- |
+| gig_id               | undefined | String of MongoDB Object ID of gig |
+| declinedProfessional | undefined | String of MongoDB Object ID of pro |
+
+## Add review to gig
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/review/business/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'declinedProfessional=id' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Thank you for your review",
+  "status": 200
+}
+```
+
+This endpoint decline pros to a gig.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/gig/review/business/:gig_id`
+
+### Body Parameters
+
+| Parameter   | Default   | Description                        |
+| ----------- | --------- | ---------------------------------- |
+| gig_id      | undefined | String of MongoDB Object ID of gig |
+| rating      | undefined | Number Rating                      |
+| title       | undefined | String of the  title               |
+| description | undefined | String of the  description         |
+
+## Choose Pro
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/professionals/choose/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'professionalId=id' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De vakman is geselecteerd voor uw opdracht",
+  "status": 200
+}
+```
+
+This endpoint allows a user to pick a pitch.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/professionals/choose/:gig_id`
+
+### Body Parameters
+
+| Parameter      | Default   | Description                                 |
+| -------------- | --------- | ------------------------------------------- |
+| gig_id         | undefined | String of MongoDB Object ID of gig          |
+| professionalId | undefined | String of MongoDB Object ID of professional |
+
+## Find KB
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/find/kb" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De vakman is geselecteerd voor uw opdracht",
+  "status": 200
+}
+```
+
+This endpoint serach KB.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/find/kb`
+
+### Body Parameters
+
+| Parameter | Default   | Description      |
+| --------- | --------- | ---------------- |
+| search    | undefined | String of search |
