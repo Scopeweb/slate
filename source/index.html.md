@@ -3564,7 +3564,7 @@ This endpoint creates a new ticket.
 ## Apply for job
 
 ```shell
-curl --location --request POST "https://api.linsta.nl/v1/vacancy/apply/:vacancy_id " \
+curl --location --request POST "https://api.linsta.nl/v1/vacancy/apply/:vacancy_id" \
   -H "Authorization: Bearer jsonwebtoken" \
   --form 'name=Nathan Henniges' \
   --form 'email=nathan@scopeweb.nl' \
@@ -3584,7 +3584,7 @@ This endpoint apply for job
 
 ### HTTP Request
 
-`POST https://api.linsta.nl/v1/vacancy/apply/:vacancy_id `
+`POST https://api.linsta.nl/v1/vacancy/apply/:vacancy_id`
 
 ### Body Parameters
 
@@ -3596,3 +3596,2522 @@ This endpoint apply for job
 | photo       | undefined | Base64 of file photo             |
 | motivation  | undefined | String of motivation             |
 | phoneNumber | undefined | String of phoneNumber            |
+
+# Business
+
+## Get business
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/:companyId" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "business": {
+        "location": {
+            "type": "Point",
+            "coordinates": [
+                51.8961104,
+                4.1722762
+            ]
+        },
+        "industries": [],
+        "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+        "pageVisible": false,
+        "accountLevel": "basic",
+        "reviews": [],
+        "activeSubscription": false,
+        "_id": "5e19ebb45afd28391470b121",
+        "KvkNumber": "12345678",
+        "companyName": "Aannemersbedrijf De Jong B.V.",
+        "companyAddress": "Vakman 1",
+        "companyZipCode": "3232HE",
+        "region": "ZH",
+        "firstName": "Jan",
+        "lastName": "De Vakman",
+        "phone": "0612345678",
+        "pageSlug": "aannemersbedrijf-de-jong-bv",
+        "createdAt": "2020-01-11T15:37:24.126Z",
+        "updatedAt": "2020-01-11T15:37:24.126Z",
+        "__v": 0,
+        "projectPictures": []
+    },
+    "jobs": [],
+    "status": 200
+}
+```
+
+This endpoint get business infomation by its id.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/:companyId`
+
+### Body Parameters
+
+| Parameter | Default   | Description                      |
+| --------- | --------- | -------------------------------- |
+| companyId | undefined | MongoDB Object ID of the company |
+
+## Get business for pages
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/page/:pageSlug" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "business": {
+        "location": {
+            "type": "Point",
+            "coordinates": [
+                51.8961104,
+                4.1722762
+            ]
+        },
+        "industries": [],
+        "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+        "pageVisible": false,
+        "accountLevel": "basic",
+        "reviews": [],
+        "activeSubscription": false,
+        "_id": "5e19ebb45afd28391470b121",
+        "KvkNumber": "12345678",
+        "companyName": "Aannemersbedrijf De Jong B.V.",
+        "companyAddress": "Vakman 1",
+        "companyZipCode": "3232HE",
+        "region": "ZH",
+        "firstName": "Jan",
+        "lastName": "De Vakman",
+        "phone": "0612345678",
+        "pageSlug": "aannemersbedrijf-de-jong-bv",
+        "createdAt": "2020-01-11T15:37:24.126Z",
+        "updatedAt": "2020-01-11T15:37:24.126Z",
+        "__v": 0,
+        "projectPictures": []
+    },
+    "jobs": [],
+    "status": 200
+}
+```
+
+This endpoint get business infomation by its id.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/page/:pageSlug`
+
+### Body Parameters
+
+| Parameter | Default   | Description        |
+| --------- | --------- | ------------------ |
+| pageSlug  | undefined | String of pageSlug |
+
+## Get business industries
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/profile/industries" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "business": {
+        "industries": [
+            "Aannemer"
+        ],
+        "_id": "5e3db32c6389b859f05b598b"
+    },
+    "status": 200
+}
+```
+
+This endpoint retrieve industries active for a business.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/profile/industries`
+
+### Body Parameters
+
+| Parameter | Default   | Description        |
+| --------- | --------- | ------------------ |
+| pageSlug  | undefined | String of pageSlug |
+
+## Update business
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/business/update" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'KvkNumber=12345678' \
+  --data-urlencode 'companyName=Aannemersbedrijf De Jong B.V.' \
+  --data-urlencode 'companyAddress=Vakman 1' \
+  --data-urlencode 'companyZipCode=3232HE' \
+  --data-urlencode 'firstName=Jan' \
+  --data-urlencode 'lastName=De Vakman' \
+  --data-urlencode 'phone=0612345678' \
+  --data-urlencode 'phone=Vakman 1' \
+  --data-urlencode 'companyDescription=Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.' \
+  --data-urlencode 'companySlogan=Voor elke klus, vakman BV dus' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw Linsta profiel is gewijzigd en opgeslagen",
+  "status": 200
+}
+```
+
+This endpoint update business by id of the user.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/business/update`
+
+### Body Parameters
+
+| Parameter          | Default   | Description                  |
+| ------------------ | --------- | ---------------------------- |
+| KvkNumber          | undefined | String of KvkNumber          |
+| companyName        | undefined | String of companyName        |
+| companyAddress     | undefined | String of companyAddress     |
+| companyZipCode     | undefined | String of companyZipCode     |
+| firstName          | undefined | String of firstName          |
+| lastName           | undefined | String of lastName           |
+| phone              | undefined | String of phone              |
+| companyDescription | undefined | String of companyDescription |
+| companySlogan      | undefined | String of companySlogan      |
+
+## Update business industries
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/business/update-industries" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'industries=test,test2,test3' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw Linsta profiel is gewijzigd en opgeslagen",
+  "status": 200
+}
+```
+
+This endpoint update business industries by id of the user.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/business/update-industries`
+
+### Body Parameters
+
+| Parameter  | Default   | Description                 |
+| ---------- | --------- | --------------------------- |
+| industries | undefined | String of industries with , |
+
+## Update business project picture
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/business/upload-project-picture" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'projectPicture=base64 image' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "image": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/linsta/vakmannen/portfolio/project-afbeelding-487844543.png",
+  "fileName": "project-afbeelding-487844543",
+  "message": "Uw project foto is aan uw persoonlijke pagina toegevoegd",
+  "status": 200
+}
+```
+
+This endpoint update business project picture
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/business/upload-project-picture`
+
+### Body Parameters
+
+| Parameter      | Default   | Description            |
+| -------------- | --------- | ---------------------- |
+| projectPicture | undefined | String of base64 image |
+
+## Update business project picture
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/business/delete-project-picture/:imageId" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw projectfoto is verwijderd op uw persoonlijke pagina",
+  "status": 200
+}
+```
+
+This endpoint delete business project picture.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/business/delete-project-picture/:imageId`
+
+### Body Parameters
+
+| Parameter | Default   | Description            |
+| --------- | --------- | ---------------------- |
+| imageId   | undefined | String of the image id |
+
+## Update business logo
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/business/update-logo" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'companyLogo=base64 image' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw Linsta profiel logo is gewijzigd en opgeslagen",
+  "status": 200
+}
+```
+
+This endpoint update business logo.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/business/update-logo`
+
+### Body Parameters
+
+| Parameter   | Default   | Description                  |
+| ----------- | --------- | ---------------------------- |
+| companyLogo | undefined | String of base 64 logo image |
+
+## Update business email
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/business/update-email" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'email=nathan.henniges@scopeweb.nl' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw e-mailadres is gewijzigd en opgeslagen",
+  "status": 200
+}
+```
+
+This endpoint update business email.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/business/update-email`
+
+### Body Parameters
+
+| Parameter | Default   | Description         |
+| --------- | --------- | ------------------- |
+| email     | undefined | String of new email |
+
+## Update business visibility
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/business/page-settings" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'pageVisible=false' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Page visibility has been updated",
+  "status": 200
+}
+```
+
+This endpoint update business visibility.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/business/page-settings`
+
+### Body Parameters
+
+| Parameter   | Default   | Description             |
+| ----------- | --------- | ----------------------- |
+| pageVisible | undefined | String of true or false |
+
+## Post a job
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/business/list-a-job" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'functionTitle=Test' \
+  --data-urlencode 'functionProfile=Aannemer' \
+  --data-urlencode 'jobDescription=Adding this vacature to test the update functionality.' \
+  --data-urlencode 'phoneNumber=0123456789' \
+  --data-urlencode 'hours=40' \
+  --data-urlencode 'location=3071BG' \
+  --data-urlencode 'salaryIndication=2485 - 2970' \
+  --data-urlencode 'startDate=2020-01-13T22:57:00.000Z' \
+  --data-urlencode 'endDate=ISODate("2020-01-27T22:44:00.000Z")' \
+  --data-urlencode 'contactEmail=example@example.nl' \
+  --data-urlencode 'contactTel=0123456789' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Job has been posted",
+  "status": 200
+}
+```
+
+This endpoint alllows the business owner to list a job.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/business/list-a-job`
+
+### Body Parameters
+
+| Parameter            | Default   | Description                    |
+| -------------------- | --------- | ------------------------------ |
+| functionTitle        | undefined | String of functionTitle        |
+| functionProfile      | undefined | String of functionProfile      |
+| jobDescription       | undefined | String of jobDescription       |
+| phoneNumber          | undefined | String of phoneNumber          |
+| hours                | undefined | String of hours                |
+| location             | undefined | String of location             |
+| salaryIndication     | undefined | String of salaryIndication     |
+| salaryPer            | undefined | String of salaryPer            |
+| industryName         | undefined | String of industryName         |
+| distanceFromLocation | undefined | String of distanceFromLocation |
+| totalFTE             | undefined | String of totalFTE             |
+| experienceLevel      | undefined | String of experienceLevel      |
+| startDateSelect      | undefined | String of startDateSelect      |
+| startDate            | undefined | String of startDate            |
+| endDate              | undefined | String of endDate              |
+| jobDuration          | undefined | String of jobDuration          |
+| sameContact          | undefined | String of sameContact          |
+| contactEmail         | undefined | String of contactEmail         |
+| contactTel           | undefined | String of contactTel           |
+
+## Update Job
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/business/edit-job/:job_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'functionTitle=Test' \
+  --data-urlencode 'functionProfile=Aannemer' \
+  --data-urlencode 'jobDescription=Adding this vacature to test the update functionality.' \
+  --data-urlencode 'phoneNumber=0123456789' \
+  --data-urlencode 'hours=40' \
+  --data-urlencode 'location=3071BG' \
+  --data-urlencode 'salaryIndication=2485 - 2970' \
+  --data-urlencode 'startDate=2020-01-13T22:57:00.000Z' \
+  --data-urlencode 'endDate=ISODate("2020-01-27T22:44:00.000Z")' \
+  --data-urlencode 'contactEmail=example@example.nl' \
+  --data-urlencode 'contactTel=0123456789' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Job has been posted",
+  "status": 200
+}
+```
+
+This endpoint alllows the business owner to edit list a job.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/business/edit-job/:job_id`
+
+### Body Parameters
+
+| Parameter            | Default   | Description                     |
+| -------------------- | --------- | ------------------------------- |
+| job_id               | undefined | String MongoDB Object ID of job |
+| functionTitle        | undefined | String of functionTitle         |
+| functionProfile      | undefined | String of functionProfile       |
+| jobDescription       | undefined | String of jobDescription        |
+| phoneNumber          | undefined | String of phoneNumber           |
+| hours                | undefined | String of hours                 |
+| location             | undefined | String of location              |
+| salaryIndication     | undefined | String of salaryIndication      |
+| salaryPer            | undefined | String of salaryPer             |
+| industryName         | undefined | String of industryName          |
+| distanceFromLocation | undefined | String of distanceFromLocation  |
+| totalFTE             | undefined | String of totalFTE              |
+| experienceLevel      | undefined | String of experienceLevel       |
+| startDateSelect      | undefined | String of startDateSelect       |
+| startDate            | undefined | String of startDate             |
+| endDate              | undefined | String of endDate               |
+| jobDuration          | undefined | String of jobDuration           |
+| sameContact          | undefined | String of sameContact           |
+| contactEmail         | undefined | String of contactEmail          |
+| contactTel           | undefined | String of contactTel            |
+
+## Delete Job
+
+```shell
+curl --location --request DELETE "https://api.linsta.nl/v1/business/delete-job/:job_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Deleted job",
+  "status": 200
+}
+```
+
+This endpoint alllows the business owner to delete a job
+
+### HTTP Request
+
+`DELETE https://api.linsta.nl/v1/business/delete-job/:job_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                     |
+| --------- | --------- | ------------------------------- |
+| job_id    | undefined | String MongoDB Object ID of job |
+
+## View Job
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view-job/:job_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "job": {
+        "contactDetails": {
+            "email": ""
+        },
+        "comments": [],
+        "_id": "5e165e7d6bed775a52c5d039",
+        "functionTitle": "Test",
+        "functionProfile": "Aannemer",
+        "jobDescription": "Adding this vacature to test the update functionality.",
+        "salaryIndication": "2485 - 2970",
+        "totalFTE": "Specifieke periode",
+        "experienceLevel": "MBO",
+        "startDate": "2020-01-13T22:57:00.000Z",
+        "sameContact": false,
+        "businessProfile": "5e09b6027521a16081b1b389",
+        "createdAt": "2020-01-08T22:58:05.214Z",
+        "updatedAt": "2020-01-18T15:36:44.534Z",
+        "__v": 0,
+        "location": "3071BG",
+        "endDate": "2020-04-30T14:26:00.000Z",
+        "salaryPer": "per maand",
+        "hours": "40"
+    },
+    "status": 200
+}
+```
+
+This endpoint alllows the view of a job.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view-job/:job_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                     |
+| --------- | --------- | ------------------------------- |
+| job_id    | undefined | String MongoDB Object ID of job |
+
+## View Gigs
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/gigs" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "gigs": [
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e4579c00d5ede2990081f94",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": null,
+            "createdAt": "2020-02-13T16:30:56.201Z",
+            "updatedAt": "2020-02-13T16:30:56.201Z",
+            "__v": 0
+        },
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e457a0f0d5ede2990081f99",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": {
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        51.9078123,
+                        4.5079956
+                    ]
+                },
+                "matchedProfessionals": [
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f97"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f98"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f99"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f9a"
+                    }
+                ],
+                "approvedProfessionals": [],
+                "invitedProfessionals": [],
+                "declinedProfessionals": [],
+                "underReviewProfessionals": [],
+                "hasBeenUpdated": false,
+                "pitches": [],
+                "_id": "5e457a0f0d5ede2990081f96",
+                "title": "Aanbouw of opbouw plaatsen",
+                "zipCode": "3071BG",
+                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante non libero aliquet ultricies in eu erat. Ut id metus mollis, tincidunt ex a, varius augue. Integer posuere dolor non interdum elementum. Nunc eu ullamcorper mi. Nulla gravida, nisi in euismod cursus, lorem ex mattis enim, eu ullamcorper erat enim at tellus. Nulla rhoncus pellentesque placerat. Aenean ante ante, pulvinar ac sapien eget, ornare posuere lacus. Phasellus viverra, nunc ut fermentum venenatis, massa quam placerat leo, eu rutrum orci nisl sit amet ex. In pretium semper odio et faucibus. Sed eleifend nisi nibh, vitae malesuada nisl consectetur quis. Aliquam erat volutpat. Integer maximus lacinia ante a rhoncus.",
+                "projectPictures": [
+                    {
+                        "src": "https://res.cloudinary.com/scope-web-llc/image/upload/v1579385353/linsta/opdrachten/klus-afbeelding/klus-afbeelding-05559785.jpg",
+                        "fileName": "klus-afbeelding-05559785"
+                    }
+                ],
+                "industry": "Aannemer",
+                "consumer": "5e05427728248507d762ec88",
+                "budgetIndication": "€ 10.000 of meer",
+                "city": "test",
+                "steps": [
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "60",
+                        "fieldType": "other",
+                        "title": "Hoe groot is de te bouwen uitbreiding in m²? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8ce"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Moet er fundering worden geplaatst?",
+                        "ref": "5e237e11e9a7910190daa8cf"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Schuin dak"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wat voor soort dak wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d1"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "6",
+                        "fieldType": "other",
+                        "title": "Hoeveel ramen wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d2"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "2",
+                        "fieldType": "other",
+                        "title": "Hoeveel deuren wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d3"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Ja"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al bouwtekeningen?",
+                        "ref": "5e237e11e9a7910190daa8d5"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee - ik moet nog een vergunning regelen"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al een bouw vergunning?",
+                        "ref": "5e237e11e9a7910190daa8d6"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Zo snel mogelijk"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wanneer wil je dat de vakman start? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d8"
+                    }
+                ],
+                "createdAt": "2020-02-13T16:32:15.663Z",
+                "updatedAt": "2020-02-13T16:32:15.663Z",
+                "orderNumber": 1067762937,
+                "__v": 0
+            },
+            "createdAt": "2020-02-13T16:32:15.642Z",
+            "updatedAt": "2020-02-13T16:32:15.642Z",
+            "__v": 0
+        },
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e457a4f0d5ede2990081f9e",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": {
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        51.9078123,
+                        4.5079956
+                    ]
+                },
+                "matchedProfessionals": [
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9c"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9d"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9e"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9f"
+                    }
+                ],
+                "approvedProfessionals": [],
+                "invitedProfessionals": [],
+                "declinedProfessionals": [],
+                "underReviewProfessionals": [],
+                "hasBeenUpdated": false,
+                "pitches": [],
+                "_id": "5e457a4f0d5ede2990081f9b",
+                "title": "Aanbouw of opbouw plaatsen",
+                "zipCode": "3071BG",
+                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante non libero aliquet ultricies in eu erat. Ut id metus mollis, tincidunt ex a, varius augue. Integer posuere dolor non interdum elementum. Nunc eu ullamcorper mi. Nulla gravida, nisi in euismod cursus, lorem ex mattis enim, eu ullamcorper erat enim at tellus. Nulla rhoncus pellentesque placerat. Aenean ante ante, pulvinar ac sapien eget, ornare posuere lacus. Phasellus viverra, nunc ut fermentum venenatis, massa quam placerat leo, eu rutrum orci nisl sit amet ex. In pretium semper odio et faucibus. Sed eleifend nisi nibh, vitae malesuada nisl consectetur quis. Aliquam erat volutpat. Integer maximus lacinia ante a rhoncus.",
+                "projectPictures": [],
+                "industry": "Aannemer",
+                "consumer": "5e09b6027521a16081b1b389",
+                "budgetIndication": "€ 10.000 of meer",
+                "city": "test",
+                "steps": [
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "60",
+                        "fieldType": "other",
+                        "title": "Hoe groot is de te bouwen uitbreiding in m²? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8ce"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Moet er fundering worden geplaatst?",
+                        "ref": "5e237e11e9a7910190daa8cf"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Schuin dak"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wat voor soort dak wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d1"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "6",
+                        "fieldType": "other",
+                        "title": "Hoeveel ramen wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d2"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "2",
+                        "fieldType": "other",
+                        "title": "Hoeveel deuren wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d3"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Ja"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al bouwtekeningen?",
+                        "ref": "5e237e11e9a7910190daa8d5"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee - ik moet nog een vergunning regelen"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al een bouw vergunning?",
+                        "ref": "5e237e11e9a7910190daa8d6"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Zo snel mogelijk"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wanneer wil je dat de vakman start? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d8"
+                    }
+                ],
+                "createdAt": "2020-02-13T16:33:19.733Z",
+                "updatedAt": "2020-02-13T16:35:26.227Z",
+                "orderNumber": 8898997185,
+                "__v": 0
+            },
+            "createdAt": "2020-02-13T16:33:19.718Z",
+            "updatedAt": "2020-02-13T16:33:19.718Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint allows the business owner to view consumer created gigs.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/gigs`
+
+### Query Parameters
+
+| Parameter | Default   | Description                               |
+| --------- | --------- | ----------------------------------------- |
+| date      | undefined | String date supported (newest and oldest) |
+| industry  | undefined | String industry                           |
+
+## View Won Gigs
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/won-gigs" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "gigs": [
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e4579c00d5ede2990081f94",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": null,
+            "createdAt": "2020-02-13T16:30:56.201Z",
+            "updatedAt": "2020-02-13T16:30:56.201Z",
+            "__v": 0
+        },
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e457a0f0d5ede2990081f99",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": {
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        51.9078123,
+                        4.5079956
+                    ]
+                },
+                "matchedProfessionals": [
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f97"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f98"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f99"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f9a"
+                    }
+                ],
+                "approvedProfessionals": [],
+                "invitedProfessionals": [],
+                "declinedProfessionals": [],
+                "underReviewProfessionals": [],
+                "hasBeenUpdated": false,
+                "pitches": [],
+                "_id": "5e457a0f0d5ede2990081f96",
+                "title": "Aanbouw of opbouw plaatsen",
+                "zipCode": "3071BG",
+                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante non libero aliquet ultricies in eu erat. Ut id metus mollis, tincidunt ex a, varius augue. Integer posuere dolor non interdum elementum. Nunc eu ullamcorper mi. Nulla gravida, nisi in euismod cursus, lorem ex mattis enim, eu ullamcorper erat enim at tellus. Nulla rhoncus pellentesque placerat. Aenean ante ante, pulvinar ac sapien eget, ornare posuere lacus. Phasellus viverra, nunc ut fermentum venenatis, massa quam placerat leo, eu rutrum orci nisl sit amet ex. In pretium semper odio et faucibus. Sed eleifend nisi nibh, vitae malesuada nisl consectetur quis. Aliquam erat volutpat. Integer maximus lacinia ante a rhoncus.",
+                "projectPictures": [
+                    {
+                        "src": "https://res.cloudinary.com/scope-web-llc/image/upload/v1579385353/linsta/opdrachten/klus-afbeelding/klus-afbeelding-05559785.jpg",
+                        "fileName": "klus-afbeelding-05559785"
+                    }
+                ],
+                "industry": "Aannemer",
+                "consumer": "5e05427728248507d762ec88",
+                "budgetIndication": "€ 10.000 of meer",
+                "city": "test",
+                "steps": [
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "60",
+                        "fieldType": "other",
+                        "title": "Hoe groot is de te bouwen uitbreiding in m²? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8ce"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Moet er fundering worden geplaatst?",
+                        "ref": "5e237e11e9a7910190daa8cf"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Schuin dak"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wat voor soort dak wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d1"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "6",
+                        "fieldType": "other",
+                        "title": "Hoeveel ramen wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d2"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "2",
+                        "fieldType": "other",
+                        "title": "Hoeveel deuren wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d3"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Ja"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al bouwtekeningen?",
+                        "ref": "5e237e11e9a7910190daa8d5"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee - ik moet nog een vergunning regelen"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al een bouw vergunning?",
+                        "ref": "5e237e11e9a7910190daa8d6"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Zo snel mogelijk"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wanneer wil je dat de vakman start? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d8"
+                    }
+                ],
+                "createdAt": "2020-02-13T16:32:15.663Z",
+                "updatedAt": "2020-02-13T16:32:15.663Z",
+                "orderNumber": 1067762937,
+                "__v": 0
+            },
+            "createdAt": "2020-02-13T16:32:15.642Z",
+            "updatedAt": "2020-02-13T16:32:15.642Z",
+            "__v": 0
+        },
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e457a4f0d5ede2990081f9e",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": {
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        51.9078123,
+                        4.5079956
+                    ]
+                },
+                "matchedProfessionals": [
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9c"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9d"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9e"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9f"
+                    }
+                ],
+                "approvedProfessionals": [],
+                "invitedProfessionals": [],
+                "declinedProfessionals": [],
+                "underReviewProfessionals": [],
+                "hasBeenUpdated": false,
+                "pitches": [],
+                "_id": "5e457a4f0d5ede2990081f9b",
+                "title": "Aanbouw of opbouw plaatsen",
+                "zipCode": "3071BG",
+                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante non libero aliquet ultricies in eu erat. Ut id metus mollis, tincidunt ex a, varius augue. Integer posuere dolor non interdum elementum. Nunc eu ullamcorper mi. Nulla gravida, nisi in euismod cursus, lorem ex mattis enim, eu ullamcorper erat enim at tellus. Nulla rhoncus pellentesque placerat. Aenean ante ante, pulvinar ac sapien eget, ornare posuere lacus. Phasellus viverra, nunc ut fermentum venenatis, massa quam placerat leo, eu rutrum orci nisl sit amet ex. In pretium semper odio et faucibus. Sed eleifend nisi nibh, vitae malesuada nisl consectetur quis. Aliquam erat volutpat. Integer maximus lacinia ante a rhoncus.",
+                "projectPictures": [],
+                "industry": "Aannemer",
+                "consumer": "5e09b6027521a16081b1b389",
+                "budgetIndication": "€ 10.000 of meer",
+                "city": "test",
+                "steps": [
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "60",
+                        "fieldType": "other",
+                        "title": "Hoe groot is de te bouwen uitbreiding in m²? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8ce"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Moet er fundering worden geplaatst?",
+                        "ref": "5e237e11e9a7910190daa8cf"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Schuin dak"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wat voor soort dak wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d1"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "6",
+                        "fieldType": "other",
+                        "title": "Hoeveel ramen wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d2"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "2",
+                        "fieldType": "other",
+                        "title": "Hoeveel deuren wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d3"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Ja"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al bouwtekeningen?",
+                        "ref": "5e237e11e9a7910190daa8d5"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee - ik moet nog een vergunning regelen"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al een bouw vergunning?",
+                        "ref": "5e237e11e9a7910190daa8d6"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Zo snel mogelijk"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wanneer wil je dat de vakman start? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d8"
+                    }
+                ],
+                "createdAt": "2020-02-13T16:33:19.733Z",
+                "updatedAt": "2020-02-13T16:35:26.227Z",
+                "orderNumber": 8898997185,
+                "__v": 0
+            },
+            "createdAt": "2020-02-13T16:33:19.718Z",
+            "updatedAt": "2020-02-13T16:33:19.718Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint allows the business owner to won gigs.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/won-gigs`
+
+## View Invited Gigs
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/invited-gigs" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "gigs": [
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e4579c00d5ede2990081f94",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": null,
+            "createdAt": "2020-02-13T16:30:56.201Z",
+            "updatedAt": "2020-02-13T16:30:56.201Z",
+            "__v": 0
+        },
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e457a0f0d5ede2990081f99",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": {
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        51.9078123,
+                        4.5079956
+                    ]
+                },
+                "matchedProfessionals": [
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f97"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f98"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f99"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f9a"
+                    }
+                ],
+                "approvedProfessionals": [],
+                "invitedProfessionals": [],
+                "declinedProfessionals": [],
+                "underReviewProfessionals": [],
+                "hasBeenUpdated": false,
+                "pitches": [],
+                "_id": "5e457a0f0d5ede2990081f96",
+                "title": "Aanbouw of opbouw plaatsen",
+                "zipCode": "3071BG",
+                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante non libero aliquet ultricies in eu erat. Ut id metus mollis, tincidunt ex a, varius augue. Integer posuere dolor non interdum elementum. Nunc eu ullamcorper mi. Nulla gravida, nisi in euismod cursus, lorem ex mattis enim, eu ullamcorper erat enim at tellus. Nulla rhoncus pellentesque placerat. Aenean ante ante, pulvinar ac sapien eget, ornare posuere lacus. Phasellus viverra, nunc ut fermentum venenatis, massa quam placerat leo, eu rutrum orci nisl sit amet ex. In pretium semper odio et faucibus. Sed eleifend nisi nibh, vitae malesuada nisl consectetur quis. Aliquam erat volutpat. Integer maximus lacinia ante a rhoncus.",
+                "projectPictures": [
+                    {
+                        "src": "https://res.cloudinary.com/scope-web-llc/image/upload/v1579385353/linsta/opdrachten/klus-afbeelding/klus-afbeelding-05559785.jpg",
+                        "fileName": "klus-afbeelding-05559785"
+                    }
+                ],
+                "industry": "Aannemer",
+                "consumer": "5e05427728248507d762ec88",
+                "budgetIndication": "€ 10.000 of meer",
+                "city": "test",
+                "steps": [
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "60",
+                        "fieldType": "other",
+                        "title": "Hoe groot is de te bouwen uitbreiding in m²? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8ce"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Moet er fundering worden geplaatst?",
+                        "ref": "5e237e11e9a7910190daa8cf"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Schuin dak"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wat voor soort dak wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d1"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "6",
+                        "fieldType": "other",
+                        "title": "Hoeveel ramen wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d2"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "2",
+                        "fieldType": "other",
+                        "title": "Hoeveel deuren wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d3"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Ja"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al bouwtekeningen?",
+                        "ref": "5e237e11e9a7910190daa8d5"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee - ik moet nog een vergunning regelen"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al een bouw vergunning?",
+                        "ref": "5e237e11e9a7910190daa8d6"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Zo snel mogelijk"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wanneer wil je dat de vakman start? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d8"
+                    }
+                ],
+                "createdAt": "2020-02-13T16:32:15.663Z",
+                "updatedAt": "2020-02-13T16:32:15.663Z",
+                "orderNumber": 1067762937,
+                "__v": 0
+            },
+            "createdAt": "2020-02-13T16:32:15.642Z",
+            "updatedAt": "2020-02-13T16:32:15.642Z",
+            "__v": 0
+        },
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e457a4f0d5ede2990081f9e",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": {
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        51.9078123,
+                        4.5079956
+                    ]
+                },
+                "matchedProfessionals": [
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9c"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9d"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9e"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9f"
+                    }
+                ],
+                "approvedProfessionals": [],
+                "invitedProfessionals": [],
+                "declinedProfessionals": [],
+                "underReviewProfessionals": [],
+                "hasBeenUpdated": false,
+                "pitches": [],
+                "_id": "5e457a4f0d5ede2990081f9b",
+                "title": "Aanbouw of opbouw plaatsen",
+                "zipCode": "3071BG",
+                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante non libero aliquet ultricies in eu erat. Ut id metus mollis, tincidunt ex a, varius augue. Integer posuere dolor non interdum elementum. Nunc eu ullamcorper mi. Nulla gravida, nisi in euismod cursus, lorem ex mattis enim, eu ullamcorper erat enim at tellus. Nulla rhoncus pellentesque placerat. Aenean ante ante, pulvinar ac sapien eget, ornare posuere lacus. Phasellus viverra, nunc ut fermentum venenatis, massa quam placerat leo, eu rutrum orci nisl sit amet ex. In pretium semper odio et faucibus. Sed eleifend nisi nibh, vitae malesuada nisl consectetur quis. Aliquam erat volutpat. Integer maximus lacinia ante a rhoncus.",
+                "projectPictures": [],
+                "industry": "Aannemer",
+                "consumer": "5e09b6027521a16081b1b389",
+                "budgetIndication": "€ 10.000 of meer",
+                "city": "test",
+                "steps": [
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "60",
+                        "fieldType": "other",
+                        "title": "Hoe groot is de te bouwen uitbreiding in m²? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8ce"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Moet er fundering worden geplaatst?",
+                        "ref": "5e237e11e9a7910190daa8cf"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Schuin dak"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wat voor soort dak wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d1"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "6",
+                        "fieldType": "other",
+                        "title": "Hoeveel ramen wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d2"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "2",
+                        "fieldType": "other",
+                        "title": "Hoeveel deuren wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d3"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Ja"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al bouwtekeningen?",
+                        "ref": "5e237e11e9a7910190daa8d5"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee - ik moet nog een vergunning regelen"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al een bouw vergunning?",
+                        "ref": "5e237e11e9a7910190daa8d6"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Zo snel mogelijk"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wanneer wil je dat de vakman start? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d8"
+                    }
+                ],
+                "createdAt": "2020-02-13T16:33:19.733Z",
+                "updatedAt": "2020-02-13T16:35:26.227Z",
+                "orderNumber": 8898997185,
+                "__v": 0
+            },
+            "createdAt": "2020-02-13T16:33:19.718Z",
+            "updatedAt": "2020-02-13T16:33:19.718Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint allows the business owner to invited gigs.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/invited-gigs`
+
+## Find Gigs
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/find/gigs" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "gigs": [
+        {
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    52.17905700000001,
+                    5.27834
+                ]
+            },
+            "matchedProfessionals": [
+                "5e4303ec8cf85ee10b5e038b",
+                "5e4303ec8cf85ee10b5e038c"
+            ],
+            "approvedProfessionals": [
+                "5e4303ec8cf85ee10b5e038c"
+            ],
+            "invitedProfessionals": [],
+            "declinedProfessionals": [],
+            "underReviewProfessionals": [],
+            "hasBeenUpdated": false,
+            "pitches": [
+                "5e4304668cf85ee10b5e0390"
+            ],
+            "_id": "5e4303ec8cf85ee10b5e038a",
+            "title": "Aan - & uitbouw",
+            "zipCode": "3762KG",
+            "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt augue at nunc elementum egestas. Sed id enim sit amet mi porttitor vehicula quis vel nunc. Suspendisse vel fermentum leo. In ex mi, bibendum eget nisl vel, euismod sodales ligula. Quisque posuere nisi dolor, sit amet dapibus purus fringilla ac. Nam nec erat gravida, aliquet urna nec, imperdiet tellus. Duis et consequat urna. Curabitur sed laoreet ante. Nulla quis dignissim elit. Aenean at diam posuere, posuere ex faucibus, imperdiet sem. Vivamus consectetur a nibh interdum semper. Mauris sit amet euismod nibh, sit amet viverra nibh. Nulla facilisi. Vestibulum quis tempus diam.",
+            "projectPictures": [],
+            "industry": "Aannemer",
+            "consumer": "5e3dbfac8a59d476a83f7618",
+            "budgetIndication": "€ 5000 - € 10.000",
+            "city": "Soest",
+            "steps": [
+                {
+                    "select": [],
+                    "radio": [],
+                    "checkbox": [],
+                    "value": "100",
+                    "fieldType": "other",
+                    "title": "Wat is de grootte van de aan- of uitbouw in m2? ",
+                    "ref": "5e2efe83123cb54da3be0d6d"
+                },
+                {
+                    "select": [],
+                    "radio": [
+                        "Nee"
+                    ],
+                    "checkbox": [],
+                    "fieldType": "radio",
+                    "title": "Is een fundering noodzakelijk?",
+                    "ref": "5e2efe83123cb54da3be0d6e"
+                },
+                {
+                    "select": [],
+                    "radio": [
+                        "Plat dak"
+                    ],
+                    "checkbox": [],
+                    "fieldType": "radio",
+                    "title": "Welk soort dak wil je laten plaatsen?",
+                    "ref": "5e2efe83123cb54da3be0d70"
+                },
+                {
+                    "select": [],
+                    "radio": [],
+                    "checkbox": [],
+                    "value": "6",
+                    "fieldType": "other",
+                    "title": "Hoeveel ramen wil je laten plaatsen?",
+                    "ref": "5e2efe83123cb54da3be0d71"
+                },
+                {
+                    "select": [],
+                    "radio": [],
+                    "checkbox": [],
+                    "value": "2",
+                    "fieldType": "other",
+                    "title": "Hoeveel deuren wil je laten plaatsen?",
+                    "ref": "5e2efe83123cb54da3be0d72"
+                },
+                {
+                    "select": [],
+                    "radio": [
+                        "Nee"
+                    ],
+                    "checkbox": [],
+                    "fieldType": "radio",
+                    "title": "Heb je al bouwtekeningen?",
+                    "ref": "5e2efe83123cb54da3be0d74"
+                },
+                {
+                    "select": [],
+                    "radio": [
+                        "Nee - niet nodig"
+                    ],
+                    "checkbox": [],
+                    "fieldType": "radio",
+                    "title": "Heb je al een bouwvergunning?",
+                    "ref": "5e2efe83123cb54da3be0d75"
+                }
+            ],
+            "createdAt": "2020-02-11T19:43:40.269Z",
+            "updatedAt": "2020-02-13T22:20:53.850Z",
+            "orderNumber": 8403869585,
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint allows the business owner to find gigs.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/find/gigs`
+
+### Query Parameters
+
+| Parameter    | Default   | Description                |
+| ------------ | --------- | -------------------------- |
+| distanceFrom | undefined | String of the distanceFrom |
+| industry     | undefined | String of the industry     |
+| price        | undefined | String of the price        |
+
+## View gig by id
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/gigs/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "gig": {
+        "location": {
+            "type": "Point",
+            "coordinates": [
+                52.17905700000001,
+                5.27834
+            ]
+        },
+        "matchedProfessionals": [
+            "5e4303ec8cf85ee10b5e038b",
+            "5e4303ec8cf85ee10b5e038c"
+        ],
+        "approvedProfessionals": [
+            "5e4303ec8cf85ee10b5e038c"
+        ],
+        "invitedProfessionals": [],
+        "declinedProfessionals": [],
+        "underReviewProfessionals": [],
+        "hasBeenUpdated": false,
+        "pitches": [
+            "5e4304668cf85ee10b5e0390"
+        ],
+        "_id": "5e4303ec8cf85ee10b5e038a",
+        "title": "Aan - & uitbouw",
+        "zipCode": "3762KG",
+        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt augue at nunc elementum egestas. Sed id enim sit amet mi porttitor vehicula quis vel nunc. Suspendisse vel fermentum leo. In ex mi, bibendum eget nisl vel, euismod sodales ligula. Quisque posuere nisi dolor, sit amet dapibus purus fringilla ac. Nam nec erat gravida, aliquet urna nec, imperdiet tellus. Duis et consequat urna. Curabitur sed laoreet ante. Nulla quis dignissim elit. Aenean at diam posuere, posuere ex faucibus, imperdiet sem. Vivamus consectetur a nibh interdum semper. Mauris sit amet euismod nibh, sit amet viverra nibh. Nulla facilisi. Vestibulum quis tempus diam.",
+        "projectPictures": [],
+        "industry": "Aannemer",
+        "consumer": "5e3dbfac8a59d476a83f7618",
+        "budgetIndication": "€ 5000 - € 10.000",
+        "city": "Soest",
+        "steps": [
+            {
+                "select": [],
+                "radio": [],
+                "checkbox": [],
+                "value": "100",
+                "fieldType": "other",
+                "title": "Wat is de grootte van de aan- of uitbouw in m2? ",
+                "ref": {
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "isActive": true,
+                    "_id": "5e2efe83123cb54da3be0d6d",
+                    "fieldType": "input",
+                    "name": "watisdegroottevandeaanofuitbouwinm",
+                    "label": "Wat is de grootte van de aan- of uitbouw in m2? ",
+                    "isRequired": true,
+                    "placeholder": "",
+                    "checkBoxValues": [],
+                    "radioValues": [],
+                    "selectValues": [],
+                    "__v": 0
+                }
+            },
+            {
+                "select": [],
+                "radio": [
+                    "Nee"
+                ],
+                "checkbox": [],
+                "fieldType": "radio",
+                "title": "Is een fundering noodzakelijk?",
+                "ref": {
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "isActive": true,
+                    "_id": "5e2efe83123cb54da3be0d6e",
+                    "fieldType": "radio",
+                    "name": "iseenfunderingnoodzakelijk",
+                    "label": "Is een fundering noodzakelijk?",
+                    "isRequired": false,
+                    "placeholder": "",
+                    "checkBoxValues": [],
+                    "radioValues": [
+                        {
+                            "name": "iseenfunderingnoodzakelijk",
+                            "value": "Ja",
+                            "id": "30491027211905470948"
+                        },
+                        {
+                            "name": "iseenfunderingnoodzakelijk",
+                            "value": "Nee",
+                            "id": "03671265479576968429"
+                        },
+                        {
+                            "name": "iseenfunderingnoodzakelijk",
+                            "value": "In overleg vakman",
+                            "id": "74870954378394908337"
+                        },
+                        {
+                            "name": "iseenfunderingnoodzakelijk",
+                            "value": "Weet ik niet",
+                            "id": "45246736172292713415"
+                        }
+                    ],
+                    "selectValues": [],
+                    "__v": 0
+                }
+            },
+            {
+                "select": [],
+                "radio": [
+                    "Plat dak"
+                ],
+                "checkbox": [],
+                "fieldType": "radio",
+                "title": "Welk soort dak wil je laten plaatsen?",
+                "ref": {
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "isActive": true,
+                    "_id": "5e2efe83123cb54da3be0d70",
+                    "fieldType": "radio",
+                    "name": "welksoortdakwiljelatenplaatsen",
+                    "label": "Welk soort dak wil je laten plaatsen?",
+                    "isRequired": false,
+                    "placeholder": "",
+                    "checkBoxValues": [],
+                    "radioValues": [
+                        {
+                            "name": "welksoortdakwiljelatenplaatsen",
+                            "value": "Schuin dak",
+                            "id": "82658946998736614560"
+                        },
+                        {
+                            "name": "welksoortdakwiljelatenplaatsen",
+                            "value": "Plat dak",
+                            "id": "52221917480798271319"
+                        },
+                        {
+                            "name": "welksoortdakwiljelatenplaatsen",
+                            "value": "Anders",
+                            "id": "24034961406217677357"
+                        }
+                    ],
+                    "selectValues": [],
+                    "__v": 0
+                }
+            },
+            {
+                "select": [],
+                "radio": [],
+                "checkbox": [],
+                "value": "6",
+                "fieldType": "other",
+                "title": "Hoeveel ramen wil je laten plaatsen?",
+                "ref": {
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "isActive": true,
+                    "_id": "5e2efe83123cb54da3be0d71",
+                    "fieldType": "input",
+                    "name": "hoeveelramenwiljelatenplaatsen",
+                    "label": "Hoeveel ramen wil je laten plaatsen?",
+                    "isRequired": false,
+                    "placeholder": "",
+                    "checkBoxValues": [],
+                    "radioValues": [],
+                    "selectValues": [],
+                    "__v": 0
+                }
+            },
+            {
+                "select": [],
+                "radio": [],
+                "checkbox": [],
+                "value": "2",
+                "fieldType": "other",
+                "title": "Hoeveel deuren wil je laten plaatsen?",
+                "ref": {
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "isActive": true,
+                    "_id": "5e2efe83123cb54da3be0d72",
+                    "fieldType": "input",
+                    "name": "hoeveeldeurenwiljelatenplaatsen",
+                    "label": "Hoeveel deuren wil je laten plaatsen?",
+                    "isRequired": false,
+                    "placeholder": "",
+                    "checkBoxValues": [],
+                    "radioValues": [],
+                    "selectValues": [],
+                    "__v": 0
+                }
+            },
+            {
+                "select": [],
+                "radio": [
+                    "Nee"
+                ],
+                "checkbox": [],
+                "fieldType": "radio",
+                "title": "Heb je al bouwtekeningen?",
+                "ref": {
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "isActive": true,
+                    "_id": "5e2efe83123cb54da3be0d74",
+                    "fieldType": "radio",
+                    "name": "hebjealbouwtekeningen",
+                    "label": "Heb je al bouwtekeningen?",
+                    "isRequired": false,
+                    "placeholder": "",
+                    "checkBoxValues": [],
+                    "radioValues": [
+                        {
+                            "name": "hebjealbouwtekeningen",
+                            "value": "Ja",
+                            "id": "77448307934056880630"
+                        },
+                        {
+                            "name": "hebjealbouwtekeningen",
+                            "value": "Nee",
+                            "id": "23428122330856405183"
+                        },
+                        {
+                            "name": "hebjealbouwtekeningen",
+                            "value": "In overleg vakman",
+                            "id": "72331874448296331743"
+                        },
+                        {
+                            "name": "hebjealbouwtekeningen",
+                            "value": "Weet ik niet",
+                            "id": "15780643322061840913"
+                        }
+                    ],
+                    "selectValues": [],
+                    "__v": 0
+                }
+            },
+            {
+                "select": [],
+                "radio": [
+                    "Nee - niet nodig"
+                ],
+                "checkbox": [],
+                "fieldType": "radio",
+                "title": "Heb je al een bouwvergunning?",
+                "ref": {
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "isActive": true,
+                    "_id": "5e2efe83123cb54da3be0d75",
+                    "fieldType": "radio",
+                    "name": "hebjealeenbouwvergunning",
+                    "label": "Heb je al een bouwvergunning?",
+                    "isRequired": true,
+                    "placeholder": "",
+                    "checkBoxValues": [],
+                    "radioValues": [
+                        {
+                            "name": "hebjealeenbouwvergunning",
+                            "value": "Ja",
+                            "id": "11938436525583490028"
+                        },
+                        {
+                            "name": "hebjealeenbouwvergunning",
+                            "value": "Nee - niet nodig",
+                            "id": "09286062135844455983"
+                        },
+                        {
+                            "name": "hebjealeenbouwvergunning",
+                            "value": "Nee - moet ik nog regelen",
+                            "id": "97431806377950424387"
+                        },
+                        {
+                            "name": "hebjealeenbouwvergunning",
+                            "value": "Weet ik niet",
+                            "id": "24355291395104735226"
+                        }
+                    ],
+                    "selectValues": [],
+                    "__v": 0
+                }
+            }
+        ],
+        "createdAt": "2020-02-11T19:43:40.269Z",
+        "updatedAt": "2020-02-13T22:20:53.850Z",
+        "orderNumber": 8403869585,
+        "__v": 0
+    },
+    "status": 200
+}
+```
+
+This endpoint allows the business owner to view gig by its id.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/gigs/:gig_id`
+
+## Send Pitch
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/business/reply/gigs/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'price=1500' \
+  --data-urlencode 'pitch=Give me your money' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw reactie is naar de consument verstuurd.",
+  "status": 200
+}
+```
+
+This endpoint allows the business to send a pitch to a gig.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/business/reply/gigs/:gig_id`
+
+### Query Parameters
+
+| Parameter | Default   | Description         |
+| --------- | --------- | ------------------- |
+| price     | undefined | String of the price |
+| pitch     | undefined | String of the pitch |
+
+## Decline Gig
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/business/decline/gig/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "You have declined the gig.",
+  "status": 200
+}
+```
+
+This endpoint allows the business to decline a gig.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/business/decline/gig/:gig_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                         |
+| --------- | --------- | ----------------------------------- |
+| gig_id    | undefined | String MongoDB Object ID of the gig |
+
+## View pitches
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/pitches" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "pitches": [
+        {
+            "_id": "5e42d8e3b79ec91f3ac63679",
+            "owner": {
+                "_id": "5e05427728248507d762ec88",
+                "businessProfile": {
+                    "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+                    "_id": "5e09b6027521a16081b1b389",
+                    "companyName": "Vakman",
+                    "firstName": "Test",
+                    "lastName": "Vakman"
+                }
+            },
+            "gig": {
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        51.8975292,
+                        4.1721361
+                    ]
+                },
+                "matchedProfessionals": [],
+                "approvedProfessionals": [
+                    "5e42d8bcb79ec91f3ac63675"
+                ],
+                "invitedProfessionals": [],
+                "declinedProfessionals": [
+                    "5e42d8bcb79ec91f3ac63676",
+                    "5e42d8bcb79ec91f3ac63677",
+                    "5e42d8bcb79ec91f3ac63678"
+                ],
+                "underReviewProfessionals": [],
+                "hasBeenUpdated": false,
+                "pitches": [
+                    "5e42d8e3b79ec91f3ac63679"
+                ],
+                "_id": "5e42d8bbb79ec91f3ac63674",
+                "title": "Aan - & uitbouw",
+                "zipCode": "3232HB",
+                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum lorem nulla, vitae ultrices nisi elementum id. Nullam at sagittis nisi. Morbi pharetra risus a nunc posuere, vel porttitor dui commodo. Suspendisse malesuada leo ut tristique facilisis. Aenean commodo sit amet ex a tristique. Mauris tempus pharetra urna lobortis sollicitudin. Sed et congue nulla. Donec accumsan interdum aliquam. Nulla vel viverra nisi, nec auctor eros. Ut varius leo ut condimentum bibendum. Aliquam vehicula cursus egestas. Maecenas diam odio, sodales id pharetra sed, fermentum sit amet risus. Integer rutrum aliquet augue et tincidunt. Nulla facilisi. Morbi tincidunt nibh sed posuere blandit. Nullam quis mi eget diam ullamcorper lobortis.",
+                "projectPictures": [],
+                "industry": "Aannemer",
+                "consumer": "5dca7a9a3d5cc53294ff0cff",
+                "budgetIndication": "€ 5000 - € 10.000",
+                "city": "Brielle",
+                "steps": [
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "100",
+                        "fieldType": "other",
+                        "title": "Wat is de grootte van de aan- of uitbouw in m2? ",
+                        "ref": "5e2efe83123cb54da3be0d6d"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Is een fundering noodzakelijk?",
+                        "ref": "5e2efe83123cb54da3be0d6e"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Plat dak"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Welk soort dak wil je laten plaatsen?",
+                        "ref": "5e2efe83123cb54da3be0d70"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "6",
+                        "fieldType": "other",
+                        "title": "Hoeveel ramen wil je laten plaatsen?",
+                        "ref": "5e2efe83123cb54da3be0d71"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "2",
+                        "fieldType": "other",
+                        "title": "Hoeveel deuren wil je laten plaatsen?",
+                        "ref": "5e2efe83123cb54da3be0d72"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al bouwtekeningen?",
+                        "ref": "5e2efe83123cb54da3be0d74"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Ja"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al een bouwvergunning?",
+                        "ref": "5e2efe83123cb54da3be0d75"
+                    }
+                ],
+                "createdAt": "2020-02-11T16:39:24.131Z",
+                "updatedAt": "2020-02-11T19:39:04.786Z",
+                "orderNumber": 7536715943,
+                "__v": 4
+            },
+            "price": 5500,
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin interdum lorem nulla, vitae ultrices nisi elementum id. Nullam at sagittis nisi. Morbi pharetra risus a nunc posuere, vel porttitor dui commodo. Suspendisse malesuada leo ut tristique facilisis. Aenean commodo sit amet ex a tristique. Mauris tempus pharetra urna lobortis sollicitudin. Sed et congue nulla. Donec accumsan interdum aliquam. Nulla vel viverra nisi, nec auctor eros. Ut varius leo ut condimentum bibendum. Aliquam vehicula cursus egestas. Maecenas diam odio, sodales id pharetra sed, fermentum sit amet risus. Integer rutrum aliquet augue et tincidunt. Nulla facilisi. Morbi tincidunt nibh sed posuere blandit. Nullam quis mi eget diam ullamcorper lobortis.",
+            "createdAt": "2020-02-11T16:40:03.722Z",
+            "updatedAt": "2020-02-11T16:40:03.722Z",
+            "pitchId": 7486826855,
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint allows the business to view pitchs.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/pitches`
+
+### Body Parameters
+
+| Parameter  | Default   | Description                                                      |
+| ---------- | --------- | ---------------------------------------------------------------- |
+| filterType | undefined | String of filterType supported (newest,oldest, priceHL, priceLH) |
+
+## View jobs
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/jobs" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "jobs": [
+        {
+            "contactDetails": {
+                "email": ""
+            },
+            "comments": [],
+            "_id": "5e165e7d6bed775a52c5d039",
+            "functionTitle": "Test",
+            "functionProfile": "Aannemer",
+            "jobDescription": "Adding this vacature to test the update functionality.",
+            "salaryIndication": "2485 - 2970",
+            "totalFTE": "Specifieke periode",
+            "experienceLevel": "MBO",
+            "startDate": "2020-01-13T22:57:00.000Z",
+            "sameContact": false,
+            "businessProfile": "5e09b6027521a16081b1b389",
+            "createdAt": "2020-01-08T22:58:05.214Z",
+            "updatedAt": "2020-01-18T15:36:44.534Z",
+            "__v": 0,
+            "location": "3071BG",
+            "endDate": "2020-04-30T14:26:00.000Z",
+            "salaryPer": "per maand",
+            "hours": "40"
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint allows the business to view jobs.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/jobs`
+
+## View job by id
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/jobs/:job_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "job": {
+        "contactDetails": {
+            "email": ""
+        },
+        "comments": [],
+        "_id": "5e165e7d6bed775a52c5d039",
+        "functionTitle": "Test",
+        "functionProfile": "Aannemer",
+        "jobDescription": "Adding this vacature to test the update functionality.",
+        "salaryIndication": "2485 - 2970",
+        "totalFTE": "Specifieke periode",
+        "experienceLevel": "MBO",
+        "startDate": "2020-01-13T22:57:00.000Z",
+        "sameContact": false,
+        "businessProfile": "5e09b6027521a16081b1b389",
+        "createdAt": "2020-01-08T22:58:05.214Z",
+        "updatedAt": "2020-01-18T15:36:44.534Z",
+        "__v": 0,
+        "location": "3071BG",
+        "endDate": "2020-04-30T14:26:00.000Z",
+        "salaryPer": "per maand",
+        "hours": "40"
+    },
+    "business": {
+        "location": {
+            "coordinates": [
+                51.8961104,
+                4.1722762
+            ],
+            "type": "Point"
+        },
+        "industries": [
+            "Aannemer",
+            "Elektricien",
+            "Metselaar",
+            "Verhuisbedrijf"
+        ],
+        "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+        "pageVisible": true,
+        "accountLevel": "basic",
+        "reviews": [
+            {
+                "_id": "5e189faf796f851bce1ea314",
+                "reviewer": {
+                    "_id": "5dca7a9a3d5cc53294ff0cff",
+                    "userProfile": {
+                        "_id": "5dca7ab63d5cc53294ff0d00",
+                        "firstName": "Teunis",
+                        "lastName": "van Kerkhof"
+                    }
+                },
+                "company": "5e09b6027521a16081b1b389",
+                "rating": 5,
+                "industry": "Aannemer",
+                "title": "Leverage agile frameworks ",
+                "description": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+                "createdAt": "2020-01-10T16:00:47.591Z",
+                "updatedAt": "2020-01-10T16:00:47.591Z",
+                "__v": 0
+            },
+            {
+                "_id": "5ddc39d93512431f7d33a9da",
+                "reviewer": {
+                    "_id": "5dca7a9a3d5cc53294ff0cff",
+                    "userProfile": {
+                        "_id": "5dca7ab63d5cc53294ff0d00",
+                        "firstName": "Teunis",
+                        "lastName": "van Kerkhof"
+                    }
+                },
+                "company": "5e09b6027521a16081b1b389",
+                "rating": 4.9,
+                "title": "Draagbalk plaatsen",
+                "industry": "Loodgieter",
+                "description": "In contact gekomen met Teunis via Klusnet. Hij was veruit de betrouwbaarste. Een dag later stond hij al bij ons binnen. Duidelijke afspraken gemaakt. Een paar dagen voor dat de klus uitgevoerd werd nam hij weer contact met ons op om de afspraken nog eens door te nemen. Wim en zijn team werken als een razende en binnen een halve dag was de klus geklaard. Kortom een vakman die snel werkt en duidelijke afspraken maakt.",
+                "createdAt": "2019-11-25T20:30:17.660Z",
+                "updatedAt": "2019-11-25T20:30:17.660Z",
+                "__v": 0
+            },
+            {
+                "_id": "5ddc2d8309469d93f9c61e28",
+                "reviewer": {
+                    "_id": "5dd569fd84501322bb9bcb07",
+                    "userProfile": {
+                        "_id": "5dd56a4f84501322bb9bcb08",
+                        "firstName": "Nathan",
+                        "lastName": "Henniges"
+                    }
+                },
+                "company": "5e09b6027521a16081b1b389",
+                "rating": 4.9,
+                "industry": "Glaszetter",
+                "title": "Draagbalk plaatsen",
+                "description": "In contact gekomen met Dhr. De Jong via Klusnet. Hij was veruit de betrouwbaarste. Een dag later stond hij al bij ons binnen. Duidelijke afspraken gemaakt. Een paar dagen voor dat de klus uitgevoerd werd nam hij weer contact met ons op om de afspraken nog eens door te nemen. Wim en zijn team werken als een razende en binnen een halve dag was de klus geklaard. Kortom een vakman die snel werkt en duidelijke afspraken maakt.",
+                "createdAt": "2019-11-25T19:37:39.767Z",
+                "updatedAt": "2019-11-25T19:37:39.767Z",
+                "__v": 0
+            },
+            {
+                "_id": "5dd3ebcf57077ed184631a64",
+                "reviewer": {
+                    "_id": "5dca7a9a3d5cc53294ff0cff",
+                    "userProfile": {
+                        "_id": "5dca7ab63d5cc53294ff0d00",
+                        "firstName": "Teunis",
+                        "lastName": "van Kerkhof"
+                    }
+                },
+                "company": "5e09b6027521a16081b1b389",
+                "rating": 4.4,
+                "industry": "Badkamer specialist",
+                "title": "Buitenkraan plaatsen in achtertuin",
+                "description": "Een vriendelijke, netjes werkenende en snelle vakman. Werkzaamheden al binnen enkele dagen na eerste contact uitgevoerd. Heldere uitleg ná de installatie. Ik beveel deze vakman dan ook van harte aan.",
+                "createdAt": "2019-11-19T13:19:11.996Z",
+                "updatedAt": "2019-11-19T13:19:11.996Z",
+                "__v": 0
+            }
+        ],
+        "activeSubscription": true,
+        "_id": "5e09b6027521a16081b1b389",
+        "KvkNumber": "12345678",
+        "companyName": "Vakman",
+        "companyAddress": "Vakman 1",
+        "companyZipCode": "3232HE",
+        "companyCity": "IJsselmuiden",
+        "region": "XZH",
+        "firstName": "Test",
+        "lastName": "Vakman",
+        "phone": "0612345678",
+        "pageSlug": "testbv",
+        "createdAt": "2019-12-30T08:32:02.129Z",
+        "updatedAt": "2020-01-28T17:00:27.342Z",
+        "__v": 16,
+        "companyDescription": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+        "companySlogan": "Voor elke klus, vakman BV dus",
+        "avgReviewRating": 4.7,
+        "avgReviews": 4.8,
+        "projectPictures": [],
+        "subscriptionLevel": "Enterprise"
+    },
+    "status": 200
+}
+```
+
+This endpoint allows the business to view job by its ID
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/jobs/:job_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                         |
+| --------- | --------- | ----------------------------------- |
+| job_id    | undefined | String MongoDB Object ID of the job |
+
+## View industries
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/industries" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "industries": [
+        "Aannemer",
+        "Badkamer specialist",
+        "Behanger",
+        "Dakspecialist",
+        "Domotica specialist",
+        "Elektricien",
+        "Gevelspecialist",
+        "Glaszetter",
+        "Hovenier",
+        "Installatiebedrijf",
+        "Isolatiebedrijf",
+        "Keukenmonteur",
+        "Klusbedrijf",
+        "Kozijnspecialist",
+        "Loodgieter",
+        "Metselaar",
+        "Ontwerper",
+        "Schilder",
+        "Schoonmaakbedrijf",
+        "Sloopbedrijf",
+        "Stoffeerder",
+        "Stratenmaker",
+        "Stukadoor",
+        "Tegelzetter",
+        "Timmerman",
+        "Verhuisbedrijf",
+        "Vloerspecialist",
+        "Voertuig monteur",
+        "Witgoed reparateur",
+        "Radio button invoer"
+    ],
+    "status": 200
+}
+```
+
+This endpoint allows the business view industries.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/industries`
+
+## Complate Gig
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/business/complete/gig/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw opdracht is voltooid en komt in uw voltooide opdrachten overzoek te staan",
+  "status": 200
+}
+```
+
+This endpoint allows the business to complate a gig.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/business/complete/gig/:gig_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                         |
+| --------- | --------- | ----------------------------------- |
+| gig_id    | undefined | String MongoDB Object ID of the gig |
+
+## List orders
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/list/orders" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "orders": [
+        {
+            "status": "paid",
+            "_id": "5e30689405bdd556a23c8d6e",
+            "orderedBy": "5e05427728248507d762ec88",
+            "orderNumber": "2947186430",
+            "paymentMethod": "iDeal",
+            "price": 640.09,
+            "billingCycle": "yearly",
+            "plan": "Enterprise",
+            "paymentId": "tr_WGWbBt8sbD",
+            "createdAt": "2020-01-28T17:00:07.705Z",
+            "updatedAt": "2020-01-28T17:00:32.498Z",
+            "__v": 0,
+            "orderInvoice": "https://res.cloudinary.com/scope-web-llc/raw/upload/v1580230832/linsta/test/Linsta-factuur-2947186430.pdf"
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint lists orders.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/list/orders`
+
+## List bookmarks
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/list/bookmarks" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "bookmarks": [],
+    "status": 200
+}
+```
+
+This endpoint lists bookmarks.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/list/bookmarks`
