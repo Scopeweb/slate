@@ -7238,3 +7238,76 @@ This endpoint serach KB.
 | Parameter | Default   | Description      |
 | --------- | --------- | ---------------- |
 | search    | undefined | String of search |
+
+## Find KB by category
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/find-articles/:kb_category" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "articles": [
+        {
+            "feedback": [],
+            "_id": "5e1f3b979354cc1fc3bf76ee",
+            "title": "Leverage agile frameworks ",
+            "category": "5e1f7926efac6e58c731b346",
+            "description": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+            "createdAt": "2020-01-15T16:19:35.642Z",
+            "updatedAt": "2020-01-26T17:07:25.246Z",
+            "__v": 0,
+            "userGroup": "Leverage agile frameworks "
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint retrieve articles in a KB category
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/find-articles/:kb_category`
+
+### Body Parameters
+
+| Parameter   | Default   | Description               |
+| ----------- | --------- | ------------------------- |
+| kb_category | undefined | String of the kb_category |
+
+## Send feedback on KB
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/submit/kb/:kb_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'votedHelpful=Good' \
+  --data-urlencode 'comment=Thanks' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Bedankt voor uw feedback",
+  "status": 200
+}
+```
+
+This endpoint allows a user to send feedback to KB
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/submit/kb/:kb_id`
+
+### Body Parameters
+
+| Parameter    | Default   | Description                       |
+| ------------ | --------- | --------------------------------- |
+| kb_id        | undefined | String of MongoDB Object ID of kb |
+| votedHelpful | undefined | String of the votedHelpful        |
+| comment      | undefined | String of the comment             |
