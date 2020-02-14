@@ -2325,7 +2325,7 @@ curl --location --request POST "https://api.linsta.nl/v1/analytics/users" \
                 "street": " Wielingen 8",
                 "zipCode": "3232HH",
                 "city": "Brielle",
-                "phone": "6084666280",
+                "phone": "123456789",
                 "createdAt": "2019-11-20T16:31:11.154Z",
                 "updatedAt": "2019-11-20T16:31:11.154Z",
                 "__v": 0
@@ -6152,7 +6152,7 @@ curl --location --request GET "https://api.linsta.nl/v1/user/current" \
             "street": " Wielingen 8",
             "zipCode": "3232HH",
             "city": "Brielle",
-            "phone": "6084666280",
+            "phone": "12456789",
             "createdAt": "2019-11-20T16:31:11.154Z",
             "updatedAt": "2019-11-20T16:31:11.154Z",
             "__v": 0
@@ -6288,3 +6288,203 @@ This endpoint returns reviews from the user id.
 | Parameter | Default   | Description                          |
 | --------- | --------- | ------------------------------------ |
 | user_id   | undefined | String MongoDB Object ID of the user |
+
+## Update User
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/update" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'firstName=Nathan' \
+  --data-urlencode 'lastName=Henniges' \
+  --data-urlencode 'phone=1123456789' \
+  --data-urlencode 'street=Wielingen 8' \
+  --data-urlencode 'zipCode=3232HH' \
+  --data-urlencode 'city=Brielle'
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Linsta Account profiel wijzigingen zijn opgeslagen",
+  "status": 200
+}
+```
+
+This endpoint update the user.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/update`
+
+### Body Parameters
+
+| Parameter | Default   | Description             |
+| --------- | --------- | ----------------------- |
+| firstName | undefined | String of the firstName |
+| lastName  | undefined | String of the lastName  |
+| phone     | undefined | String of the phone     |
+| street    | undefined | String of the street    |
+| zipCode   | undefined | String of the zipCode   |
+| city      | undefined | String of the city      |
+
+## Update notification preferences
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/update/notifications" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'notifications=true' \
+  --data-urlencode 'newsletter=true' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Linsta Account profiel wijzigingen zijn opgeslagen",
+  "status": 200
+}
+```
+
+This endpoint update users notification preferences
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/update/notifications`
+
+### Body Parameters
+
+| Parameter     | Default   | Description                 |
+| ------------- | --------- | --------------------------- |
+| notifications | undefined | String of the notifications |
+| newsletter    | undefined | String of the newsletter    |
+
+## Update password
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/user/update-password" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'currentPassword=true' \
+  --data-urlencode 'password=true' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw Linsta wachtwoord is gewijzigd",
+  "status": 200
+}
+```
+
+This endpoint update users password.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/user/update-password`
+
+### Body Parameters
+
+| Parameter       | Default   | Description                   |
+| --------------- | --------- | ----------------------------- |
+| currentPassword | undefined | String of the currentPassword |
+| password        | undefined | String of the new password    |
+
+## Delete User
+
+```shell
+curl --location --request DELETE "https://api.linsta.nl/v1/user/:user_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Uw Linsta wachtwoord is gewijzigd",
+  "status": 200
+}
+```
+
+This endpoint update users password.
+
+### HTTP Request
+
+`DELETE https://api.linsta.nl/v1/user/:user_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                         |
+| --------- | --------- | ----------------------------------- |
+| user_id   | undefined | String of MongoDB Object ID of user |
+
+## Delete User
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/user/update-twofactor" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'status=true' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "Updated two factor options.",
+  "status": 200
+}
+```
+
+This endpoint update two factor status.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/user/update-twofactor`
+
+### Body Parameters
+
+| Parameter | Default   | Description                        |
+| --------- | --------- | ---------------------------------- |
+| status    | undefined | String of true or false for status |
+
+## Bookmark a business
+
+```shell
+curl --location --request PUT "https://api.linsta.nl/v1/user/bookmarks/:business_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'bookmarked=true' \
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De vakman is aan uw favorieten toegevoegd",
+  "status": 200
+}
+```
+
+> Or
+
+```json
+{
+  "message": "De vakman is uit uw favoriete verwijderd",
+  "status": 200
+}
+```
+This endpoint update two factor status.
+
+### HTTP Request
+
+`PUT https://api.linsta.nl/v1/user/bookmarks/:business_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description                        |
+| --------- | --------- | ---------------------------------- |
+| status    | undefined | String of true or false for status |
