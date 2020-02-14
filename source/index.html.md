@@ -6421,7 +6421,7 @@ This endpoint update users password.
 | --------- | --------- | ----------------------------------- |
 | user_id   | undefined | String of MongoDB Object ID of user |
 
-## Delete User
+## Update Two Factor
 
 ```shell
 curl --location --request PUT "https://api.linsta.nl/v1/user/update-twofactor" \
@@ -6477,7 +6477,7 @@ curl --location --request PUT "https://api.linsta.nl/v1/user/bookmarks/:business
   "status": 200
 }
 ```
-This endpoint update two factor status.
+This endpoint add or remove bookmark business.
 
 ### HTTP Request
 
@@ -6488,3 +6488,166 @@ This endpoint update two factor status.
 | Parameter | Default   | Description                        |
 | --------- | --------- | ---------------------------------- |
 | status    | undefined | String of true or false for status |
+
+## List bookmarks
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/list/bookmarks" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "bookmarks": [
+        {
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    51.8961104,
+                    4.1722762
+                ]
+            },
+            "industries": [
+                "Aannemer"
+            ],
+            "companyLogo": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+            "pageVisible": false,
+            "accountLevel": "basic",
+            "reviews": [],
+            "activeSubscription": false,
+            "_id": "5e19ec5a2156e739680c6e71",
+            "KvkNumber": "12345678",
+            "companyName": "De Vakman",
+            "companyAddress": "Vakman 1",
+            "companyZipCode": "3232HE",
+            "region": "XZH",
+            "firstName": "Jan",
+            "lastName": "De Vakman",
+            "phone": "0612345678",
+            "pageSlug": "Family-Roofing-BV",
+            "createdAt": "2020-01-11T15:40:10.892Z",
+            "updatedAt": "2020-01-14T23:11:12.819Z",
+            "__v": 1,
+            "companyDescription": "Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.",
+            "companySlogan": "Your roofing is not heated more.",
+            "avgReviews": 0,
+            "projectPictures": [],
+            "subscriptionLevel": "Basic"
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint list bookmarked businesses
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/list/bookmarks`
+
+## Find category
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/find/category" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "category": [
+        {
+            "keywords": [
+                "Vl",
+                " vloer",
+                " vloerverwarming",
+                " ver",
+                " verwarming",
+                " vloeren",
+                " aannemer"
+            ],
+            "steps": [],
+            "images": [],
+            "_id": "5e20ac15b7de01eed9c8e7cc",
+            "serviceName": "Vloerverwarming plaatsen",
+            "industry": "Aannemer",
+            "createdAt": "2020-01-16T18:31:49.276Z",
+            "updatedAt": "2020-01-16T18:31:49.276Z",
+            "__v": 0
+        },
+        {
+            "keywords": [
+                "Per",
+                " pergola",
+                " tuin",
+                " tuinhuis",
+                " huis",
+                " huisje",
+                " tuinhuisje",
+                " plaatsen",
+                " aannemer"
+            ],
+            "steps": [],
+            "images": [],
+            "_id": "5e20aaaab7de01eed9c8e7c1",
+            "serviceName": "Pergola of Tuinhuis plaatsen",
+            "industry": "Aannemer",
+            "createdAt": "2020-01-16T18:25:46.869Z",
+            "updatedAt": "2020-01-16T18:25:46.869Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint finds a businness category
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/find/category`
+
+### Query Parameters
+
+| Parameter | Default   | Description        |
+| --------- | --------- | ------------------ |
+| industry  | undefined | String of industry |
+
+## Find service
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/user/service-name/:service_name" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "serviceName": "Dakkapel plaatsen",
+    "keywords": [
+        "Dak",
+        " Dakkapel",
+        " Kapel",
+        " Da",
+        " Dakkapel plaatsen",
+        " Renovatie dakkapel"
+    ],
+    "status": 200
+}
+```
+
+This endpoint finds a businness service
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/user/service-name/:service_name`
+
+### Body Parameters
+
+| Parameter    | Default   | Description            |
+| ------------ | --------- | ---------------------- |
+| service_name | undefined | String of service_name |
