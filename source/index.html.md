@@ -6911,7 +6911,7 @@ curl --location --request POST "https://api.linsta.nl/v1/user/delete-gig-image/:
 { "message": "De afbeelding is verwijderd", "status": 200 }
 ```
 
-This endpoint allows user upload an image for a new gig
+This endpoint allows user delete an image for a new gig
 
 ### HTTP Request
 
@@ -6936,7 +6936,7 @@ curl --location --request POST "https://api.linsta.nl/v1/user/delete-image/:imag
 { "message": "Image has been deleted", "status": 200 }
 ```
 
-This endpoint allows user upload an image for a new gig
+This endpoint allows user delete an image
 
 ### HTTP Request
 
@@ -6963,7 +6963,7 @@ curl --location --request POST "https://api.linsta.nl/v1/user/email-check" \
 { "message": "User with this email exists", "status": 200 }
 ```
 
-This endpoint allows user upload an image for a new gig
+This endpoint checks the email is in used.
 
 ### HTTP Request
 
@@ -6974,3 +6974,56 @@ This endpoint allows user upload an image for a new gig
 | Parameter | Default   | Description         |
 | --------- | --------- | ------------------- |
 | email     | undefined | String of the email |
+
+## List created gigs
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/gigs/created-gigs" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "error": "Je hebt nog geen opdrachten geplaatst",
+  "gigs": [],
+  "status": 200
+}
+```
+
+This endpoint list all created gigs for the user.
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/gigs/created-gigs`
+
+## Upload image for gig
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/gigs/add-image/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'gigImage=base64image' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  "message": "De afbeelding is aan je klus toegevoegd",
+  "status": 200
+}
+```
+
+This endpoint allows user upload an image for a new gig
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/gigs/add-image/:gig_id`
+
+### Body Parameters
+
+| Parameter | Default   | Description            |
+| --------- | --------- | ---------------------- |
+| gigImage  | undefined | String of base64 image |
