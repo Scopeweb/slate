@@ -6831,14 +6831,21 @@ This endpoint allows user to place a job.
 
 ```shell
 curl --location --request DELETE "https://api.linsta.nl/v1/user/place-custom-job" \
-  -H "Authorization: Bearer jsonwebtoken" 
+  -H "Authorization: Bearer jsonwebtoken" \
+    -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'zipCode=3071BG' \
+  --data-urlencode 'title=Aanbouw of opbouw plaatsen' \
+  --data-urlencode 'description=Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante non libero aliquet ultricies in eu erat. Ut id metus mollis, tincidunt ex a, varius augue. Integer posuere dolor non interdum elementum. Nunc eu ullamcorper mi. Nulla gravida, nisi in euismod cursus, lorem ex mattis enim, eu ullamcorper erat enim at tellus. Nulla rhoncus pellentesque placerat. Aenean ante ante, pulvinar ac sapien eget, ornare posuere lacus. Phasellus viverra, nunc ut fermentum venenatis, massa quam placerat leo, eu rutrum orci nisl sit amet ex. In pretium semper odio et faucibus. Sed eleifend nisi nibh, vitae malesuada nisl consectetur quis. Aliquam erat volutpat. Integer maximus lacinia ante a rhoncus.' \
+  --data-urlencode 'firstName=Nathan' \
+  --data-urlencode 'lastName=Henniges' \
+  --data-urlencode 'email=nathan@scopeweb.nl' 
 ```
 
 >The above command returns JSON structured like this:
 
 ```json
 {
-  "message": "Uw klus is geplaatst. U ontvangt een e-mail ter bevestiging",
+  "message": "De klus is geplaatst. Zodra er een match is ontvang je een email",
   "status"  : 200
 }
 ```
@@ -6851,6 +6858,119 @@ This endpoint allows user to place a job.
 
 ### Body Parameters
 
-| Parameter | Default   | Description                      |
-| --------- | --------- | -------------------------------- |
-| steps     | undefined | String MongoDB Object ID  of gig |
+| Parameter   | Default   | Description                 |
+| ----------- | --------- | --------------------------- |
+| zipCode     | undefined | String  of the  zipCode     |
+| title       | undefined | String  of the  title       |
+| description | undefined | String  of the  description |
+| firstName   | undefined | String  of the  firstName   |
+| lastName    | undefined | String  of the  lastName    |
+| email       | undefined | String  of the  email       |
+
+## Upload Gig Image
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/upload-gig-image" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'gigImage=base64image' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+  imgResult: "https://res.cloudinary.com/scope-web-llc/image/upload/v1579385353/linsta/opdrachten/klus-afbeelding/klus-afbeelding-05559785.jpg",
+  fileName: "klus-afbeelding-05559785",
+  status: 200
+}
+```
+
+This endpoint allows user upload an image for a new gig
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/upload-gig-image`
+
+### Body Parameters
+
+| Parameter | Default   | Description            |
+| --------- | --------- | ---------------------- |
+| gigImage  | undefined | String of base64 image |
+
+## Delete gig image
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/delete-gig-image/:imageId" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "message": "De afbeelding is verwijderd", "status": 200 }
+```
+
+This endpoint allows user upload an image for a new gig
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/delete-gig-image/:imageId`
+
+### Body Parameters
+
+| Parameter  | Default   | Description          |
+| ---------- | --------- | -------------------- |
+| image_name | undefined | String of image name |
+
+## Delete image
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/delete-image/:image_name" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "message": "Image has been deleted", "status": 200 }
+```
+
+This endpoint allows user upload an image for a new gig
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/delete-image/:image_name`
+
+### Body Parameters
+
+| Parameter  | Default   | Description          |
+| ---------- | --------- | -------------------- |
+| image_name | undefined | String of image name |
+
+## Email check
+
+```shell
+curl --location --request POST "https://api.linsta.nl/v1/user/email-check" \
+  -H "Authorization: Bearer jsonwebtoken" \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'email=nathan@scopeweb.nl' 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{ "message": "User with this email exists", "status": 200 }
+```
+
+This endpoint allows user upload an image for a new gig
+
+### HTTP Request
+
+`POST https://api.linsta.nl/v1/user/email-check`
+
+### Body Parameters
+
+| Parameter | Default   | Description         |
+| --------- | --------- | ------------------- |
+| email     | undefined | String of the email |
