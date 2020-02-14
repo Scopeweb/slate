@@ -4168,4 +4168,1382 @@ This endpoint alllows the view of a job.
 | --------- | --------- | ------------------------------- |
 | job_id    | undefined | String MongoDB Object ID of job |
 
-/view/gigs
+## View Gigs
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/gigs" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "gigs": [
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e4579c00d5ede2990081f94",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": null,
+            "createdAt": "2020-02-13T16:30:56.201Z",
+            "updatedAt": "2020-02-13T16:30:56.201Z",
+            "__v": 0
+        },
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e457a0f0d5ede2990081f99",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": {
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        51.9078123,
+                        4.5079956
+                    ]
+                },
+                "matchedProfessionals": [
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f97"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f98"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f99"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f9a"
+                    }
+                ],
+                "approvedProfessionals": [],
+                "invitedProfessionals": [],
+                "declinedProfessionals": [],
+                "underReviewProfessionals": [],
+                "hasBeenUpdated": false,
+                "pitches": [],
+                "_id": "5e457a0f0d5ede2990081f96",
+                "title": "Aanbouw of opbouw plaatsen",
+                "zipCode": "3071BG",
+                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante non libero aliquet ultricies in eu erat. Ut id metus mollis, tincidunt ex a, varius augue. Integer posuere dolor non interdum elementum. Nunc eu ullamcorper mi. Nulla gravida, nisi in euismod cursus, lorem ex mattis enim, eu ullamcorper erat enim at tellus. Nulla rhoncus pellentesque placerat. Aenean ante ante, pulvinar ac sapien eget, ornare posuere lacus. Phasellus viverra, nunc ut fermentum venenatis, massa quam placerat leo, eu rutrum orci nisl sit amet ex. In pretium semper odio et faucibus. Sed eleifend nisi nibh, vitae malesuada nisl consectetur quis. Aliquam erat volutpat. Integer maximus lacinia ante a rhoncus.",
+                "projectPictures": [
+                    {
+                        "src": "https://res.cloudinary.com/scope-web-llc/image/upload/v1579385353/linsta/opdrachten/klus-afbeelding/klus-afbeelding-05559785.jpg",
+                        "fileName": "klus-afbeelding-05559785"
+                    }
+                ],
+                "industry": "Aannemer",
+                "consumer": "5e05427728248507d762ec88",
+                "budgetIndication": "€ 10.000 of meer",
+                "city": "test",
+                "steps": [
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "60",
+                        "fieldType": "other",
+                        "title": "Hoe groot is de te bouwen uitbreiding in m²? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8ce"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Moet er fundering worden geplaatst?",
+                        "ref": "5e237e11e9a7910190daa8cf"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Schuin dak"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wat voor soort dak wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d1"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "6",
+                        "fieldType": "other",
+                        "title": "Hoeveel ramen wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d2"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "2",
+                        "fieldType": "other",
+                        "title": "Hoeveel deuren wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d3"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Ja"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al bouwtekeningen?",
+                        "ref": "5e237e11e9a7910190daa8d5"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee - ik moet nog een vergunning regelen"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al een bouw vergunning?",
+                        "ref": "5e237e11e9a7910190daa8d6"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Zo snel mogelijk"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wanneer wil je dat de vakman start? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d8"
+                    }
+                ],
+                "createdAt": "2020-02-13T16:32:15.663Z",
+                "updatedAt": "2020-02-13T16:32:15.663Z",
+                "orderNumber": 1067762937,
+                "__v": 0
+            },
+            "createdAt": "2020-02-13T16:32:15.642Z",
+            "updatedAt": "2020-02-13T16:32:15.642Z",
+            "__v": 0
+        },
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e457a4f0d5ede2990081f9e",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": {
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        51.9078123,
+                        4.5079956
+                    ]
+                },
+                "matchedProfessionals": [
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9c"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9d"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9e"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9f"
+                    }
+                ],
+                "approvedProfessionals": [],
+                "invitedProfessionals": [],
+                "declinedProfessionals": [],
+                "underReviewProfessionals": [],
+                "hasBeenUpdated": false,
+                "pitches": [],
+                "_id": "5e457a4f0d5ede2990081f9b",
+                "title": "Aanbouw of opbouw plaatsen",
+                "zipCode": "3071BG",
+                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante non libero aliquet ultricies in eu erat. Ut id metus mollis, tincidunt ex a, varius augue. Integer posuere dolor non interdum elementum. Nunc eu ullamcorper mi. Nulla gravida, nisi in euismod cursus, lorem ex mattis enim, eu ullamcorper erat enim at tellus. Nulla rhoncus pellentesque placerat. Aenean ante ante, pulvinar ac sapien eget, ornare posuere lacus. Phasellus viverra, nunc ut fermentum venenatis, massa quam placerat leo, eu rutrum orci nisl sit amet ex. In pretium semper odio et faucibus. Sed eleifend nisi nibh, vitae malesuada nisl consectetur quis. Aliquam erat volutpat. Integer maximus lacinia ante a rhoncus.",
+                "projectPictures": [],
+                "industry": "Aannemer",
+                "consumer": "5e09b6027521a16081b1b389",
+                "budgetIndication": "€ 10.000 of meer",
+                "city": "test",
+                "steps": [
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "60",
+                        "fieldType": "other",
+                        "title": "Hoe groot is de te bouwen uitbreiding in m²? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8ce"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Moet er fundering worden geplaatst?",
+                        "ref": "5e237e11e9a7910190daa8cf"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Schuin dak"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wat voor soort dak wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d1"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "6",
+                        "fieldType": "other",
+                        "title": "Hoeveel ramen wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d2"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "2",
+                        "fieldType": "other",
+                        "title": "Hoeveel deuren wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d3"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Ja"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al bouwtekeningen?",
+                        "ref": "5e237e11e9a7910190daa8d5"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee - ik moet nog een vergunning regelen"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al een bouw vergunning?",
+                        "ref": "5e237e11e9a7910190daa8d6"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Zo snel mogelijk"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wanneer wil je dat de vakman start? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d8"
+                    }
+                ],
+                "createdAt": "2020-02-13T16:33:19.733Z",
+                "updatedAt": "2020-02-13T16:35:26.227Z",
+                "orderNumber": 8898997185,
+                "__v": 0
+            },
+            "createdAt": "2020-02-13T16:33:19.718Z",
+            "updatedAt": "2020-02-13T16:33:19.718Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint allows the business owner to view consumer created gigs.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/gigs`
+
+### Query Parameters
+
+| Parameter | Default   | Description                               |
+| --------- | --------- | ----------------------------------------- |
+| date      | undefined | String date supported (newest and oldest) |
+| industry  | undefined | String industry                           |
+
+## View Won Gigs
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/won-gigs" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "gigs": [
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e4579c00d5ede2990081f94",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": null,
+            "createdAt": "2020-02-13T16:30:56.201Z",
+            "updatedAt": "2020-02-13T16:30:56.201Z",
+            "__v": 0
+        },
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e457a0f0d5ede2990081f99",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": {
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        51.9078123,
+                        4.5079956
+                    ]
+                },
+                "matchedProfessionals": [
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f97"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f98"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f99"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f9a"
+                    }
+                ],
+                "approvedProfessionals": [],
+                "invitedProfessionals": [],
+                "declinedProfessionals": [],
+                "underReviewProfessionals": [],
+                "hasBeenUpdated": false,
+                "pitches": [],
+                "_id": "5e457a0f0d5ede2990081f96",
+                "title": "Aanbouw of opbouw plaatsen",
+                "zipCode": "3071BG",
+                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante non libero aliquet ultricies in eu erat. Ut id metus mollis, tincidunt ex a, varius augue. Integer posuere dolor non interdum elementum. Nunc eu ullamcorper mi. Nulla gravida, nisi in euismod cursus, lorem ex mattis enim, eu ullamcorper erat enim at tellus. Nulla rhoncus pellentesque placerat. Aenean ante ante, pulvinar ac sapien eget, ornare posuere lacus. Phasellus viverra, nunc ut fermentum venenatis, massa quam placerat leo, eu rutrum orci nisl sit amet ex. In pretium semper odio et faucibus. Sed eleifend nisi nibh, vitae malesuada nisl consectetur quis. Aliquam erat volutpat. Integer maximus lacinia ante a rhoncus.",
+                "projectPictures": [
+                    {
+                        "src": "https://res.cloudinary.com/scope-web-llc/image/upload/v1579385353/linsta/opdrachten/klus-afbeelding/klus-afbeelding-05559785.jpg",
+                        "fileName": "klus-afbeelding-05559785"
+                    }
+                ],
+                "industry": "Aannemer",
+                "consumer": "5e05427728248507d762ec88",
+                "budgetIndication": "€ 10.000 of meer",
+                "city": "test",
+                "steps": [
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "60",
+                        "fieldType": "other",
+                        "title": "Hoe groot is de te bouwen uitbreiding in m²? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8ce"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Moet er fundering worden geplaatst?",
+                        "ref": "5e237e11e9a7910190daa8cf"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Schuin dak"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wat voor soort dak wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d1"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "6",
+                        "fieldType": "other",
+                        "title": "Hoeveel ramen wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d2"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "2",
+                        "fieldType": "other",
+                        "title": "Hoeveel deuren wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d3"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Ja"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al bouwtekeningen?",
+                        "ref": "5e237e11e9a7910190daa8d5"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee - ik moet nog een vergunning regelen"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al een bouw vergunning?",
+                        "ref": "5e237e11e9a7910190daa8d6"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Zo snel mogelijk"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wanneer wil je dat de vakman start? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d8"
+                    }
+                ],
+                "createdAt": "2020-02-13T16:32:15.663Z",
+                "updatedAt": "2020-02-13T16:32:15.663Z",
+                "orderNumber": 1067762937,
+                "__v": 0
+            },
+            "createdAt": "2020-02-13T16:32:15.642Z",
+            "updatedAt": "2020-02-13T16:32:15.642Z",
+            "__v": 0
+        },
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e457a4f0d5ede2990081f9e",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": {
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        51.9078123,
+                        4.5079956
+                    ]
+                },
+                "matchedProfessionals": [
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9c"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9d"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9e"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9f"
+                    }
+                ],
+                "approvedProfessionals": [],
+                "invitedProfessionals": [],
+                "declinedProfessionals": [],
+                "underReviewProfessionals": [],
+                "hasBeenUpdated": false,
+                "pitches": [],
+                "_id": "5e457a4f0d5ede2990081f9b",
+                "title": "Aanbouw of opbouw plaatsen",
+                "zipCode": "3071BG",
+                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante non libero aliquet ultricies in eu erat. Ut id metus mollis, tincidunt ex a, varius augue. Integer posuere dolor non interdum elementum. Nunc eu ullamcorper mi. Nulla gravida, nisi in euismod cursus, lorem ex mattis enim, eu ullamcorper erat enim at tellus. Nulla rhoncus pellentesque placerat. Aenean ante ante, pulvinar ac sapien eget, ornare posuere lacus. Phasellus viverra, nunc ut fermentum venenatis, massa quam placerat leo, eu rutrum orci nisl sit amet ex. In pretium semper odio et faucibus. Sed eleifend nisi nibh, vitae malesuada nisl consectetur quis. Aliquam erat volutpat. Integer maximus lacinia ante a rhoncus.",
+                "projectPictures": [],
+                "industry": "Aannemer",
+                "consumer": "5e09b6027521a16081b1b389",
+                "budgetIndication": "€ 10.000 of meer",
+                "city": "test",
+                "steps": [
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "60",
+                        "fieldType": "other",
+                        "title": "Hoe groot is de te bouwen uitbreiding in m²? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8ce"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Moet er fundering worden geplaatst?",
+                        "ref": "5e237e11e9a7910190daa8cf"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Schuin dak"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wat voor soort dak wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d1"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "6",
+                        "fieldType": "other",
+                        "title": "Hoeveel ramen wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d2"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "2",
+                        "fieldType": "other",
+                        "title": "Hoeveel deuren wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d3"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Ja"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al bouwtekeningen?",
+                        "ref": "5e237e11e9a7910190daa8d5"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee - ik moet nog een vergunning regelen"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al een bouw vergunning?",
+                        "ref": "5e237e11e9a7910190daa8d6"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Zo snel mogelijk"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wanneer wil je dat de vakman start? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d8"
+                    }
+                ],
+                "createdAt": "2020-02-13T16:33:19.733Z",
+                "updatedAt": "2020-02-13T16:35:26.227Z",
+                "orderNumber": 8898997185,
+                "__v": 0
+            },
+            "createdAt": "2020-02-13T16:33:19.718Z",
+            "updatedAt": "2020-02-13T16:33:19.718Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint allows the business owner to won gigs.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/won-gigs`
+
+## View Invited Gigs
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/invited-gigs" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "gigs": [
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e4579c00d5ede2990081f94",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": null,
+            "createdAt": "2020-02-13T16:30:56.201Z",
+            "updatedAt": "2020-02-13T16:30:56.201Z",
+            "__v": 0
+        },
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e457a0f0d5ede2990081f99",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": {
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        51.9078123,
+                        4.5079956
+                    ]
+                },
+                "matchedProfessionals": [
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f97"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f98"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f99"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a0f0d5ede2990081f9a"
+                    }
+                ],
+                "approvedProfessionals": [],
+                "invitedProfessionals": [],
+                "declinedProfessionals": [],
+                "underReviewProfessionals": [],
+                "hasBeenUpdated": false,
+                "pitches": [],
+                "_id": "5e457a0f0d5ede2990081f96",
+                "title": "Aanbouw of opbouw plaatsen",
+                "zipCode": "3071BG",
+                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante non libero aliquet ultricies in eu erat. Ut id metus mollis, tincidunt ex a, varius augue. Integer posuere dolor non interdum elementum. Nunc eu ullamcorper mi. Nulla gravida, nisi in euismod cursus, lorem ex mattis enim, eu ullamcorper erat enim at tellus. Nulla rhoncus pellentesque placerat. Aenean ante ante, pulvinar ac sapien eget, ornare posuere lacus. Phasellus viverra, nunc ut fermentum venenatis, massa quam placerat leo, eu rutrum orci nisl sit amet ex. In pretium semper odio et faucibus. Sed eleifend nisi nibh, vitae malesuada nisl consectetur quis. Aliquam erat volutpat. Integer maximus lacinia ante a rhoncus.",
+                "projectPictures": [
+                    {
+                        "src": "https://res.cloudinary.com/scope-web-llc/image/upload/v1579385353/linsta/opdrachten/klus-afbeelding/klus-afbeelding-05559785.jpg",
+                        "fileName": "klus-afbeelding-05559785"
+                    }
+                ],
+                "industry": "Aannemer",
+                "consumer": "5e05427728248507d762ec88",
+                "budgetIndication": "€ 10.000 of meer",
+                "city": "test",
+                "steps": [
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "60",
+                        "fieldType": "other",
+                        "title": "Hoe groot is de te bouwen uitbreiding in m²? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8ce"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Moet er fundering worden geplaatst?",
+                        "ref": "5e237e11e9a7910190daa8cf"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Schuin dak"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wat voor soort dak wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d1"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "6",
+                        "fieldType": "other",
+                        "title": "Hoeveel ramen wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d2"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "2",
+                        "fieldType": "other",
+                        "title": "Hoeveel deuren wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d3"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Ja"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al bouwtekeningen?",
+                        "ref": "5e237e11e9a7910190daa8d5"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee - ik moet nog een vergunning regelen"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al een bouw vergunning?",
+                        "ref": "5e237e11e9a7910190daa8d6"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Zo snel mogelijk"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wanneer wil je dat de vakman start? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d8"
+                    }
+                ],
+                "createdAt": "2020-02-13T16:32:15.663Z",
+                "updatedAt": "2020-02-13T16:32:15.663Z",
+                "orderNumber": 1067762937,
+                "__v": 0
+            },
+            "createdAt": "2020-02-13T16:32:15.642Z",
+            "updatedAt": "2020-02-13T16:32:15.642Z",
+            "__v": 0
+        },
+        {
+            "gigStatus": 0,
+            "hasReplied": false,
+            "_id": "5e457a4f0d5ede2990081f9e",
+            "professional": "5e09b6027521a16081b1b389",
+            "industry": "Aannemer",
+            "gig": {
+                "location": {
+                    "type": "Point",
+                    "coordinates": [
+                        51.9078123,
+                        4.5079956
+                    ]
+                },
+                "matchedProfessionals": [
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9c"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9d"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9e"
+                    },
+                    {
+                        "gigStatus": 0,
+                        "_id": "5e457a4f0d5ede2990081f9f"
+                    }
+                ],
+                "approvedProfessionals": [],
+                "invitedProfessionals": [],
+                "declinedProfessionals": [],
+                "underReviewProfessionals": [],
+                "hasBeenUpdated": false,
+                "pitches": [],
+                "_id": "5e457a4f0d5ede2990081f9b",
+                "title": "Aanbouw of opbouw plaatsen",
+                "zipCode": "3071BG",
+                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris vel ante non libero aliquet ultricies in eu erat. Ut id metus mollis, tincidunt ex a, varius augue. Integer posuere dolor non interdum elementum. Nunc eu ullamcorper mi. Nulla gravida, nisi in euismod cursus, lorem ex mattis enim, eu ullamcorper erat enim at tellus. Nulla rhoncus pellentesque placerat. Aenean ante ante, pulvinar ac sapien eget, ornare posuere lacus. Phasellus viverra, nunc ut fermentum venenatis, massa quam placerat leo, eu rutrum orci nisl sit amet ex. In pretium semper odio et faucibus. Sed eleifend nisi nibh, vitae malesuada nisl consectetur quis. Aliquam erat volutpat. Integer maximus lacinia ante a rhoncus.",
+                "projectPictures": [],
+                "industry": "Aannemer",
+                "consumer": "5e09b6027521a16081b1b389",
+                "budgetIndication": "€ 10.000 of meer",
+                "city": "test",
+                "steps": [
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "60",
+                        "fieldType": "other",
+                        "title": "Hoe groot is de te bouwen uitbreiding in m²? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8ce"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Moet er fundering worden geplaatst?",
+                        "ref": "5e237e11e9a7910190daa8cf"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Schuin dak"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wat voor soort dak wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d1"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "6",
+                        "fieldType": "other",
+                        "title": "Hoeveel ramen wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d2"
+                    },
+                    {
+                        "select": [],
+                        "radio": [],
+                        "checkbox": [],
+                        "value": "2",
+                        "fieldType": "other",
+                        "title": "Hoeveel deuren wil je laten plaatsen? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d3"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Ja"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al bouwtekeningen?",
+                        "ref": "5e237e11e9a7910190daa8d5"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Nee - ik moet nog een vergunning regelen"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Heb je al een bouw vergunning?",
+                        "ref": "5e237e11e9a7910190daa8d6"
+                    },
+                    {
+                        "select": [],
+                        "radio": [
+                            "Zo snel mogelijk"
+                        ],
+                        "checkbox": [],
+                        "fieldType": "radio",
+                        "title": "Wanneer wil je dat de vakman start? (Optioneel)",
+                        "ref": "5e237e11e9a7910190daa8d8"
+                    }
+                ],
+                "createdAt": "2020-02-13T16:33:19.733Z",
+                "updatedAt": "2020-02-13T16:35:26.227Z",
+                "orderNumber": 8898997185,
+                "__v": 0
+            },
+            "createdAt": "2020-02-13T16:33:19.718Z",
+            "updatedAt": "2020-02-13T16:33:19.718Z",
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint allows the business owner to invited gigs.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/invited-gigs`
+
+## Find Gigs
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/find/gigs" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "gigs": [
+        {
+            "location": {
+                "type": "Point",
+                "coordinates": [
+                    52.17905700000001,
+                    5.27834
+                ]
+            },
+            "matchedProfessionals": [
+                "5e4303ec8cf85ee10b5e038b",
+                "5e4303ec8cf85ee10b5e038c"
+            ],
+            "approvedProfessionals": [
+                "5e4303ec8cf85ee10b5e038c"
+            ],
+            "invitedProfessionals": [],
+            "declinedProfessionals": [],
+            "underReviewProfessionals": [],
+            "hasBeenUpdated": false,
+            "pitches": [
+                "5e4304668cf85ee10b5e0390"
+            ],
+            "_id": "5e4303ec8cf85ee10b5e038a",
+            "title": "Aan - & uitbouw",
+            "zipCode": "3762KG",
+            "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt augue at nunc elementum egestas. Sed id enim sit amet mi porttitor vehicula quis vel nunc. Suspendisse vel fermentum leo. In ex mi, bibendum eget nisl vel, euismod sodales ligula. Quisque posuere nisi dolor, sit amet dapibus purus fringilla ac. Nam nec erat gravida, aliquet urna nec, imperdiet tellus. Duis et consequat urna. Curabitur sed laoreet ante. Nulla quis dignissim elit. Aenean at diam posuere, posuere ex faucibus, imperdiet sem. Vivamus consectetur a nibh interdum semper. Mauris sit amet euismod nibh, sit amet viverra nibh. Nulla facilisi. Vestibulum quis tempus diam.",
+            "projectPictures": [],
+            "industry": "Aannemer",
+            "consumer": "5e3dbfac8a59d476a83f7618",
+            "budgetIndication": "€ 5000 - € 10.000",
+            "city": "Soest",
+            "steps": [
+                {
+                    "select": [],
+                    "radio": [],
+                    "checkbox": [],
+                    "value": "100",
+                    "fieldType": "other",
+                    "title": "Wat is de grootte van de aan- of uitbouw in m2? ",
+                    "ref": "5e2efe83123cb54da3be0d6d"
+                },
+                {
+                    "select": [],
+                    "radio": [
+                        "Nee"
+                    ],
+                    "checkbox": [],
+                    "fieldType": "radio",
+                    "title": "Is een fundering noodzakelijk?",
+                    "ref": "5e2efe83123cb54da3be0d6e"
+                },
+                {
+                    "select": [],
+                    "radio": [
+                        "Plat dak"
+                    ],
+                    "checkbox": [],
+                    "fieldType": "radio",
+                    "title": "Welk soort dak wil je laten plaatsen?",
+                    "ref": "5e2efe83123cb54da3be0d70"
+                },
+                {
+                    "select": [],
+                    "radio": [],
+                    "checkbox": [],
+                    "value": "6",
+                    "fieldType": "other",
+                    "title": "Hoeveel ramen wil je laten plaatsen?",
+                    "ref": "5e2efe83123cb54da3be0d71"
+                },
+                {
+                    "select": [],
+                    "radio": [],
+                    "checkbox": [],
+                    "value": "2",
+                    "fieldType": "other",
+                    "title": "Hoeveel deuren wil je laten plaatsen?",
+                    "ref": "5e2efe83123cb54da3be0d72"
+                },
+                {
+                    "select": [],
+                    "radio": [
+                        "Nee"
+                    ],
+                    "checkbox": [],
+                    "fieldType": "radio",
+                    "title": "Heb je al bouwtekeningen?",
+                    "ref": "5e2efe83123cb54da3be0d74"
+                },
+                {
+                    "select": [],
+                    "radio": [
+                        "Nee - niet nodig"
+                    ],
+                    "checkbox": [],
+                    "fieldType": "radio",
+                    "title": "Heb je al een bouwvergunning?",
+                    "ref": "5e2efe83123cb54da3be0d75"
+                }
+            ],
+            "createdAt": "2020-02-11T19:43:40.269Z",
+            "updatedAt": "2020-02-13T22:20:53.850Z",
+            "orderNumber": 8403869585,
+            "__v": 0
+        }
+    ],
+    "status": 200
+}
+```
+
+This endpoint allows the business owner to find gigs.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/find/gigs`
+
+### Query Parameters
+
+| Parameter    | Default   | Description                |
+| ------------ | --------- | -------------------------- |
+| distanceFrom | undefined | String of the distanceFrom |
+| industry     | undefined | String of the industry     |
+| price        | undefined | String of the price        |
+
+## View gig by id
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/business/view/gigs/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken" 
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "gig": {
+        "location": {
+            "type": "Point",
+            "coordinates": [
+                52.17905700000001,
+                5.27834
+            ]
+        },
+        "matchedProfessionals": [
+            "5e4303ec8cf85ee10b5e038b",
+            "5e4303ec8cf85ee10b5e038c"
+        ],
+        "approvedProfessionals": [
+            "5e4303ec8cf85ee10b5e038c"
+        ],
+        "invitedProfessionals": [],
+        "declinedProfessionals": [],
+        "underReviewProfessionals": [],
+        "hasBeenUpdated": false,
+        "pitches": [
+            "5e4304668cf85ee10b5e0390"
+        ],
+        "_id": "5e4303ec8cf85ee10b5e038a",
+        "title": "Aan - & uitbouw",
+        "zipCode": "3762KG",
+        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tincidunt augue at nunc elementum egestas. Sed id enim sit amet mi porttitor vehicula quis vel nunc. Suspendisse vel fermentum leo. In ex mi, bibendum eget nisl vel, euismod sodales ligula. Quisque posuere nisi dolor, sit amet dapibus purus fringilla ac. Nam nec erat gravida, aliquet urna nec, imperdiet tellus. Duis et consequat urna. Curabitur sed laoreet ante. Nulla quis dignissim elit. Aenean at diam posuere, posuere ex faucibus, imperdiet sem. Vivamus consectetur a nibh interdum semper. Mauris sit amet euismod nibh, sit amet viverra nibh. Nulla facilisi. Vestibulum quis tempus diam.",
+        "projectPictures": [],
+        "industry": "Aannemer",
+        "consumer": "5e3dbfac8a59d476a83f7618",
+        "budgetIndication": "€ 5000 - € 10.000",
+        "city": "Soest",
+        "steps": [
+            {
+                "select": [],
+                "radio": [],
+                "checkbox": [],
+                "value": "100",
+                "fieldType": "other",
+                "title": "Wat is de grootte van de aan- of uitbouw in m2? ",
+                "ref": {
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "isActive": true,
+                    "_id": "5e2efe83123cb54da3be0d6d",
+                    "fieldType": "input",
+                    "name": "watisdegroottevandeaanofuitbouwinm",
+                    "label": "Wat is de grootte van de aan- of uitbouw in m2? ",
+                    "isRequired": true,
+                    "placeholder": "",
+                    "checkBoxValues": [],
+                    "radioValues": [],
+                    "selectValues": [],
+                    "__v": 0
+                }
+            },
+            {
+                "select": [],
+                "radio": [
+                    "Nee"
+                ],
+                "checkbox": [],
+                "fieldType": "radio",
+                "title": "Is een fundering noodzakelijk?",
+                "ref": {
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "isActive": true,
+                    "_id": "5e2efe83123cb54da3be0d6e",
+                    "fieldType": "radio",
+                    "name": "iseenfunderingnoodzakelijk",
+                    "label": "Is een fundering noodzakelijk?",
+                    "isRequired": false,
+                    "placeholder": "",
+                    "checkBoxValues": [],
+                    "radioValues": [
+                        {
+                            "name": "iseenfunderingnoodzakelijk",
+                            "value": "Ja",
+                            "id": "30491027211905470948"
+                        },
+                        {
+                            "name": "iseenfunderingnoodzakelijk",
+                            "value": "Nee",
+                            "id": "03671265479576968429"
+                        },
+                        {
+                            "name": "iseenfunderingnoodzakelijk",
+                            "value": "In overleg vakman",
+                            "id": "74870954378394908337"
+                        },
+                        {
+                            "name": "iseenfunderingnoodzakelijk",
+                            "value": "Weet ik niet",
+                            "id": "45246736172292713415"
+                        }
+                    ],
+                    "selectValues": [],
+                    "__v": 0
+                }
+            },
+            {
+                "select": [],
+                "radio": [
+                    "Plat dak"
+                ],
+                "checkbox": [],
+                "fieldType": "radio",
+                "title": "Welk soort dak wil je laten plaatsen?",
+                "ref": {
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "isActive": true,
+                    "_id": "5e2efe83123cb54da3be0d70",
+                    "fieldType": "radio",
+                    "name": "welksoortdakwiljelatenplaatsen",
+                    "label": "Welk soort dak wil je laten plaatsen?",
+                    "isRequired": false,
+                    "placeholder": "",
+                    "checkBoxValues": [],
+                    "radioValues": [
+                        {
+                            "name": "welksoortdakwiljelatenplaatsen",
+                            "value": "Schuin dak",
+                            "id": "82658946998736614560"
+                        },
+                        {
+                            "name": "welksoortdakwiljelatenplaatsen",
+                            "value": "Plat dak",
+                            "id": "52221917480798271319"
+                        },
+                        {
+                            "name": "welksoortdakwiljelatenplaatsen",
+                            "value": "Anders",
+                            "id": "24034961406217677357"
+                        }
+                    ],
+                    "selectValues": [],
+                    "__v": 0
+                }
+            },
+            {
+                "select": [],
+                "radio": [],
+                "checkbox": [],
+                "value": "6",
+                "fieldType": "other",
+                "title": "Hoeveel ramen wil je laten plaatsen?",
+                "ref": {
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "isActive": true,
+                    "_id": "5e2efe83123cb54da3be0d71",
+                    "fieldType": "input",
+                    "name": "hoeveelramenwiljelatenplaatsen",
+                    "label": "Hoeveel ramen wil je laten plaatsen?",
+                    "isRequired": false,
+                    "placeholder": "",
+                    "checkBoxValues": [],
+                    "radioValues": [],
+                    "selectValues": [],
+                    "__v": 0
+                }
+            },
+            {
+                "select": [],
+                "radio": [],
+                "checkbox": [],
+                "value": "2",
+                "fieldType": "other",
+                "title": "Hoeveel deuren wil je laten plaatsen?",
+                "ref": {
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "isActive": true,
+                    "_id": "5e2efe83123cb54da3be0d72",
+                    "fieldType": "input",
+                    "name": "hoeveeldeurenwiljelatenplaatsen",
+                    "label": "Hoeveel deuren wil je laten plaatsen?",
+                    "isRequired": false,
+                    "placeholder": "",
+                    "checkBoxValues": [],
+                    "radioValues": [],
+                    "selectValues": [],
+                    "__v": 0
+                }
+            },
+            {
+                "select": [],
+                "radio": [
+                    "Nee"
+                ],
+                "checkbox": [],
+                "fieldType": "radio",
+                "title": "Heb je al bouwtekeningen?",
+                "ref": {
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "isActive": true,
+                    "_id": "5e2efe83123cb54da3be0d74",
+                    "fieldType": "radio",
+                    "name": "hebjealbouwtekeningen",
+                    "label": "Heb je al bouwtekeningen?",
+                    "isRequired": false,
+                    "placeholder": "",
+                    "checkBoxValues": [],
+                    "radioValues": [
+                        {
+                            "name": "hebjealbouwtekeningen",
+                            "value": "Ja",
+                            "id": "77448307934056880630"
+                        },
+                        {
+                            "name": "hebjealbouwtekeningen",
+                            "value": "Nee",
+                            "id": "23428122330856405183"
+                        },
+                        {
+                            "name": "hebjealbouwtekeningen",
+                            "value": "In overleg vakman",
+                            "id": "72331874448296331743"
+                        },
+                        {
+                            "name": "hebjealbouwtekeningen",
+                            "value": "Weet ik niet",
+                            "id": "15780643322061840913"
+                        }
+                    ],
+                    "selectValues": [],
+                    "__v": 0
+                }
+            },
+            {
+                "select": [],
+                "radio": [
+                    "Nee - niet nodig"
+                ],
+                "checkbox": [],
+                "fieldType": "radio",
+                "title": "Heb je al een bouwvergunning?",
+                "ref": {
+                    "required": true,
+                    "readOnly": false,
+                    "disabled": false,
+                    "isActive": true,
+                    "_id": "5e2efe83123cb54da3be0d75",
+                    "fieldType": "radio",
+                    "name": "hebjealeenbouwvergunning",
+                    "label": "Heb je al een bouwvergunning?",
+                    "isRequired": true,
+                    "placeholder": "",
+                    "checkBoxValues": [],
+                    "radioValues": [
+                        {
+                            "name": "hebjealeenbouwvergunning",
+                            "value": "Ja",
+                            "id": "11938436525583490028"
+                        },
+                        {
+                            "name": "hebjealeenbouwvergunning",
+                            "value": "Nee - niet nodig",
+                            "id": "09286062135844455983"
+                        },
+                        {
+                            "name": "hebjealeenbouwvergunning",
+                            "value": "Nee - moet ik nog regelen",
+                            "id": "97431806377950424387"
+                        },
+                        {
+                            "name": "hebjealeenbouwvergunning",
+                            "value": "Weet ik niet",
+                            "id": "24355291395104735226"
+                        }
+                    ],
+                    "selectValues": [],
+                    "__v": 0
+                }
+            }
+        ],
+        "createdAt": "2020-02-11T19:43:40.269Z",
+        "updatedAt": "2020-02-13T22:20:53.850Z",
+        "orderNumber": 8403869585,
+        "__v": 0
+    },
+    "status": 200
+}
+```
+
+This endpoint allows the business owner to view gig by its id.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/business/view/gigs/:gig_id`
