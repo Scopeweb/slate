@@ -301,6 +301,195 @@ This endpoint retrieves all available fieldtypes
 
 `GET https://api.linsta.nl/v1/admin/place-jobs/fieldtypes`
 
+## Get gig by id
+
+```shell
+curl --location --request GET "https://api.linsta.nl/v1/admin/view-gig/:gig_id" \
+  -H "Authorization: Bearer jsonwebtoken"
+```
+
+>The above command returns JSON structured like this:
+
+```json
+{
+    "gig": {
+        "location": {
+            "type": "Point",
+            "coordinates": [
+                51.8975292,
+                4.172136099999999
+            ]
+        },
+        "matchedProfessionals": [
+            {
+                "gigStatus": 0,
+                "hasReplied": false,
+                "_id": "5e4d860321848d2cd157b9c7",
+                "professional": "5e09b6027521a16081b1b389",
+                "industry": "Aannemer",
+                "gig": "5e4d860321848d2cd157b9c6",
+                "createdAt": "2020-02-19T19:01:23.575Z",
+                "updatedAt": "2020-02-19T19:01:23.575Z",
+                "__v": 0
+            },
+            {
+                "gigStatus": 0,
+                "hasReplied": false,
+                "_id": "5e4d860321848d2cd157b9c8",
+                "professional": "5e19ec5a2156e739680c6e71",
+                "industry": "Aannemer",
+                "gig": "5e4d860321848d2cd157b9c6",
+                "createdAt": "2020-02-19T19:01:23.575Z",
+                "updatedAt": "2020-02-19T19:01:23.575Z",
+                "__v": 0
+            },
+            {
+                "gigStatus": 0,
+                "hasReplied": false,
+                "_id": "5e4d860321848d2cd157b9c9",
+                "professional": "5e19ebb45afd28391470b121",
+                "industry": "Aannemer",
+                "gig": "5e4d860321848d2cd157b9c6",
+                "createdAt": "2020-02-19T19:01:23.575Z",
+                "updatedAt": "2020-02-19T19:01:23.575Z",
+                "__v": 0
+            },
+            {
+                "gigStatus": 0,
+                "hasReplied": false,
+                "_id": "5e4d860321848d2cd157b9ca",
+                "professional": "5e24f48a998f1077b7982991",
+                "industry": "Aannemer",
+                "gig": "5e4d860321848d2cd157b9c6",
+                "createdAt": "2020-02-19T19:01:23.576Z",
+                "updatedAt": "2020-02-19T19:01:23.576Z",
+                "__v": 0
+            }
+        ],
+        "approvedProfessionals": [],
+        "invitedProfessionals": [],
+        "declinedProfessionals": [],
+        "underReviewProfessionals": [],
+        "hasBeenUpdated": false,
+        "pitches": [],
+        "_id": "5e4d860321848d2cd157b9c6",
+        "title": "Aan - & uitbouw",
+        "zipCode": "3232HB",
+        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce accumsan purus ut dui vulputate suscipit. Quisque rutrum elit at turpis luctus faucibus. Vestibulum mauris diam, interdum non lectus eget, aliquet faucibus est. Pellentesque ultrices nisl ut justo maximus convallis. Donec faucibus nibh nec urna faucibus varius. Fusce quis arcu vel nisl tristique pharetra porta vel leo. Etiam aliquet cursus eros quis porttitor. Quisque consequat, metus eget suscipit semper, risus eros congue mi, ultrices bibendum orci risus vel neque. Morbi eget lorem eu velit malesuada consequat. Donec dictum lorem sit amet eros viverra varius. Integer pellentesque lacinia facilisis. Phasellus tempor laoreet justo eget dapibus. Nunc quis sapien ut magna commodo luctus in ac nisl. Praesent mauris dui, fermentum elementum libero eget, pretium congue leo. Nam quis risus pulvinar, egestas purus vel, molestie tellus. Ut finibus ultrices erat, sed gravida ligula imperdiet at.",
+        "projectPictures": [
+            {
+                "src": "https://res.cloudinary.com/scope-web-llc/image/upload/v1582138868/linsta/opdrachten/klus-afbeelding/klus-afbeelding-13905611.jpg",
+                "fileName": "klus-afbeelding-13905611"
+            }
+        ],
+        "industry": "Aannemer",
+        "consumer": {
+            "profileCompleted": true,
+            "avatar": "https://res.cloudinary.com/scope-web-llc/image/upload/v1571863687/Klusnet/avatar-placeholder.png",
+            "role": "consument",
+            "notifications": "daily",
+            "newsletter": true,
+            "twoFactor": false,
+            "bookmarkedBusinesses": [
+                "5dcdb0369eb3bb1308bd87a1"
+            ],
+            "_id": "5dca7a9a3d5cc53294ff0cff",
+            "email": "gebruiker@demo.nl",
+            "accountType": "consument",
+            "lastLogin": "2020-02-19T19:01:22.070Z",
+            "createdAt": "2019-11-12T09:25:46.951Z",
+            "updatedAt": "2020-02-19T19:01:22.073Z",
+            "__v": 1,
+            "userProfile": "5dca7ab63d5cc53294ff0d00"
+        },
+        "budgetIndication": "1500 - 5000",
+        "city": "Brielle",
+        "leadValue": 3250,
+        "steps": [
+            {
+                "select": [],
+                "radio": [],
+                "checkbox": [],
+                "value": "100",
+                "fieldType": "other",
+                "title": "Wat is de grootte van de aan- of uitbouw in m2? ",
+                "ref": "5e2efe83123cb54da3be0d6d"
+            },
+            {
+                "select": [],
+                "radio": [
+                    "Nee"
+                ],
+                "checkbox": [],
+                "fieldType": "radio",
+                "title": "Is een fundering noodzakelijk?",
+                "ref": "5e2efe83123cb54da3be0d6e"
+            },
+            {
+                "select": [],
+                "radio": [
+                    "Plat dak"
+                ],
+                "checkbox": [],
+                "fieldType": "radio",
+                "title": "Welk soort dak wil je laten plaatsen?",
+                "ref": "5e2efe83123cb54da3be0d70"
+            },
+            {
+                "select": [],
+                "radio": [],
+                "checkbox": [],
+                "value": "6",
+                "fieldType": "other",
+                "title": "Hoeveel ramen wil je laten plaatsen?",
+                "ref": "5e2efe83123cb54da3be0d71"
+            },
+            {
+                "select": [],
+                "radio": [],
+                "checkbox": [],
+                "value": "2",
+                "fieldType": "other",
+                "title": "Hoeveel deuren wil je laten plaatsen?",
+                "ref": "5e2efe83123cb54da3be0d72"
+            },
+            {
+                "select": [],
+                "radio": [
+                    "Nee"
+                ],
+                "checkbox": [],
+                "fieldType": "radio",
+                "title": "Heb je al bouwtekeningen?",
+                "ref": "5e2efe83123cb54da3be0d74"
+            },
+            {
+                "select": [],
+                "radio": [
+                    "Nee - niet nodig"
+                ],
+                "checkbox": [],
+                "fieldType": "radio",
+                "title": "Heb je al een bouwvergunning?",
+                "ref": "5e2efe83123cb54da3be0d75"
+            }
+        ],
+        "startDateText": "Zo snel mogelijk",
+        "createdAt": "2020-02-19T19:01:23.772Z",
+        "updatedAt": "2020-02-19T19:01:23.772Z",
+        "orderNumber": 6367614460,
+        "__v": 0
+    },
+    "status": 200
+}
+```
+
+This endpoint retrieves all reviews with the ability to filter then.
+
+### HTTP Request
+
+`GET https://api.linsta.nl/v1/admin/reviews`
+
 ## Get reviews
 
 ```shell
@@ -448,11 +637,11 @@ curl --location --request GET "https://api.linsta.nl/v1/admin/reviews" \
 }
 ```
 
-This endpoint retrieves all reviews with the ability to filter then.
+This endpoint retrieves gig by id
 
 ### HTTP Request
 
-`GET https://api.linsta.nl/v1/admin/reviews`
+`GET https://api.linsta.nl/v1/admin/view-gig/:gig_id`
 
 ## Get reviews with fitler
 
@@ -1843,6 +2032,7 @@ This endpoint removes a image and sends the reason
 | Parameter  | Default   | Description                    |
 | ---------- | --------- | ------------------------------ |
 | image_name | undefined | Image name to remove           |
+| imageType  | undefined | Type of image (gig or gallery) |
 | reason     | undefined | Reason for image to be removed |
 
 # Analytics
