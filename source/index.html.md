@@ -2032,6 +2032,7 @@ This endpoint removes a image and sends the reason
 | Parameter  | Default   | Description                    |
 | ---------- | --------- | ------------------------------ |
 | image_name | undefined | Image name to remove           |
+| imageType  | undefined | Type of image (gig or gallery) |
 | reason     | undefined | Reason for image to be removed |
 
 # Analytics
