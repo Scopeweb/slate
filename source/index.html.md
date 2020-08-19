@@ -146,11 +146,11 @@ This endpoint allows admins to create a new fieldtype.
 
 | Parameter   | Default   | Description                 |
 | ----------- | --------- | --------------------------- |
-| type        | undefined | String of type              |
-| inputType   | undefined | String of inputType         |
-| name        | undefined | String of names             |
-| description | undefined | String of description       |
-| industry    | undefined | String of the industry name |
+| type        | undefined | Type of field               |
+| inputType   | undefined | Input type for the field    |
+| name        | undefined | Name for the field          |
+| description | undefined | Description for the field   |
+| industry    | undefined | Industry name               |
 
 <aside class="warning">
 Developers only
