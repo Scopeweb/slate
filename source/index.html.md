@@ -1178,7 +1178,7 @@ curl --location --request DELETE "https://api.linsta.nl/v1/admin/category/:quest
 
 ```json
 {
-  "message": "Removed qustion from step",
+  "message": "Removed question from step",
   "status": 200
 }
 ```
@@ -1212,7 +1212,7 @@ curl --location --request PUT "https://api.linsta.nl/v1/admin/category/update-st
 }
 ```
 
-This endpoint update a qustion order from step.
+This endpoint update a question order from step.
 
 ### HTTP Request
 
@@ -1249,7 +1249,7 @@ curl --location --request POST "https://api.linsta.nl/v1/admin/category/delete-s
 }
 ```
 
-This endpoint update a qustion order from step.
+This endpoint update a question order from step.
 
 ### HTTP Request
 
