@@ -46,7 +46,7 @@ You must replace <code>Bearer jsonwebtoken</code> with your personal API key.
 
 # Admin
 
-## Add category
+## Add gig category
 
 ```shell
 curl --location --request POST "https://api.linsta.nl/v1/admin/categories/add-category" \
@@ -55,9 +55,6 @@ curl --location --request POST "https://api.linsta.nl/v1/admin/categories/add-ca
   --data-raw '{
     "serviceName": "Test",
     "industry": "Klusbedrijf",
-    "keywords": [
-        "Test,Test 1,Test 2"
-    ],
     "steps": [
         {
             "step": [
@@ -103,7 +100,7 @@ curl --location --request POST "https://api.linsta.nl/v1/admin/categories/add-ca
 }    
 ```
 
-This endpoint creates a new category.
+This endpoint allows admins to create a new gig category.
 
 ### HTTP Request
 
@@ -114,12 +111,11 @@ This endpoint creates a new category.
 | Parameter   | Default   | Description                 |
 | ----------- | --------- | --------------------------- |
 | steps       | undefined | Array of steps              |
-| serviceName | undefined | String of the service name  |
-| keywords    | undefined | String array of keywords    |
-| images      | undefined | Array of image urls         |
-| industry    | undefined | String of the industry name |
+| serviceName | undefined | Service name                |
+| images      | undefined | Images                      |
+| industry    | undefined | Industry name               |
 
-## Add Place Job field type
+## Add gig category fieldtype
 
 ```shell
 curl --location --request POST "https://api.linsta.nl/v1/admin/place-jobs/add-fieldtype" \
@@ -140,7 +136,7 @@ curl --location --request POST "https://api.linsta.nl/v1/admin/place-jobs/add-fi
 }
 ```
 
-This endpoint creates a new fieldtype.
+This endpoint allows admins to create a new fieldtype.
 
 ### HTTP Request
 
@@ -160,7 +156,7 @@ This endpoint creates a new fieldtype.
 Developers only
 </aside>
 
-## Delete Place Job
+## Delete gig category
 
 ```shell
 curl --location --request DELETE "https://api.linsta.nl/v1/admin/category/:job_id" \
@@ -176,13 +172,13 @@ curl --location --request DELETE "https://api.linsta.nl/v1/admin/category/:job_i
 }
 ```
 
-This endpoint deletes a category.
+This endpoint allows admins to delete a category.
 
 ### HTTP Request
 
-`DELETE https://api.linsta.nl/v1/admin/place-jobs/fieldtypes`
+`DELETE https://api.linsta.nl/v1/admin/category/:job_id`
 
-## Get Place Job fieldtypes
+## Retrieve gig fieldtypes
 
 ```shell
 curl --location --request GET "https://api.linsta.nl/v1/admin/place-jobs/fieldtypes" \
@@ -295,13 +291,13 @@ curl --location --request GET "https://api.linsta.nl/v1/admin/place-jobs/fieldty
 }
 ```
 
-This endpoint retrieves all available fieldtypes
+This endpoint allows admins to retrieve all available fieldtypes.
 
 ### HTTP Request
 
 `GET https://api.linsta.nl/v1/admin/place-jobs/fieldtypes`
 
-## Get gig by id
+## Retrieve a Gig by it's ID
 
 ```shell
 curl --location --request GET "https://api.linsta.nl/v1/admin/view-gig/:gig_id" \
@@ -484,13 +480,13 @@ curl --location --request GET "https://api.linsta.nl/v1/admin/view-gig/:gig_id" 
 }
 ```
 
-This endpoint retrieves all reviews with the ability to filter then.
+This endpoint allows admins to retrieve a single Gig by it's ID.
 
 ### HTTP Request
 
-`GET https://api.linsta.nl/v1/admin/reviews`
+`GET https://api.linsta.nl/v1/admin/view-gig/:gig_id`
 
-## Get reviews
+## Retrieve all available reviews
 
 ```shell
 curl --location --request GET "https://api.linsta.nl/v1/admin/reviews" \
@@ -637,13 +633,13 @@ curl --location --request GET "https://api.linsta.nl/v1/admin/reviews" \
 }
 ```
 
-This endpoint retrieves gig by id
+This endpoint allows admins to retrieve all available reviews.
 
 ### HTTP Request
 
-`GET https://api.linsta.nl/v1/admin/view-gig/:gig_id`
+`GET https://api.linsta.nl/v1/admin/reviews`
 
-## Get reviews with fitler
+## Retrieve reviews by filter
 
 ```shell
 curl --location --request GET "https://api.linsta.nl/v1/admin/reviews/:filter_type" \
@@ -790,7 +786,7 @@ curl --location --request GET "https://api.linsta.nl/v1/admin/reviews/:filter_ty
 }
 ```
 
-This endpoint retrieves all reviews with the ability to filter then.
+This endpoint allows admins to retrieve all reviews after filtering them by industry or filter_type.
 
 ### HTTP Request
 
@@ -801,9 +797,9 @@ This endpoint retrieves all reviews with the ability to filter then.
 | Parameter   | Default   | Description                                                        |
 | ----------- | --------- | ------------------------------------------------------------------ |
 | filter_type | undefined | Type of filter.  Supported ones are newest, oldest, rateHL, rateLH |
-| industry    | undefined | String ofindustry name                                             |
+| industry    | undefined | The industry name used for filtering                               |
 
-## Get categories
+## Retrieve available categories
 
 ```shell
 curl --location --request GET "https://api.linsta.nl/v1/admin/list-categories" \
@@ -888,13 +884,13 @@ curl --location --request GET "https://api.linsta.nl/v1/admin/list-categories" \
 }
 ```
 
-This endpoint retrieves all categories.
+This endpoint allows admins to retrieve all available categories.
 
 ### HTTP Request
 
 `GET https://api.linsta.nl/v1/admin/list-categories`
 
-## Get categories by industry
+## Retrieve categories
 
 ```shell
 curl --location --request GET "https://api.linsta.nl/v1/admin/list-categories/:industryName" \
@@ -979,7 +975,7 @@ curl --location --request GET "https://api.linsta.nl/v1/admin/list-categories/:i
 }
 ```
 
-This endpoint retrieves all categories by the industry name.
+This endpoint allows an admin to retrieve all available categories.
 
 ### HTTP Request
 
@@ -989,9 +985,9 @@ This endpoint retrieves all categories by the industry name.
 
 | Parameter    | Default   | Description            |
 | ------------ | --------- | ---------------------- |
-| industryName | undefined | String ofindustry name |
+| industryName | undefined | Industry name          |
 
-## Get category with steps
+## Retrieve category by ID
 
 ```shell
 curl --location --request GET "https://api.linsta.nl/v1/admin/category/:category_id" \
@@ -1074,7 +1070,7 @@ curl --location --request GET "https://api.linsta.nl/v1/admin/category/:category
 }
 ```
 
-This endpoint retrieves category with steps.
+This endpoint allows an admin to retrieve a category by it's ID.
 
 ### HTTP Request
 
@@ -1084,7 +1080,7 @@ This endpoint retrieves category with steps.
 
 | Parameter   | Default   | Description                        |
 | ----------- | --------- | ---------------------------------- |
-| category_id | undefined | MongoDB Object ID of the  category |
+| category_id | undefined | Category ID                        |
 
 ## Update category
 
@@ -1102,7 +1098,7 @@ curl --location --request PUT "https://api.linsta.nl/v1/admin/update-category/:c
 }
 ```
 
-This endpoint updates a category.
+This endpoint allows admins to update a category.
 
 ### HTTP Request
 
@@ -1112,15 +1108,14 @@ This endpoint updates a category.
 
 | Parameter   | Default   | Description                        |
 | ----------- | --------- | ---------------------------------- |
-| category_id | undefined | MongoDB Object ID of the  category |
+| category_id | undefined | Step ID                            |
 
 ### Body Parameters
 
 | Parameter    | Default   | Description             |
 | ------------ | --------- | ----------------------- |
-| industryName | undefined | String of industry name |
-| serviceName  | undefined | String of service name  |
-| keywords     | undefined | Array of keywords       |
+| industryName | undefined | Industry name           |
+| serviceName  | undefined | Service name            |
 
 ## Add category question
 
@@ -1147,7 +1142,7 @@ curl --location --request PUT "https://api.linsta.nl/v1/admin/category/add-quest
 }
 ```
 
-This endpoint adds a qustion to step.
+This endpoint allows admins to add a question to step, used in categories.
 
 ### HTTP Request
 
@@ -1163,14 +1158,14 @@ This endpoint adds a qustion to step.
 
 | Parameter   | Default   | Description           |
 | ----------- | --------- | --------------------- |
-| type        | undefined | String of type        |
-| icon        | undefined | String of icon        |
-| label       | undefined | String of label       |
-| required    | undefined | String of required    |
-| readOnly    | undefined | String of readOnly    |
-| disabled    | undefined | String of disabled    |
-| isActive    | undefined | String of isActive    |
-| placeholder | undefined | String of placeholder |
+| type        | undefined | Question type         |
+| icon        | undefined | Icon (optional)       |
+| label       | undefined | Question label        |
+| required    | undefined | Field required status |
+| readOnly    | undefined | Read only status      |
+| disabled    | undefined | Disabled input status |
+| isActive    | undefined | Status for the input  |
+| placeholder | undefined | Input placeholder     |
 
 ## Delete category question
 
@@ -1188,7 +1183,7 @@ curl --location --request DELETE "https://api.linsta.nl/v1/admin/category/:quest
 }
 ```
 
-This endpoint delete a qustion from step.
+This endpoint allows an admin to delete a question from a step.
 
 ### HTTP Request
 
